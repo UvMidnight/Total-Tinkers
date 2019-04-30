@@ -1,0 +1,9 @@
+{
+  "textures": {
+    "layer0": "totaltinkers:item/battleaxe/handle",
+    "layer1": "totaltinkers:item/battleaxe/backhead",
+    "layer2": "totaltinkers:item/battleaxe/fronthead",
+    "layer3": "totaltinkers:item/battleaxe/binding",
+    "broken1": "totaltinkers:item/battleaxe/broken_head"
+  }
+}

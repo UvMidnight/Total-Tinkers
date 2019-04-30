@@ -1,0 +1,8 @@
+{
+  "textures": {
+    "layer0": "totaltinkers:item/cutlass/handle",
+    "layer1": "totaltinkers:item/cutlass/blade",
+    "layer2": "totaltinkers:item/cutlass/guard",
+    "broken1": "totaltinkers:item/cutlass/broken_blade"
+  }
+}

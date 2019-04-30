@@ -1,0 +1,6 @@
+item.greatblade.name=Greatblade
+item.greatblade.desc=The Great Equalizer. The Greatblade sacrifices raw damage for enemy percent HP damage, and excels vs bosses.
+
+tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: %.2f%%
+tinkers.greatblade.bossmultiplier.positive=Enemy HP Based Damage to Bosses: +%.2f%%
+tinkers.greatblade.bossmultiplier.negative=Enemy HP Based Damage to Bosses: -%.2f%%

@@ -1,0 +1,14 @@
+
+build/
+
+classes/
+
+\.idea/
+
+Scimitars\.iml
+
+run/
+
+\.gradle/
+
+eclipse/

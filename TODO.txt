@@ -1,0 +1,17 @@
+Implement following weapons:
+
+Dagger
+Scimitar
+Throwing knives
+Battleaxe
+Javelin
+Cutlass
+
+Add custom Particles to all weapons
+
+Learn how to do asm:
+
+Cry myself to sleep
+Cry some more
+Enable option for old tinkers reload for crossbow
+Enable option to remove damage cap

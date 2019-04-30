@@ -1,0 +1,16 @@
+[
+{
+  "modid": "totaltinkers",
+  "name": "Total Tinkers",
+  "description": "Adds some tools, old and new, to Tinkers Construct",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["UvMidnight"],
+  "credits": "Lumber Wizard for answering all my annoying questions",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
