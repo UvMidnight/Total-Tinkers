@@ -33,13 +33,20 @@ public class NewWeapons{
 
   @SubscribeEvent
   public static void initItems(RegistryEvent.Register<Item> event) {
+    TotalTinkers.logger.info("Initing items");
     greatbladeCore = new ToolPart(Material.VALUE_Ingot * 12);
     greatbladeCore.setTranslationKey("greatbladeCore").setRegistryName("greatbladeCore");
     event.getRegistry().register(greatbladeCore);
     TinkerRegistry.registerToolPart(greatbladeCore);
     TotalTinkers.proxy.registerToolPartModel(greatbladeCore);
 
-    fullGuard = new ToolPart(Material.VALUE_Ingot * 5);
+    fullGuard = new ToolPart(Material.VALUE_Ingot * 3) {
+      @Override
+      public boolean canBeCrafted() {
+        return false;
+      }
+    };
+
     fullGuard.setTranslationKey("fullGuard").setRegistryName("fullGuard");
     event.getRegistry().register(fullGuard);
     TinkerRegistry.registerToolPart(fullGuard);
@@ -50,8 +57,6 @@ public class NewWeapons{
       event.getRegistry().register(greatblade);
       TinkerRegistry.registerToolForgeCrafting(greatblade);
       TotalTinkers.proxy.registerToolModel(greatblade);
-
-//      tools.add(greatblade);
     }
 
     battleaxe = new WeaponBattleAxe();
@@ -60,8 +65,12 @@ public class NewWeapons{
     TotalTinkers.proxy.registerToolModel(battleaxe);
 
     cutlass = new WeaponCutlass();
-    event.getRegistry().register(cutlass);
-    TinkerRegistry.registerToolForgeCrafting(cutlass);
-    TotalTinkers.proxy.registerToolModel(cutlass);
+    initForgeTool(cutlass, event);
+  }
+
+  static void initForgeTool(ToolCore core, RegistryEvent.Register<Item> event) {
+    event.getRegistry().register(core);
+    TinkerRegistry.registerToolForgeCrafting(core);
+    TotalTinkers.proxy.registerToolModel(core);
   }
 }

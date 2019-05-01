@@ -10,7 +10,15 @@ public class Config {
 
   //What tools are enabled
   public static boolean greatbladeEnabled;
+  public static boolean battleaxeEnabled;
+  public static boolean cutlassEnabled;
+
   public static float greatbladeBossMultiplier;
+  public static int cutlassSpeedDuration;
+  public static int cutlassSpeedStrength;
+  public static int wideGuardFromVillages;
+
+  public static boolean disable_screen_overlay = false;
 
   public static void readConfig() {
     Configuration cfg = TotalTinkers.config;
@@ -31,7 +39,10 @@ public class Config {
     cfg.addCustomCategoryComment(Category_TOOLCONFIG, "Tools Configuration");
 
     greatbladeEnabled = cfg.getBoolean("greatbladeEnabled", CATEGORY_ENABLED, true, "If the percentage hp monster of death is enabled");
+
     greatbladeBossMultiplier = cfg.getFloat("greatbladeBossMultiplier", Category_TOOLCONFIG, 1, 0, 100,"Multiplier for the percent damage dealt to bosses.");
+
+
   }
 
 }

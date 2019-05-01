@@ -25,7 +25,7 @@ import java.util.List;
 //Not really sure why it was not implemented
 //But here it is now
 
-//most of this code is stolen/used from tinkers construct. Description below is directly from it.
+//most of this code is stolen/used from tinkers construct. Description below is directly from it. Vampirism mod has a known overlay that is basically exactly this
 
 // Ability: Berserk. Can be activated on demand, gives a speedboost, jump boost, mining boost, damage boost. Also makes you take more damage
 // Screen turns red/with a red border (steal from thaumcraft) and you can't switch item while berserk is active

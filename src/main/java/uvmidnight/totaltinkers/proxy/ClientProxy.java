@@ -14,10 +14,13 @@ import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.tinkers.newweapons.NewWeapons;
+import uvmidnight.totaltinkers.tinkers.oldweapons.LayerBattleaxe;
 
 public class ClientProxy extends CommonProxy {
+  public static LayerBattleaxe layerBattleaxe;
 
   public void initToolGuis() {
+    TotalTinkers.logger.info("initing tool guis");
     if (NewWeapons.greatblade != null) {
       ToolBuildGuiInfo greatbladeInfo = new ToolBuildGuiInfo(NewWeapons.greatblade);
       greatbladeInfo.addSlotPosition(7, 64);
@@ -34,6 +37,17 @@ public class ClientProxy extends CommonProxy {
       battleaxeInfo.addSlotPosition(33 - 18, 42 + 18);
       TinkerRegistryClient.addToolBuilding(battleaxeInfo);
     }
+    if (NewWeapons.cutlass != null) {
+      ToolBuildGuiInfo cutlassInfo = new ToolBuildGuiInfo(NewWeapons.cutlass);
+      cutlassInfo.addSlotPosition(33, 42 + 18);
+      cutlassInfo.addSlotPosition(33 + 20, 42 - 20);
+      cutlassInfo.addSlotPosition(33, 42);
+      TinkerRegistryClient.addToolBuilding(cutlassInfo);
+    }
+
+  }
+
+  public void initBattleAxeOverlay() {
 
   }
 
