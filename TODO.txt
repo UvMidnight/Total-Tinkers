@@ -1,13 +1,13 @@
 Implement following weapons:
 
-Dagger
-Scimitar
-Throwing knives
-Battleaxe
-Javelin
-Cutlass
+Dagger - needs rework
+Scimitar - needs rework
+Throwing knives - needs rework
+Battleaxe - needs rework
+Javelin -needs rework
+Cutlass - needs rework of course
 
-Add custom Particles to all weapons
+Add custom Particles to added weapons
 
 Learn how to do asm:
 
