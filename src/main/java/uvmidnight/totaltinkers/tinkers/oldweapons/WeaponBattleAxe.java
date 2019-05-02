@@ -27,6 +27,8 @@ import java.util.List;
 //Not really sure why it was not implemented
 //But here it is now
 
+//This implementation is total garbage.
+
 // Ability: Berserk. Can be activated on demand, gives a speedboost, jump boost, mining boost, damage boost. Also makes you take more damage
 // Screen turns red/with a red border (steal from thaumcraft) and you can't switch item while berserk is active
 public class WeaponBattleAxe extends AoeToolCore {

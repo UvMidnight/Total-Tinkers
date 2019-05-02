@@ -59,35 +59,16 @@ public class WeaponJavelin extends ProjectileCore {
     }
     playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 8);
 
-//    if(!worldIn.isRemote) {
+    if(!worldIn.isRemote) {
       boolean usedAmmo = useAmmo(itemStackIn, playerIn);
       EntityProjectileBase projectile = getProjectile(itemStackIn, itemStackIn, worldIn, playerIn, 2.1f, 0f, 1f, usedAmmo);
       worldIn.spawnEntity(projectile);
       TotalTinkers.logger.info("maybe entity spawned");
-//    }
+    }
 
     return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
   }
 
-
-//  @Override
-//  public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-//    // has to be done in onUpdate because onTickUsing is too early and gets overwritten. bleh.
-//    preventSlowDown(entityIn, 0.195f);
-//
-//    super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-//  }
-
-//  @Override
-//  public boolean dealDamageRanged(ItemStack stack, Entity projectile, EntityLivingBase player, Entity target, float damage) {
-//    // friggin vanilla hardcode 2
-//    if(target instanceof EntityEnderman && ((EntityEnderman) target).getActivePotionEffect(TraitEnderference.Enderference) != null) {
-//      return target.attackEntityFrom(new DamageSourceProjectileForEndermen(DAMAGE_TYPE_PROJECTILE, projectile, player), damage);
-//    }
-//
-//    DamageSource damageSource = new EntityDamageSourceIndirect(DAMAGE_TYPE_PROJECTILE, projectile, player).setProjectile();
-//    return Rapier.dealHybridDamage(damageSource, target, damage);
-//  }
 
 
   @Override

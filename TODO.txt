@@ -1,3 +1,5 @@
+Code and package structure is very haphazard. Code needs some significant changes
+
 Implement following weapons:
 
 Dagger - needs rework

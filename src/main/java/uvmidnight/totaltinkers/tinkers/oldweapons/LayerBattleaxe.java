@@ -17,6 +17,8 @@ import org.lwjgl.opengl.GL11;
 import uvmidnight.totaltinkers.util.Config;
 
 
+//This implementation is total garbage.
+
 //Yeah I have no idea how this code works
 //Just took like most of it from the vamprism mod
 //This implementation how I did it is literally about the worst it could be

@@ -8,6 +8,8 @@ import uvmidnight.totaltinkers.tinkers.TinkerItems;
 import uvmidnight.totaltinkers.tinkers.oldweapons.WeaponBattleAxe;
 import uvmidnight.totaltinkers.util.Config;
 
+//This implementation is total garbage.
+
 public class PotionBerserkerEffect extends PotionEffect {
   public PotionBerserkerEffect(Potion potion, int effectDuration) {
     super(potion, effectDuration, 0, false, false);
