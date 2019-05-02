@@ -63,15 +63,20 @@ public class WeaponJavelin extends ProjectileCore {
       boolean usedAmmo = useAmmo(itemStackIn, playerIn);
       EntityProjectileBase projectile = getProjectile(itemStackIn, itemStackIn, worldIn, playerIn, 2.1f, 0f, 1f, usedAmmo);
       worldIn.spawnEntity(projectile);
-      TotalTinkers.logger.info("maybe entity spawned");
+      TotalTinkers.logger.info("entity spawned on server");
     }
 
     return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
   }
 
 
-
+  //TODO: tool consumes stack of stuff instead of durability, which this tool should not be seen to have. Need to override getinformation and some other stuff
   @Override
+  public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
+    return super.onLeftClickEntity(stack, player, entity);
+  }
+
+    @Override
   public float damagePotential() {
     return 1.2F;
   }
