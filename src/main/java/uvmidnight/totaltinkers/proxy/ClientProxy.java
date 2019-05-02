@@ -4,9 +4,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.common.ModelRegisterUtil;
 import slimeknights.tconstruct.library.TinkerRegistryClient;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -58,8 +60,9 @@ public class ClientProxy extends CommonProxy {
       javelinInfo.addSlotPosition(33, 42);
       TinkerRegistryClient.addToolBuilding(javelinInfo);
     }
-    RenderingRegistry.registerEntityRenderingHandler(EntityJavelin.class, RenderJavelin::new);
+
   }
+
 
   public void registerSubscriptions() {
     layerBattleaxe = new LayerBattleaxe(Minecraft.getMinecraft());

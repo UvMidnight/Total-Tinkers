@@ -7,7 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
@@ -23,6 +25,7 @@ import slimeknights.tconstruct.library.tools.ToolPart;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.potions.PotionBerserker;
 import uvmidnight.totaltinkers.tinkers.newweapons.WeaponGreatblade;
+import uvmidnight.totaltinkers.tinkers.oldweapons.RenderJavelin;
 import uvmidnight.totaltinkers.tinkers.oldweapons.WeaponBattleAxe;
 import uvmidnight.totaltinkers.tinkers.oldweapons.WeaponCutlass;
 import uvmidnight.totaltinkers.tinkers.oldweapons.WeaponJavelin;
@@ -108,10 +111,14 @@ public class TinkerItems {
   }
 
   @SubscribeEvent
-  public void registerEntities(RegistryEvent.Register<EntityEntry> event) {
-    EntityRegistry.registerModEntity(new ResourceLocation("tinkerstotal", "javelin"), EntityJavelin.class,"javelin", 284, TotalTinkers.instance, 64, 1, false);
+  public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
+    EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "javelin"), EntityJavelin.class,"javelin", 1, TotalTinkers.instance, 64, 1, false);
   }
 
+  @SubscribeEvent
+  public static void registerModels(ModelRegistryEvent event) {
+    RenderingRegistry.registerEntityRenderingHandler(EntityJavelin.class, RenderJavelin::new);
+  }
   private static void initForgeTool(ToolCore core, RegistryEvent.Register<Item> event) {
     event.getRegistry().register(core);
     TinkerRegistry.registerToolForgeCrafting(core);
