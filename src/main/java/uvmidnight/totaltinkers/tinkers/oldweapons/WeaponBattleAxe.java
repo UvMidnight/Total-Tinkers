@@ -5,7 +5,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -16,6 +15,9 @@ import slimeknights.tconstruct.library.tools.AoeToolCore;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
+import uvmidnight.totaltinkers.TotalTinkers;
+import uvmidnight.totaltinkers.potions.PotionBerserkerEffect;
+import uvmidnight.totaltinkers.tinkers.TinkerItems;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -24,8 +26,6 @@ import java.util.List;
 //Hey, apparently this was in the tinkers construct codebase for 1.12
 //Not really sure why it was not implemented
 //But here it is now
-
-//most of this code is stolen/used from tinkers construct. Description below is directly from it. Vampirism mod has a known overlay that is basically exactly this
 
 // Ability: Berserk. Can be activated on demand, gives a speedboost, jump boost, mining boost, damage boost. Also makes you take more damage
 // Screen turns red/with a red border (steal from thaumcraft) and you can't switch item while berserk is active
@@ -49,7 +49,7 @@ public class WeaponBattleAxe extends AoeToolCore {
 
   @Override
   public float damagePotential() {
-    return 2.0f;
+    return 1.4f;
   }
 
   @Override
@@ -67,19 +67,29 @@ public class WeaponBattleAxe extends AoeToolCore {
     return new int[]{1, 2};
   }
 
-  // no offhand for you
   @Nonnull
   @Override
   public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-    ItemStack itemStackIn = playerIn.getHeldItem(hand);
-    return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
-  }
-
-  @Nonnull
-  @Override
-  public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
     // todo: special action - beserk rage stuff
-    return EnumActionResult.FAIL;
+    ItemStack itemStackIn = playerIn.getHeldItem(hand);
+
+    if (itemStackIn == playerIn.getHeldItemMainhand()) {    //if it is in the offhand nothing happens
+
+
+      if (!worldIn.isRemote) {
+        if (!playerIn.isPotionActive(TinkerItems.potionBerserker)) {
+          playerIn.addPotionEffect(new PotionBerserkerEffect(TinkerItems.potionBerserker, Integer.MAX_VALUE));
+          playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 100);//cooldown is only applied when adding it.
+        } else {
+          playerIn.removePotionEffect(TinkerItems.potionBerserker);
+        }
+      }
+
+      if (worldIn.isRemote) {
+        TotalTinkers.proxy.renderScreenFullColor(0xffff0000, !playerIn.isPotionActive(TinkerItems.potionBerserker)); // I have no idea why it is flipped but hey it works somehow
+      }
+    }
+    return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
   }
 
   @Override
@@ -119,4 +129,5 @@ public class WeaponBattleAxe extends AoeToolCore {
 
     return data;
   }
+
 }

@@ -1,0 +1,8 @@
+{
+  "textures": {
+    "layer0": "totaltinkers:item/javelin/javelinaccessory",
+    "layer1": "totaltinkers:item/javelin/javelinhead",
+    "layer2": "totaltinkers:item/javelin/javelinhandle",
+    "broken1": "totaltinkers:item/javelin/javelinhead_broken"
+  }
+}

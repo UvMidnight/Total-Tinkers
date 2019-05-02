@@ -23,6 +23,7 @@ import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
 import slimeknights.tconstruct.tools.TinkerTools;
+import uvmidnight.totaltinkers.tinkers.TinkerItems;
 import uvmidnight.totaltinkers.util.Config;
 
 import javax.annotation.Nonnull;
@@ -45,14 +46,14 @@ public class WeaponGreatblade extends SwordCore{
   }
   @Override
   public float damageCutoff() {
-    return 100F; //don't ask me wtf you are fighting that needs such a high cutoff
+    return 500F; //don't ask me wtf you are fighting that needs such a high cutoff
   }
 
   public WeaponGreatblade() {
     super(PartMaterialType.handle(TinkerTools.toughToolRod),
             PartMaterialType.head(TinkerTools.largeSwordBlade),
             PartMaterialType.head(TinkerTools.largeSwordBlade),
-            PartMaterialType.extra(NewWeapons.greatbladeCore));
+            PartMaterialType.extra(TinkerItems.greatbladeCore));
 
     this.addCategory(Category.WEAPON);
 
@@ -66,7 +67,7 @@ public class WeaponGreatblade extends SwordCore{
     ItemStack itemStackIn = playerIn.getHeldItem(hand);
     return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
   }
-
+  //TODO enable usage of percent current or missing hp
   @Override
   public boolean dealDamage(ItemStack stack, EntityLivingBase player, Entity entity, float damage) {
     NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
@@ -114,7 +115,7 @@ public class WeaponGreatblade extends SwordCore{
 
     if (Math.abs(Config.greatbladeBossMultiplier - 1) >= 1E-4) { // if it is not equal to one, a multiplier is displayed
       if (Config.greatbladeBossMultiplier < 1) {
-        out = I18n.format("tinkers.greatblade.bossmultiplier.negative", (Config.greatbladeBossMultiplier)*100);
+        out = I18n.format("tinkers.greatblade.bossmultiplier.negative", (1 - Config.greatbladeBossMultiplier)*100);
         info.add(TextFormatting.RED + out);
       } else {
         out = I18n.format("tinkers.greatblade.bossmultiplier.positive", (Config.greatbladeBossMultiplier)*100);

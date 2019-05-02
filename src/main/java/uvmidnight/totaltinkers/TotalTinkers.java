@@ -20,6 +20,10 @@ public class TotalTinkers {
   public static final String MODID = "totaltinkers";
   public static final String VERSION = "0.1";
 
+
+  @Mod.Instance(MODID)
+  public static TotalTinkers instance;
+
   public static Configuration config;
 
   public static Logger logger = LogManager.getLogger(MODID);
@@ -32,6 +36,7 @@ public class TotalTinkers {
     File directory = e.getModConfigurationDirectory();
     config = new Configuration(new File(directory.getPath(), "totaltinkers.cfg"));
     Config.readConfig();
+    proxy.registerSubscriptions();
   }
 
   @Mod.EventHandler

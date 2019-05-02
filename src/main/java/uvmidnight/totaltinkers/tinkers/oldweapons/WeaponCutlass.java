@@ -2,39 +2,34 @@ package uvmidnight.totaltinkers.tinkers.oldweapons;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.SwordCore;
-import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
-import uvmidnight.totaltinkers.TotalTinkers;
-import uvmidnight.totaltinkers.tinkers.newweapons.NewWeapons;
+import uvmidnight.totaltinkers.tinkers.TinkerItems;
 
 import java.util.List;
 
-//New cutlass behavior, since blocking was removed. Cutlass has a 10% chance to automatically crit
-//Crits with the cutlass will give a fleeting burst of speed, 1 second and speed 2 by default.
+//New cutlass behavior, since blocking was removed.
+// Crits with the cutlass will give a fleeting burst of speed, 1 second and speed 2 by default.
 
 //not sure about the behavior right now, if you have any ideas how to make it less.. op like the old cutlass, but hit me up on discord or wherever else you can find me
-  public class WeaponCutlass extends SwordCore {
+  public class  WeaponCutlass extends SwordCore {
     public static final float DURABILITY_MODIFIER = 1.2f;
 
 
   public WeaponCutlass() {
     super(PartMaterialType.handle(TinkerTools.toolRod),
             PartMaterialType.head(TinkerTools.swordBlade),
-            PartMaterialType.extra(NewWeapons.fullGuard));
+            PartMaterialType.extra(TinkerItems.fullGuard));
 
     addCategory(Category.WEAPON);
 
@@ -52,7 +47,7 @@ import java.util.List;
   }
 
 
-  //TLDR: gives 1 second of speed on crit. Cutlass has a 10% chance to crit independent of other crit.
+  //TLDR: gives 1 second of speed on crit.
   // This probably breaks horribly a potion or something that forces crits or alters the crit system
   @SuppressWarnings("unchecked")
   @Override
@@ -66,7 +61,7 @@ import java.util.List;
         }
       }
       if (isCritical) {
-        player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 20, 1));
+        player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 30, 2));
       }
     }
     return super.dealDamage(stack, player, entity, damage);
