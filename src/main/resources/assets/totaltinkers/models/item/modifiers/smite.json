@@ -3,7 +3,7 @@
 		"greatblade": "totaltinkers:item/greatblade/mod_smite",
 		"cutlass": "totaltinkers:item/cutlass/mod_smite",
 		"javelin": "totaltinkers:item/javelin/mod_smite",
-		"dagger": "totaltinkers:item/battleaxe/mod_smite",
+		"dagger": "totaltinkers:item/dagger/mod_smite",
 		"battleaxe": "totaltinkers:item/battleaxe/mod_smite"
 	}
 }

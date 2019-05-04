@@ -23,7 +23,7 @@ import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
 import slimeknights.tconstruct.tools.TinkerTools;
-import uvmidnight.totaltinkers.tinkers.TinkerItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
 import uvmidnight.totaltinkers.util.Config;
 
 import javax.annotation.Nonnull;
@@ -53,7 +53,7 @@ public class WeaponGreatblade extends SwordCore{
     super(PartMaterialType.handle(TinkerTools.toughToolRod),
             PartMaterialType.head(TinkerTools.largeSwordBlade),
             PartMaterialType.head(TinkerTools.largeSwordBlade),
-            PartMaterialType.extra(TinkerItems.greatbladeCore));
+            PartMaterialType.extra(TotalTinkersItems.greatbladeCore));
 
     this.addCategory(Category.WEAPON);
 

@@ -14,7 +14,7 @@ import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.tools.TinkerTools;
-import uvmidnight.totaltinkers.tinkers.TinkerItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import java.util.List;
   public WeaponCutlass() {
     super(PartMaterialType.handle(TinkerTools.toolRod),
             PartMaterialType.head(TinkerTools.swordBlade),
-            PartMaterialType.extra(TinkerItems.fullGuard));
+            PartMaterialType.extra(TotalTinkersItems.fullGuard));
 
     addCategory(Category.WEAPON);
 

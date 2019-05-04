@@ -72,10 +72,12 @@ public class TotalTinkersItems {
       javelin = new WeaponJavelin();
       initForgeTool(javelin, event);
     }
-//    if (Config.daggerEnabled) {
-//      dagger = new WeaponDagger();
-//      initForgeTool(dagger, event);
-//    }
+    if (Config.daggerEnabled) {
+      dagger = new WeaponDagger();
+      event.getRegistry().register(dagger);
+      TinkerRegistry.registerToolStationCrafting(dagger);
+      TotalTinkers.proxy.registerToolModel(dagger);
+    }
 
     //here we go...
     if (Config.isReplacingCrossbow) {
@@ -83,11 +85,6 @@ public class TotalTinkersItems {
       initForgeTool(TinkerRangedWeapons.crossBow, event);
 
     }
-
-    dagger = new WeaponDagger();
-    event.getRegistry().register(dagger);
-    TinkerRegistry.registerToolStationCrafting(dagger);
-    TotalTinkers.proxy.registerToolModel(dagger);
 
     for (IModifier modifier: new IModifier[] {
             TinkerModifiers.modBaneOfArthopods,

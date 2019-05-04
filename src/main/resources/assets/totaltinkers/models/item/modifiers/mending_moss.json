@@ -3,7 +3,7 @@
 		"greatblade": "totaltinkers:item/greatblade/mod_mending_moss",
 		"cutlass": "totaltinkers:item/cutlass/mod_mending_moss",
 		"javelin": "totaltinkers:item/javelin/mod_mending_moss",
-		"dagger": "totaltinkers:item/battleaxe/mod_mending_moss",
+		"dagger": "totaltinkers:item/dagger/mod_mending_moss",
 		"battleaxe": "totaltinkers:item/battleaxe/mod_mending_moss"
 	}
 }

@@ -3,7 +3,7 @@
 		"greatblade": "totaltinkers:item/greatblade/mod_beheading",
 		"cutlass": "totaltinkers:item/cutlass/mod_beheading",
 		"javelin": "totaltinkers:item/javelin/mod_beheading",
-		"dagger": "totaltinkers:item/battleaxe/mod_beheading",
+		"dagger": "totaltinkers:item/dagger/mod_beheading",
 		"battleaxe": "totaltinkers:item/battleaxe/mod_beheading"
 	}
 }

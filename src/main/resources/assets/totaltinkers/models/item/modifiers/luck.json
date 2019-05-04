@@ -3,7 +3,7 @@
 		"greatblade": "totaltinkers:item/greatblade/mod_luck",
 		"cutlass": "totaltinkers:item/cutlass/mod_luck",
 		"javelin": "totaltinkers:item/javelin/mod_luck",
-		"dagger": "totaltinkers:item/battleaxe/mod_luck",
+		"dagger": "totaltinkers:item/dagger/mod_luck",
 		"battleaxe": "totaltinkers:item/battleaxe/mod_luck"
 	}
 }
