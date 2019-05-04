@@ -2,7 +2,6 @@ package uvmidnight.totaltinkers.tinkers.oldweapons;
 
 
 import com.google.common.collect.Multimap;
-import io.netty.util.internal.MathUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,13 +21,9 @@ import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.ProjectileNBT;
 import slimeknights.tconstruct.library.tools.ranged.ProjectileCore;
-import slimeknights.tconstruct.library.traits.ITrait;
-import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
-import slimeknights.tconstruct.tools.modifiers.ModReinforced;
-import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.tinkers.oldweapons.entities.EntityJavelin;
 
 import javax.annotation.Nonnull;
@@ -87,7 +82,7 @@ public class WeaponJavelin extends ProjectileCore {
   public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
     float speed = ToolHelper.getActualAttackSpeed(stack);
     int time = Math.round(20f / speed);
-    if(time < target.hurtResistantTime / 2) {
+    if (time < target.hurtResistantTime / 2) {
       target.hurtResistantTime = (target.hurtResistantTime + time) / 2;
       target.hurtTime = (target.hurtTime + time) / 2;
     }
@@ -118,7 +113,6 @@ public class WeaponJavelin extends ProjectileCore {
   public double attackSpeed() {
     return 1.5f;
   }
-
 
 
   @Override

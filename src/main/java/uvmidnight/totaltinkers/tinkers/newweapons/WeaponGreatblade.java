@@ -33,21 +33,7 @@ import java.util.List;
 //The greatblade has halved base damage, but also does percentage hp damage equal to that.
 //This weapon is very powerful, yes. Against unarmored bosses, they will be obliterated.
 //But why would you make your 1000 hp boss have no armor?
-public class WeaponGreatblade extends SwordCore{
-
-  @Override
-  public float damagePotential() {
-    return 0.75F;
-  }
-
-  @Override
-  public double attackSpeed() {
-    return 0.9D;
-  }
-  @Override
-  public float damageCutoff() {
-    return 500F; //don't ask me wtf you are fighting that needs such a high cutoff
-  }
+public class WeaponGreatblade extends SwordCore {
 
   public WeaponGreatblade() {
     super(PartMaterialType.handle(TinkerTools.toughToolRod),
@@ -60,6 +46,21 @@ public class WeaponGreatblade extends SwordCore{
     setTranslationKey("greatblade").setRegistryName("greatblade");
   }
 
+  @Override
+  public float damagePotential() {
+    return 0.75F;
+  }
+
+  @Override
+  public double attackSpeed() {
+    return 0.9D;
+  }
+
+  @Override
+  public float damageCutoff() {
+    return 500F; //don't ask me wtf you are fighting that needs such a high cutoff
+  }
+
   // no offhand for you
   @Nonnull
   @Override
@@ -67,6 +68,7 @@ public class WeaponGreatblade extends SwordCore{
     ItemStack itemStackIn = playerIn.getHeldItem(hand);
     return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
   }
+
   //TODO enable usage of percent current or missing hp
   @Override
   public boolean dealDamage(ItemStack stack, EntityLivingBase player, Entity entity, float damage) {
@@ -93,7 +95,7 @@ public class WeaponGreatblade extends SwordCore{
       } else if (e.parent != null && e.parent instanceof EntityLivingBase) {
         EntityLivingBase living = (EntityLivingBase) e.parent;
         boolean isBoss = !e.isNonBoss();
-        percentDmg =  (isBoss ? (Config.greatbladeBossMultiplier * living.getMaxHealth() * percentHp / 100.0F) : (living.getMaxHealth() * percentHp / 100.0F));
+        percentDmg = (isBoss ? (Config.greatbladeBossMultiplier * living.getMaxHealth() * percentHp / 100.0F) : (living.getMaxHealth() * percentHp / 100.0F));
       }
     }
     return super.dealDamage(stack, player, entity, damage + percentDmg * cooledModifier);
@@ -115,10 +117,10 @@ public class WeaponGreatblade extends SwordCore{
 
     if (Math.abs(Config.greatbladeBossMultiplier - 1) >= 1E-4) { // if it is not equal to one, a multiplier is displayed
       if (Config.greatbladeBossMultiplier < 1) {
-        out = I18n.format("tinkers.greatblade.bossmultiplier.negative", (1 - Config.greatbladeBossMultiplier)*100);
+        out = I18n.format("tinkers.greatblade.bossmultiplier.negative", (1 - Config.greatbladeBossMultiplier) * 100);
         info.add(TextFormatting.RED + out);
       } else {
-        out = I18n.format("tinkers.greatblade.bossmultiplier.positive", (Config.greatbladeBossMultiplier)*100);
+        out = I18n.format("tinkers.greatblade.bossmultiplier.positive", (Config.greatbladeBossMultiplier) * 100);
         info.add(TextFormatting.BLUE + out);
       }
     }
@@ -139,7 +141,7 @@ public class WeaponGreatblade extends SwordCore{
 
   @Override
   public int[] getRepairParts() {
-    return new int[] {1,2};
+    return new int[]{1, 2};
   }
 
   @Override

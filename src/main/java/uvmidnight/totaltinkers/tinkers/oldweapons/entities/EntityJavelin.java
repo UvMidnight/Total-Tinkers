@@ -8,16 +8,10 @@ import slimeknights.tconstruct.library.entity.EntityProjectileBase;
 
 public class EntityJavelin extends EntityProjectileBase {
 
-  @Override
-  public double getStuckDepth() {
-    return 0.5f;
-  }
-
   // animation
   public int roll = 0;
   public int rollSpeed = 80;
   public int rollAngle = 0;
-
   public EntityJavelin(World world) {
     super(world);
   }
@@ -31,10 +25,15 @@ public class EntityJavelin extends EntityProjectileBase {
   }
 
   @Override
+  public double getStuckDepth() {
+    return 0.5f;
+  }
+
+  @Override
   protected void playHitEntitySound() {//nothing here
   }
 
-//  @Override
+  //  @Override
 //  public void onUpdate() {
 //    // you turn me right round baby
 //    if(!this.inGround)
@@ -50,8 +49,10 @@ public class EntityJavelin extends EntityProjectileBase {
 //    int rollDir = rand.nextBoolean() ? -1 : 1;
 //    rollSpeed = (int) ((getSpeed() * 80) / 3) * rollDir;
   }
-  
+
   @Override
-  public double getGravity() { return 0.07; }
+  public double getGravity() {
+    return 0.07;
+  }
 
 }

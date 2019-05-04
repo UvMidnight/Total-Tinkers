@@ -28,6 +28,7 @@ public class LayerBattleaxe extends Gui {
   private int screenColor = 0;
   private boolean rendering = false;
   private int renderFullColor;
+
   public LayerBattleaxe(Minecraft mc) {
     this.mc = mc;
   }

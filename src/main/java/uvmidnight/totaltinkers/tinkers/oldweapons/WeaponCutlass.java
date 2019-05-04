@@ -22,8 +22,8 @@ import java.util.List;
 // Crits with the cutlass will give a fleeting burst of speed, 1 second and speed 2 by default.
 
 //not sure about the behavior right now, if you have any ideas how to make it less.. op like the old cutlass, but hit me up on discord or wherever else you can find me
-  public class  WeaponCutlass extends SwordCore {
-    public static final float DURABILITY_MODIFIER = 1.2f;
+public class WeaponCutlass extends SwordCore {
+  public static final float DURABILITY_MODIFIER = 1.2f;
 
 
   public WeaponCutlass() {
@@ -52,7 +52,6 @@ import java.util.List;
   }// no ida why this is a fucking thing
 
 
-
   //TLDR: gives 1 second of speed on crit.
   // This probably breaks horribly a potion or something that forces crits or alters the crit system
   @SuppressWarnings("unchecked")
@@ -61,8 +60,8 @@ import java.util.List;
     if (entity instanceof EntityLivingBase) {
       List<ITrait> traits = TinkerUtil.getTraitsOrdered(stack);
       boolean isCritical = player.fallDistance > 0.0F && !player.onGround && !player.isOnLadder() && !player.isInWater() && !player.isPotionActive(MobEffects.BLINDNESS) && !player.isRiding();
-      for(ITrait trait : traits) {
-        if(trait.isCriticalHit(stack, player, (EntityLivingBase) entity)) {
+      for (ITrait trait : traits) {
+        if (trait.isCriticalHit(stack, player, (EntityLivingBase) entity)) {
           isCritical = true;
         }
       }

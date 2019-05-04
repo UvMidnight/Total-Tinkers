@@ -60,7 +60,7 @@ public class Config {
     cutlassEnabled = cfg.getBoolean("cuttlassEnabled", CATEGORY_ENABLED, true, "Here be the sword of the seas.");
     javelinEnabled = cfg.getBoolean("javelinEnabled", CATEGORY_ENABLED, true, "If the warframe's worst throwing weapon is enabled");
     daggerEnabled =  cfg.getBoolean("daggerEnabled", CATEGORY_ENABLED, true, "Should the rouge's weapon, the dagger, be enabled");
-    isReplacingCrossbow = cfg.getBoolean("replacingCrossbow", CATEGORY_ENABLED, true, "Should the crossbow be replaced by a custom version");
+    isReplacingCrossbow = cfg.getBoolean("replacingCrossbow", CATEGORY_ENABLED, false, "Should the crossbow be replaced by a custom version. This is REQUIRED for any of the crossbow tweaks");
     greatbladeBossMultiplier = cfg.getFloat("greatbladeBossMultiplier", CATEGORY_TOOLCONFIG, 1, 0, 20,"Multiplier for the percent damage dealt to bosses.");
 
     cutlassSpeedDuration = cfg.getInt("cutlassSpeedDuration", CATEGORY_TOOLCONFIG, 30, 0, Integer.MAX_VALUE, "How many ticks of speed to give");

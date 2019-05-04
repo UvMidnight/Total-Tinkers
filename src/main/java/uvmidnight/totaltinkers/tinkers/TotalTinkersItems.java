@@ -10,7 +10,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
@@ -86,7 +85,7 @@ public class TotalTinkersItems {
 
     }
 
-    for (IModifier modifier: new IModifier[] {
+    for (IModifier modifier : new IModifier[]{
             TinkerModifiers.modBaneOfArthopods,
             TinkerModifiers.modBeheading,
             TinkerModifiers.modDiamond,
@@ -106,7 +105,7 @@ public class TotalTinkersItems {
             TinkerModifiers.modWebbed,
     }) {
       TotalTinkers.proxy.registerModifierModel(modifier,
-              new ResourceLocation(TotalTinkers.MODID, "models/item/modifiers/"+modifier.getIdentifier()));
+              new ResourceLocation(TotalTinkers.MODID, "models/item/modifiers/" + modifier.getIdentifier()));
     }
   }
 
@@ -118,13 +117,14 @@ public class TotalTinkersItems {
 
   @SubscribeEvent
   public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
-    EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "javelin"), EntityJavelin.class,"javelin", 1, TotalTinkers.instance, 64, 1, false);
+    EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "javelin"), EntityJavelin.class, "javelin", 1, TotalTinkers.instance, 64, 1, false);
   }
 
   @SubscribeEvent
   public static void registerModels(ModelRegistryEvent event) {
     RenderingRegistry.registerEntityRenderingHandler(EntityJavelin.class, RenderJavelin::new);
   }
+
   private static void initForgeTool(ToolCore core, RegistryEvent.Register<Item> event) {
     event.getRegistry().register(core);
     TinkerRegistry.registerToolForgeCrafting(core);
