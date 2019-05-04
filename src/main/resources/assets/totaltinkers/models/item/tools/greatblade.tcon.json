@@ -1,10 +1,11 @@
 {
 	"textures": {
 		"layer0": "totaltinkers:item/greatblade/handle",
-		"layer1": "totaltinkers:item/greatblade/topblade",
-		"layer2": "totaltinkers:item/greatblade/bottomblade",
-		"layer3": "totaltinkers:item/greatblade/greatbladecore",
-		"broken1": "totaltinkers:item/greatblade/topblade_broken"
+		"layer1": "totaltinkers:item/greatblade/top_blade",
+		"layer2": "totaltinkers:item/greatblade/bottom_blade",
+		"layer3": "totaltinkers:item/greatblade/great_blade_core",
+		"broken1": "totaltinkers:item/greatblade/top_blade_broken"
+
 	},
 	"display": {
 		"thirdperson_righthand": {

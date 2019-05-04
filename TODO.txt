@@ -2,12 +2,20 @@ Code and package structure is very haphazard. Code needs some significant change
 
 Implement following weapons:
 
-Dagger - needs rework
-Scimitar - needs rework
-Throwing knives - needs rework
-Battleaxe - needs rework
-Javelin -needs rework
-Cutlass - needs rework of course
+Proper Javelin behavior
+Proper dagger behavior. as of now it is only a meele weapon.
+Throwing knives - needs rework. Probably not going to even bother to implement this
+
+Remake a lot of textures:
+Dagger is still using all the old ones
+Not very happy with some of the greatblade ones
+
+
+
+New weapons to work on:
+
+Scimitar. Weak weapon that focuses on using bleeds to obliterate targets
+Boomerang. Self explanatory
 
 Add custom Particles to added weapons
 
@@ -16,4 +24,4 @@ Learn how to do asm:
 Cry myself to sleep
 Cry some more
 Enable option for old tinkers reload for crossbow
-Enable option to remove damage cap
+Enable option to remove damage cap - library/utils/toolhelper, literally just return whats given

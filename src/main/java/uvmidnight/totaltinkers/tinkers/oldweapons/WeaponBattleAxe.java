@@ -51,7 +51,7 @@ public class WeaponBattleAxe extends AoeToolCore {
 
   @Override
   public float damagePotential() {
-    return 1.4f;
+    return 1.2f;
   }
 
   @Override

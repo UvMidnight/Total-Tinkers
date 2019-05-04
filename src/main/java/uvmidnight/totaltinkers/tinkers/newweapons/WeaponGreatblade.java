@@ -37,7 +37,7 @@ public class WeaponGreatblade extends SwordCore{
 
   @Override
   public float damagePotential() {
-    return 0.5F;
+    return 0.75F;
   }
 
   @Override
@@ -154,6 +154,7 @@ public class WeaponGreatblade extends SwordCore{
     data.extra(binding);
     data.handle(handle);
 
+    data.attack += 4; //ensure you cannot create a totally garbage weapon
     return data;
   }
 }

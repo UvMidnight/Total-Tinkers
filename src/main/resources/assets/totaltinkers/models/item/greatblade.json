@@ -1,9 +1,0 @@
-{
-	"textures": {
-		"layer0": "totaltinkers:item/greatblade/handle",
-		"layer1": "totaltinkers:item/greatblade/topblade",
-		"layer2": "totaltinkers:item/greatblade/bottomblade",
-		"layer3": "totaltinkers:item/greatblade/greatbladecore",
-		"broken1": "totaltinkers:item/greatblade/topblade_broken"
-	}
-}

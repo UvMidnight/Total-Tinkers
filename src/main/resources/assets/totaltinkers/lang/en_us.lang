@@ -1,17 +1,20 @@
 item.greatblade.name=Greatblade
 item.battleaxe.name=Battleaxe
 item.cutlass.name=Cutlass
+item.javelin.name=Javelin
+item.dagger.name=Dagger
 
-item.fullguard.name=Full Guard
+item.fullGuard.name=Full Guard
 item.greatbladecore.name=Greatblade Core
 
 item.greatblade.desc=The Great Equalizer. The heavy Greatblade sacrifices raw damage for enemy percent HP damage, and excels vs bosses. Slow, Requires two hands!
 item.battleaxe.desc=The Battleaxe is a heavy offensive weapon. It is capable of bringing down small trees and can.\nRight Click: Berserker. If you have the Battleaxe in your main hand, you get a range of buffs, while taking significantly increased damage.
 item.cutlass.desc=The Cutlass is a weapon for those of great skill, or those who think they have it and want to show off. On critical hits, a short burst of speed is granted.
+item.javelin.desc=Ranged Melee weapon hybrid. Potent as a melee weapon, devastating at range.
 
-tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: %.2f%%
-tinkers.greatblade.bossmultiplier.positive=Enemy HP Based Damage to Bosses: +%.2f%%
-tinkers.greatblade.bossmultiplier.negative=Enemy HP Based Damage to Bosses: -%.2f%%
+tinkers.greatblade.bossmultiplier.percentMaxHp=§cEnemy Maximum HP Damage: %.2f%%
+tinkers.greatblade.bossmultiplier.positive=§9Enemy HP Based Damage to Bosses: +%.2f%%
+tinkers.greatblade.bossmultiplier.negative=§cEnemy HP Based Damage to Bosses: -%.2f%%
 
-tooltip.fullguard=Perhaps your villager friends may help out with this?
+tooltip.fullGuard=Perhaps your villager friends may help out with this?
 tooltip.greatbladecore=Can be found in end ships

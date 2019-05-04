@@ -38,13 +38,19 @@ import java.util.List;
 
   @Override
   public float damagePotential() {
-    return 0.9F;
+    return 0.8F;
   }
 
   @Override
   public double attackSpeed() {
     return 1.6F;
   }
+
+  @Override
+  public float damageCutoff() {
+    return 20f;
+  }// no ida why this is a fucking thing
+
 
 
   //TLDR: gives 1 second of speed on crit.
@@ -78,7 +84,7 @@ import java.util.List;
     data.extra(binding);
     data.handle(handle);
 
-    data.attack += 1f;
+    data.attack += 2f;
     data.durability *= DURABILITY_MODIFIER;
     return data;
   }

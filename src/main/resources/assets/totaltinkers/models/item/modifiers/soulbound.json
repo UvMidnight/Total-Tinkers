@@ -1,0 +1,9 @@
+{
+	"textures": {
+		"greatblade": "totaltinkers:item/greatblade/mod_soulbound",
+		"cutlass": "totaltinkers:item/cutlass/mod_soulbound",
+		"javelin": "totaltinkers:item/javelin/mod_soulbound",
+		"dagger": "totaltinkers:item/battleaxe/mod_soulbound",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_soulbound"
+	}
+}

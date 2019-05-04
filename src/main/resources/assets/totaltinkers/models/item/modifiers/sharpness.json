@@ -1,0 +1,9 @@
+{
+	"textures": {
+		"greatblade": "totaltinkers:item/greatblade/mod_sharpness",
+		"cutlass": "totaltinkers:item/cutlass/mod_sharpness",
+		"javelin": "totaltinkers:item/javelin/mod_sharpness",
+		"dagger": "totaltinkers:item/battleaxe/mod_sharpness",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_sharpness"
+	}
+}

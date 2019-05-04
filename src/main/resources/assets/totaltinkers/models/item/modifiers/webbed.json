@@ -1,0 +1,9 @@
+{
+	"textures": {
+		"greatblade": "totaltinkers:item/greatblade/mod_web",
+		"cutlass": "totaltinkers:item/cutlass/mod_web",
+		"javelin": "totaltinkers:item/javelin/mod_web",
+		"dagger": "totaltinkers:item/battleaxe/mod_web",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_web"
+	}
+}

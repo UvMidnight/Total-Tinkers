@@ -4,57 +4,50 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.common.ModelRegisterUtil;
 import slimeknights.tconstruct.library.TinkerRegistryClient;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.client.ToolBuildGuiInfo;
-import slimeknights.tconstruct.library.client.renderer.RenderProjectileBase;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.tinkering.TinkersItem;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import uvmidnight.totaltinkers.TotalTinkers;
-import uvmidnight.totaltinkers.tinkers.TinkerItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
 import uvmidnight.totaltinkers.tinkers.oldweapons.LayerBattleaxe;
-import uvmidnight.totaltinkers.tinkers.oldweapons.RenderJavelin;
-import uvmidnight.totaltinkers.tinkers.oldweapons.entities.EntityJavelin;
 
 public class ClientProxy extends CommonProxy {
   private LayerBattleaxe layerBattleaxe;
 
   public void initToolGuis() {
     TotalTinkers.logger.info("initing tool guis");
-    if (TinkerItems.greatblade != null) {
-      ToolBuildGuiInfo greatbladeInfo = new ToolBuildGuiInfo(TinkerItems.greatblade);
+    if (TotalTinkersItems.greatblade != null) {
+      ToolBuildGuiInfo greatbladeInfo = new ToolBuildGuiInfo(TotalTinkersItems.greatblade);
       greatbladeInfo.addSlotPosition(7, 64);
       greatbladeInfo.addSlotPosition(25, 38);
       greatbladeInfo.addSlotPosition(49, 38);
       greatbladeInfo.addSlotPosition(7, 38);
       TinkerRegistryClient.addToolBuilding(greatbladeInfo);
     }
-    if (TinkerItems.battleaxe != null) {
-      ToolBuildGuiInfo battleaxeInfo = new ToolBuildGuiInfo(TinkerItems.battleaxe);
+    if (TotalTinkersItems.battleaxe != null) {
+      ToolBuildGuiInfo battleaxeInfo = new ToolBuildGuiInfo(TotalTinkersItems.battleaxe);
       battleaxeInfo.addSlotPosition(33, 42 + 18);
       battleaxeInfo.addSlotPosition(33 + 20, 42 - 20);
       battleaxeInfo.addSlotPosition(33, 42);
       battleaxeInfo.addSlotPosition(33 - 18, 42 + 18);
       TinkerRegistryClient.addToolBuilding(battleaxeInfo);
     }
-    if (TinkerItems.cutlass != null) {
-      ToolBuildGuiInfo cutlassInfo = new ToolBuildGuiInfo(TinkerItems.cutlass);
+    if (TotalTinkersItems.cutlass != null) {
+      ToolBuildGuiInfo cutlassInfo = new ToolBuildGuiInfo(TotalTinkersItems.cutlass);
       cutlassInfo.addSlotPosition(33, 42 + 18);
       cutlassInfo.addSlotPosition(33 + 20, 42 - 20);
       cutlassInfo.addSlotPosition(33, 42);
       TinkerRegistryClient.addToolBuilding(cutlassInfo);
     }
-    if (TinkerItems.javelin != null) {
-      ToolBuildGuiInfo javelinInfo = new ToolBuildGuiInfo(TinkerItems.javelin);
+    if (TotalTinkersItems.javelin != null) {
+      ToolBuildGuiInfo javelinInfo = new ToolBuildGuiInfo(TotalTinkersItems.javelin);
       javelinInfo.addSlotPosition(33, 42 + 18);
       javelinInfo.addSlotPosition(33 + 20, 42 - 20);
       javelinInfo.addSlotPosition(33, 42);

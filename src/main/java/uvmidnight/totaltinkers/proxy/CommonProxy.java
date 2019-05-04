@@ -1,6 +1,8 @@
 package uvmidnight.totaltinkers.proxy;
 
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
 
@@ -22,4 +24,6 @@ public class CommonProxy {
   }
   public void toggleBattleAxeOverlay(int color) {
   }
+  public void registerModifierModel(IModifier mod, ResourceLocation rl) {}
+
 }

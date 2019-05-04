@@ -1,0 +1,9 @@
+{
+	"textures": {
+		"greatblade": "totaltinkers:item/greatblade/mod_shulking",
+		"cutlass": "totaltinkers:item/cutlass/mod_shulking",
+		"javelin": "totaltinkers:item/javelin/mod_shulking",
+		"dagger": "totaltinkers:item/battleaxe/mod_shulking",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_shulking"
+	}
+}

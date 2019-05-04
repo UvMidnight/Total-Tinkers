@@ -8,9 +8,9 @@
   "url": "",
   "updateUrl": "",
   "authorList": ["UvMidnight"],
-  "credits": "Lumber Wizard for answering all my annoying questions",
+  "credits": "Lots of people for answering my annoying questions",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["Tinkers Construct"]
 }
 ]

@@ -1,10 +1,14 @@
 package uvmidnight.totaltinkers.tinkers.oldweapons;
 
 
+import com.google.common.collect.Multimap;
 import io.netty.util.internal.MathUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -32,7 +36,7 @@ import java.util.List;
 
 //I loved the javelin, it was the reason for me creating this mod
 //But lets be honest, it was total garbage
-//Meele damage is significantly increased over throwing damage, to act as a sort of hybrid weapon.
+//
 //Alternative config option gives it similarity with the cutlass NYI
 public class WeaponJavelin extends ProjectileCore {
   private static PartMaterialType rodPMT = new PartMaterialType(TinkerTools.toughToolRod, MaterialTypes.EXTRA, MaterialTypes.PROJECTILE);
@@ -50,7 +54,7 @@ public class WeaponJavelin extends ProjectileCore {
     data.head(head);
     data.extra(materials.get(0).getStatsOrUnknown(MaterialTypes.EXTRA),
             materials.get(2).getStatsOrUnknown(MaterialTypes.EXTRA));
-      data.attack += 2;
+    data.durability *= 0.7f;
     return data;
   }
 
@@ -61,7 +65,7 @@ public class WeaponJavelin extends ProjectileCore {
     if (ToolHelper.isBroken(itemStackIn)) {
       return ActionResult.newResult(EnumActionResult.FAIL, itemStackIn);
     }
-    playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 8);
+    playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 16);
 
     if (!worldIn.isRemote) {
       boolean usedAmmo = useAmmo(itemStackIn, playerIn);
@@ -72,28 +76,11 @@ public class WeaponJavelin extends ProjectileCore {
     return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
   }
 
-
+  //maybe with everything I overrid extending projectilecore was a bad idea
   //TODO: tool consumes stack of stuff instead of durability, which this tool should not be seen to have. Need to override getinformation and some other stuff
   @Override
   public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
     return ToolHelper.attackEntity(stack, this, player, entity);
-  }
-
-  @Override
-  public void reduceDurabilityOnHit(ItemStack stack, EntityPlayer player, float damage) {
-    TotalTinkers.logger.info("running code");
-    int ammount = (int) damage;
-    for(ITrait trait : TinkerUtil.getTraitsOrdered(stack)) {
-        ammount = trait.onToolDamage(stack, (int) damage, ammount, player);
-    }
-
-    if(ammount > 0 && TagUtil.getTagSafe(stack).getBoolean(ModReinforced.TAG_UNBREAKABLE)) {
-      ammount = 0;
-    }
-
-    if (ammount > 0) {
-      useAmmo(stack, player);
-    }
   }
 
   @Override
@@ -107,10 +94,32 @@ public class WeaponJavelin extends ProjectileCore {
     return super.hitEntity(stack, target, attacker);
   }
 
+  @Nonnull
+  @Override
+  public Multimap<String, AttributeModifier> getAttributeModifiers(@Nonnull EntityEquipmentSlot slot, ItemStack stack) {
+    Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(slot, stack);
+
+    if (slot == EntityEquipmentSlot.MAINHAND && !ToolHelper.isBroken(stack)) {
+      multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", ToolHelper.getActualAttack(stack), 0));
+      multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", ToolHelper.getActualAttackSpeed(stack) - 4d, 0));
+    }
+
+    TinkerUtil.getTraitsOrdered(stack).forEach(trait -> trait.getAttributeModifiers(slot, stack, multimap));
+
+    return multimap;
+  }
+
   @Override
   public float damagePotential() {
-    return 1.2F;
+    return 0.9F;
   }
+
+  @Override
+  public double attackSpeed() {
+    return 1.5f;
+  }
+
+
 
   @Override
   public EntityProjectileBase getProjectile(@Nonnull ItemStack stack, @Nonnull ItemStack launcher, World world, EntityPlayer player, float speed, float inaccuracy, float power, boolean usedAmmo) {

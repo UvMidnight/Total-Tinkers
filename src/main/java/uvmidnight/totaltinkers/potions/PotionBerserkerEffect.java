@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import uvmidnight.totaltinkers.TotalTinkers;
-import uvmidnight.totaltinkers.tinkers.TinkerItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
 import uvmidnight.totaltinkers.tinkers.oldweapons.WeaponBattleAxe;
 import uvmidnight.totaltinkers.util.Config;
 
@@ -24,7 +24,7 @@ public class PotionBerserkerEffect extends PotionEffect {
       entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 30, 1, false, false));
       entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(3), 30, Config.berserkerHaste, false, false));
     } else {
-      entityIn.removePotionEffect(TinkerItems.potionBerserker);
+      entityIn.removePotionEffect(TotalTinkersItems.potionBerserker);
       TotalTinkers.proxy.renderScreenFullColor(0xffff0000, false);
     }
     return super.onUpdate(entityIn);

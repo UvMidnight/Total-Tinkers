@@ -1,0 +1,9 @@
+{
+	"textures": {
+		"greatblade": "totaltinkers:item/greatblade/mod_emerald",
+		"cutlass": "totaltinkers:item/cutlass/mod_emerald",
+		"javelin": "totaltinkers:item/javelin/mod_emerald",
+		"dagger": "totaltinkers:item/battleaxe/mod_emerald",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_emerald"
+	}
+}

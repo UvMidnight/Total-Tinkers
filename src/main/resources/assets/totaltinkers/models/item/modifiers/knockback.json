@@ -1,0 +1,9 @@
+{
+	"textures": {
+		"greatblade": "totaltinkers:item/greatblade/mod_knockback",
+		"cutlass": "totaltinkers:item/cutlass/mod_knockback",
+		"javelin": "totaltinkers:item/javelin/mod_knockback",
+		"dagger": "totaltinkers:item/battleaxe/mod_knockback",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_knockback"
+	}
+}

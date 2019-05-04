@@ -1,0 +1,9 @@
+{
+	"textures": {
+		"greatblade": "totaltinkers:item/greatblade/mod_bane_spider",
+		"cutlass": "totaltinkers:item/cutlass/mod_bane_spider",
+		"javelin": "totaltinkers:item/javelin/mod_bane_spider",
+		"dagger": "totaltinkers:item/battleaxe/mod_bane_spider",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_bane_spider"
+	}
+}

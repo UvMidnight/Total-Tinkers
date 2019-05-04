@@ -1,10 +1,16 @@
 package uvmidnight.totaltinkers;
 
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.storage.loot.*;
+import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import uvmidnight.totaltinkers.proxy.CommonProxy;
@@ -42,5 +48,19 @@ public class TotalTinkers {
   @Mod.EventHandler
   public void init(FMLInitializationEvent event) {
     proxy.initToolGuis();
+  }
+
+  @SubscribeEvent
+  public static void modifyLootTables(LootTableLoadEvent e) {
+    if (e.getName().toString().equals("minecraft:chests/village_blacksmith")) {
+      LootEntry entry = new LootEntryTable(new ResourceLocation("totaltinkers:inject/village_blacksmith"), 1, 0, new LootCondition[0], MODID + ":bleh");
+      LootPool pool = new LootPool(new LootEntry[] {entry}, new LootCondition[0], new RandomValueRange(1F, 1F), new RandomValueRange(0F, 0F) , MODID+":bleh");
+      e.getTable().addPool(pool);
+    }
+    if (e.getName().toString().equals("minecraft:chests/end_city_treasure")) {
+      LootEntry entry = new LootEntryTable(new ResourceLocation("totaltinkers:inject/end_city_treasure"), 1, 0, new LootCondition[0], MODID + ":bleh");
+      LootPool pool = new LootPool(new LootEntry[] {entry}, new LootCondition[0], new RandomValueRange(1F, 1F), new RandomValueRange(0F, 0F) , MODID+":bleh");
+      e.getTable().addPool(pool);
+    }
   }
 }

@@ -1,14 +1,18 @@
 
 build/
 
-classes/
-
-\.idea/
-
-Scimitars\.iml
+tinkers 1\.12/
 
 run/
 
-\.gradle/
+Scimitars\.iml
+
+python generation/
+
+\.idea/
+
+classes/
 
 eclipse/
+
+\.gradle/
