@@ -131,6 +131,7 @@ public class WeaponCrossbowOveride extends CrossBow {
       EntityPlayer player = (EntityPlayer) entity;
 
       if (player.inventory.getCurrentItem() != stack) {
+//        preventSlowDown(player, 0.195f);
         if (!isLoaded(stack)) {
           tags.setInteger(TAG_ReloadProgress, 0);
         }
@@ -138,6 +139,7 @@ public class WeaponCrossbowOveride extends CrossBow {
       }
 
       if (isReloading(stack)) {
+
         int timeLeft = getReloadingProgress(stack);
         if (timeLeft == -1) {
           timeLeft++;
@@ -211,6 +213,11 @@ public class WeaponCrossbowOveride extends CrossBow {
     return EnumAction.NONE;
   }
 
+
+  @Override
+  public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+    return false;
+  }
 
   @SideOnly(Side.CLIENT)
   @Override

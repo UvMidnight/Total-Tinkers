@@ -20,8 +20,8 @@ public class PotionBerserkerEffect extends PotionEffect {
     if (entityIn.getHeldItemMainhand().getItem() instanceof WeaponBattleAxe) {
       entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 30, Config.berserkerSpeed, false, false));
       entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 30, Config.berserkerResistance, false, false));
-      entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 30, 1, false, false));
-      entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 30, 1, false, false));
+      entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 30, Config.berserkerJumpBoost, false, false));
+      entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 30, Config.berserkerStrength, false, false));
       entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(3), 30, Config.berserkerHaste, false, false));
     } else {
       entityIn.removePotionEffect(TotalTinkersItems.potionBerserker);

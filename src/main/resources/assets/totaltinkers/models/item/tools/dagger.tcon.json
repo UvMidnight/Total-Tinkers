@@ -1,8 +1,8 @@
 {
 	"textures": {
+		"layer2": "totaltinkers:item/dagger/dagger_handle",
 		"layer0": "totaltinkers:item/dagger/dagger_accessory",
 		"layer1": "totaltinkers:item/dagger/dagger_blade",
-		"layer2": "totaltinkers:item/dagger/dagger_handle",
 		"broken1": "totaltinkers:item/dagger/dagger_blade_broken"
   }
 }

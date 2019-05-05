@@ -38,7 +38,7 @@ public class WeaponCutlass extends SwordCore {
 
   @Override
   public float damagePotential() {
-    return 0.8F;
+    return 0.7F;
   }
 
   @Override
@@ -83,7 +83,7 @@ public class WeaponCutlass extends SwordCore {
     data.extra(binding);
     data.handle(handle);
 
-    data.attack += 2f;
+    data.attack += 1f;
     data.durability *= DURABILITY_MODIFIER;
     return data;
   }

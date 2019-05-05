@@ -13,6 +13,7 @@ item.battleaxe.desc=The Battleaxe is a heavy offensive weapon. It is capable of 
 item.cutlass.desc=The Cutlass is a weapon for those of great skill, or those who think they have it and want to show off. On critical hits, a short burst of speed is granted.
 item.javelin.desc=Ranged Melee weapon hybrid. Potent as a melee weapon, devastating at range.
 item.tconstruct:crossbow.desc=The Crossbow is a slow but very powerful weapon. It has to be loaded beforehand, but can be fired at any moment afterwards.\nUses Tinkers' Bolts.
+item.dagger.desc="The Dagger is a short blade that can not be thrown."
 
 tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: §9%.2f%%
 tinkers.greatblade.bossmultiplier.hpHover=§9+%.2f%% Enemy Maximum HP Damage

@@ -31,12 +31,12 @@ public class WeaponDagger extends SwordCore {
 
   @Override
   public float damagePotential() {
-    return 1F;
+    return 0.9F;
   }
 
   @Override
   public double attackSpeed() {
-    return 2F;
+    return 2.5F;
   }
 
   @Override

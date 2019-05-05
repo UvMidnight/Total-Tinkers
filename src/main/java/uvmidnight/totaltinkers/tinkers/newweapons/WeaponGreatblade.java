@@ -13,6 +13,8 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
@@ -113,17 +115,18 @@ public class WeaponGreatblade extends SwordCore {
     info.addDurability(!detailed);
 
     out = I18n.format("tinkers.greatblade.bossmultiplier.percentMaxHp", percentHp);
-    info.add(TextFormatting.BLUE + out);
+    info.add(out);
 
     if (Math.abs(Config.greatbladeBossMultiplier - 1) >= 1E-4) { // if it is not equal to one, a multiplier is displayed
       if (Config.greatbladeBossMultiplier < 1) {
         out = I18n.format("tinkers.greatblade.bossmultiplier.negative", (1 - Config.greatbladeBossMultiplier) * 100);
-        info.add(TextFormatting.RED + out);
+        info.add(out);
       } else {
         out = I18n.format("tinkers.greatblade.bossmultiplier.positive", (Config.greatbladeBossMultiplier) * 100);
-        info.add(TextFormatting.BLUE + out);
+        info.add(out);
       }
     }
+
 
     info.addAttack();
 
@@ -137,6 +140,14 @@ public class WeaponGreatblade extends SwordCore {
     list.addAll(info.getTooltip());
 
     return list;
+  }
+
+  @Override
+  public void getTooltip(ItemStack stack, List<String> tooltips) {
+    super.getTooltip(stack, tooltips);
+    NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
+    float percentHp = tag.getFloat(Tags.ATTACK);
+    tooltips.add(I18n.format("tinkers.greatblade.bossmultiplier.hpHover", percentHp));
   }
 
   @Override

@@ -31,6 +31,7 @@ public class Config {
   public static boolean isReplacingCrossbow;
   public static boolean crossbowOldCrosshair;
   public static boolean autoCrossbowReload;
+  public static boolean autoCrossbowSlowdown;
 
   public static boolean fullGuardFromVillages;
   public static boolean greatbladeCoreFromEndShip;
@@ -71,11 +72,12 @@ public class Config {
     berserkerSpeed = cfg.getInt("berserkerSpeed", CATEGORY_BATTLEAXE, 1, Short.MIN_VALUE, Short.MAX_VALUE, "Level of speed berserker gives. 1 is speed 2.");
     berserkerHaste = cfg.getInt("berserkerHaste", CATEGORY_BATTLEAXE, 2, Short.MIN_VALUE, Short.MAX_VALUE, "Level of haste berserker gives. 2 is haste 3.");
     berserkerResistance = cfg.getInt("berserkerResistance", CATEGORY_BATTLEAXE, -5, Short.MIN_VALUE, Short.MAX_VALUE, "Level of resistance berserker gives. -4 is +80% damage dealt, 20% per level of resistance");
-    berserkerStrength = cfg.getInt("berserkerStrength", CATEGORY_BATTLEAXE, 1, Short.MIN_VALUE, Short.MAX_VALUE, "Level of Strength berserker gives. 1 is Strength 2, or 3 hearts extra of damage per hit.");
+    berserkerStrength = cfg.getInt("berserkerStrength", CATEGORY_BATTLEAXE, 0, Short.MIN_VALUE, Short.MAX_VALUE, "Level of Strength berserker gives. 1 is Strength 2, or 3 hearts extra of damage per hit.");
     berserkerJumpBoost = cfg.getInt("berserkerJumpBoost", CATEGORY_BATTLEAXE, 1, Short.MIN_VALUE, Short.MAX_VALUE, "Level of jump boost berserker gives. 1 is jump boost 2.");
 
     crossbowOldCrosshair = cfg.getBoolean("crossbowOldCrosshair", CATEGORY_CROSSBOW, true, "If the old crossbow cursor should be used");
-    autoCrossbowReload = cfg.getBoolean("autoCrossbowReload", CATEGORY_CROSSBOW, false, "EXPERIMENTAL FEATURE. If enabled, the crossbow will automatically reload after being shot. Works mechanically fine, but animations are broken");
+    autoCrossbowReload = cfg.getBoolean("autoCrossbowReload", CATEGORY_CROSSBOW, false, "If enabled, the crossbow will automatically reload after being shot.");
+//    autoCrossbowSlowdown = cfg.getBoolean("autoCrossbowSlowdown", CATEGORY_CROSSBOW, true, "If the automatic reload function is enabled, the crossbow will slow the player while reloading");
   }
 
 }

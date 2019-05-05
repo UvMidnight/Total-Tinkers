@@ -25,35 +25,41 @@ public class ClientProxy extends CommonProxy {
     TotalTinkers.logger.info("initing tool guis");
     if (TotalTinkersItems.greatblade != null) {
       ToolBuildGuiInfo greatbladeInfo = new ToolBuildGuiInfo(TotalTinkersItems.greatblade);
-      greatbladeInfo.addSlotPosition(7, 64);
-      greatbladeInfo.addSlotPosition(25, 38);
-      greatbladeInfo.addSlotPosition(49, 38);
-      greatbladeInfo.addSlotPosition(7, 38);
+      greatbladeInfo.addSlotPosition(33 - 10 - 14, 42 + 10 + 12); // handle
+      greatbladeInfo.addSlotPosition(33 - 8, 42 - 10 + 4); // head
+      greatbladeInfo.addSlotPosition(33 + 14, 42 - 10 - 2); // plate/shield
+      greatbladeInfo.addSlotPosition(33 + 10 - 10, 42 + 10 + 6); // guard
       TinkerRegistryClient.addToolBuilding(greatbladeInfo);
     }
     if (TotalTinkersItems.battleaxe != null) {
       ToolBuildGuiInfo battleaxeInfo = new ToolBuildGuiInfo(TotalTinkersItems.battleaxe);
-      battleaxeInfo.addSlotPosition(33, 42 + 18);
-      battleaxeInfo.addSlotPosition(33 + 20, 42 - 20);
-      battleaxeInfo.addSlotPosition(33, 42);
-      battleaxeInfo.addSlotPosition(33 - 18, 42 + 18);
+      battleaxeInfo.addSlotPosition(33 - 10 - 2, 42 + 10); // handle
+      battleaxeInfo.addSlotPosition(33 + 10 + 16 - 2, 42 - 10 + 16); // head 1
+      battleaxeInfo.addSlotPosition(33 + 10 - 16 - 2, 42 - 10 - 16); // head 2
+      battleaxeInfo.addSlotPosition(33 + 13 - 2, 42 - 13); // binding
       TinkerRegistryClient.addToolBuilding(battleaxeInfo);
     }
     if (TotalTinkersItems.cutlass != null) {
       ToolBuildGuiInfo cutlassInfo = new ToolBuildGuiInfo(TotalTinkersItems.cutlass);
-      cutlassInfo.addSlotPosition(33, 42 + 18);
-      cutlassInfo.addSlotPosition(33 + 20, 42 - 20);
-      cutlassInfo.addSlotPosition(33, 42);
+      cutlassInfo.addSlotPosition(33 - 20 - 1, 42 + 20); // handle
+      cutlassInfo.addSlotPosition(33 + 20 - 5, 42 - 20 + 4); // blade
+      cutlassInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
       TinkerRegistryClient.addToolBuilding(cutlassInfo);
     }
     if (TotalTinkersItems.javelin != null) {
       ToolBuildGuiInfo javelinInfo = new ToolBuildGuiInfo(TotalTinkersItems.javelin);
-      javelinInfo.addSlotPosition(33, 42 + 18);
-      javelinInfo.addSlotPosition(33 + 20, 42 - 20);
-      javelinInfo.addSlotPosition(33, 42);
+      javelinInfo.addSlotPosition(33 + 20 - 1, 42 + 20); // handle
+      javelinInfo.addSlotPosition(33 - 20 + 5, 42 - 20 + 4); // blade
+      javelinInfo.addSlotPosition(33 - 2 + 1, 42 + 2); // guard
       TinkerRegistryClient.addToolBuilding(javelinInfo);
     }
-
+    if (TotalTinkersItems.dagger != null) {
+      ToolBuildGuiInfo daggerInfo = new ToolBuildGuiInfo(TotalTinkersItems.dagger);
+      daggerInfo.addSlotPosition(33 - 20 - 1, 42 + 20); // handle
+      daggerInfo.addSlotPosition(33 + 20 - 5, 42 - 20 + 4); // blade
+      daggerInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
+      TinkerRegistryClient.addToolBuilding(daggerInfo);
+    }
   }
 
 

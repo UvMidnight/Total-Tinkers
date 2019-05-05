@@ -69,11 +69,15 @@ public class TotalTinkersItems {
     }
     if (Config.javelinEnabled) {
       javelin = new WeaponJavelin();
-      initForgeTool(javelin, event);
+      event.getRegistry().register(javelin);
+      TinkerRegistry.registerToolStationCrafting(javelin);
+      TinkerRegistry.registerToolForgeCrafting(javelin);
+      TotalTinkers.proxy.registerToolModel(javelin);
     }
     if (Config.daggerEnabled) {
       dagger = new WeaponDagger();
       event.getRegistry().register(dagger);
+      TinkerRegistry.registerToolForgeCrafting(dagger);
       TinkerRegistry.registerToolStationCrafting(dagger);
       TotalTinkers.proxy.registerToolModel(dagger);
     }
@@ -82,7 +86,6 @@ public class TotalTinkersItems {
     if (Config.isReplacingCrossbow) {
       TinkerRangedWeapons.crossBow = new WeaponCrossbowOveride();
       initForgeTool(TinkerRangedWeapons.crossBow, event);
-
     }
 
     for (IModifier modifier : new IModifier[]{
