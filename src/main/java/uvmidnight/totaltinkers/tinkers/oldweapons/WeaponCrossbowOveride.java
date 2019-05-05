@@ -1,6 +1,7 @@
 package uvmidnight.totaltinkers.tinkers.oldweapons;
 
 
+import javafx.scene.layout.Pane;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,6 +31,7 @@ import uvmidnight.totaltinkers.TotalTinkers;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import static uvmidnight.totaltinkers.util.Config.autoCrossbowReload;
 import static uvmidnight.totaltinkers.util.Config.crossbowOldCrosshair;
 
 public class WeaponCrossbowOveride extends CrossBow {
@@ -40,33 +42,41 @@ public class WeaponCrossbowOveride extends CrossBow {
 
   public WeaponCrossbowOveride() {
     super();
-    this.addPropertyOverride(PROPERTY_PULL_PROGRESS, new IItemPropertyGetter() {
-      @Override
-      @SideOnly(Side.CLIENT)
-      public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-        if (entityIn != null) {
-          ItemStack itemstack = entityIn.getActiveItemStack();
-//          TotalTinkers.logger.info(getDrawbackProgress(itemstack, entityIn));
-          return getDrawbackProgress(itemstack, entityIn);
-        } else {
-          return 0.0F;
-        }
-      }
-    });
-    this.addPropertyOverride(PROPERTY_IS_PULLING, new BooleanItemPropertyGetter() {
-      @Override
-      public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-//        return isReloading(stack);
-        return true;
-      }
-    });
-    this.addPropertyOverride(PROPERTY_IS_LOADED, new BooleanItemPropertyGetter() {
-      @Override
-      public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-        return entityIn != null && isLoaded(stack) && !isReloading(stack);
-      }
-    });
+    if (autoCrossbowReload) {
 
+      this.addPropertyOverride(PROPERTY_PULL_PROGRESS, new IItemPropertyGetter() {
+        @Override
+        @SideOnly(Side.CLIENT)
+        public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+          if (entityIn != null) {
+//          TotalTinkers.logger.info(getDrawbackProgress(itemstack, entityIn));
+            if (isLoaded(stack)) {
+              return 1f;
+            }
+            if (isReloading(stack)) {
+              return getDrawbackProgress(stack, getReloadingProgress(stack));
+            }
+            return 0;
+          } else {
+            return 0.0F;
+          }
+        }
+      });
+      this.addPropertyOverride(PROPERTY_IS_PULLING, new BooleanItemPropertyGetter() {
+        @Override
+        public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+//        return isReloading(stack);
+          return true;
+        }
+      });
+      this.addPropertyOverride(PROPERTY_IS_LOADED, new BooleanItemPropertyGetter() {
+        @Override
+        public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+          return entityIn != null && isLoaded(stack) && !isReloading(stack);
+        }
+      });
+
+    }
     addCategory(Category.LAUNCHER);
     setTranslationKey("tconstruct:crossbow").setRegistryName("tconstruct:crossbow");
 
@@ -76,86 +86,101 @@ public class WeaponCrossbowOveride extends CrossBow {
   @Nonnull
   @Override
   public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-    TotalTinkers.logger.info("onItemRightCLick ran");
-    ItemStack itemStackIn = playerIn.getHeldItem(hand);
+    if (autoCrossbowReload){
+      TotalTinkers.logger.info("onItemRightCLick ran");
+      ItemStack itemStackIn = playerIn.getHeldItem(hand);
 
-    NBTTagCompound tags = TagUtil.getTagSafe(itemStackIn);
+      NBTTagCompound tags = TagUtil.getTagSafe(itemStackIn);
 
-    // loaded
-    if (isLoaded(itemStackIn)) {
-      if (!findAmmo(itemStackIn, playerIn).isEmpty() || playerIn.capabilities.isCreativeMode) {
-        super.onItemRightClick(worldIn, playerIn, hand);
-        initiateReload(itemStackIn, playerIn, tags);
+      // loaded
+      if (isLoaded(itemStackIn)) {
+        if (!findAmmo(itemStackIn, playerIn).isEmpty() || playerIn.capabilities.isCreativeMode) {
+          super.onItemRightClick(worldIn, playerIn, hand);
+          initiateReload(itemStackIn, playerIn, tags);
 //      tags.setInteger(TAG_ReloadProgress, -1);
 
 //      initiateReload(itemStackIn, playerIn, tags);
 
 //      setLoaded(itemStackIn, false);
 //      tags.removeTag(TAG_ReloadProgress);
-        return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
+          return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
+        }
+      } else if (!isReloading(itemStackIn) &&(!findAmmo(itemStackIn, playerIn).isEmpty() || playerIn.capabilities.isCreativeMode)) {
+        initiateReload(itemStackIn, playerIn, tags);
       }
-    } else if (!isReloading(itemStackIn) &&(!findAmmo(itemStackIn, playerIn).isEmpty() || playerIn.capabilities.isCreativeMode)) {
-      initiateReload(itemStackIn, playerIn, tags);
+      return ActionResult.newResult(EnumActionResult.PASS, itemStackIn);
+    } else {
+      return super.onItemRightClick(worldIn, playerIn, hand);
     }
-    return ActionResult.newResult(EnumActionResult.PASS, itemStackIn);
   }
 
-  //Method seems to be fine.
   @Override
   public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-    onUpdateTraits(stack, world, entity, itemSlot, isSelected);
+    if (autoCrossbowReload) {
+      onUpdateTraits(stack, world, entity, itemSlot, isSelected);
 
-    if (!stack.hasTagCompound()) {
-      return;//no idea how this would happen
-    }
-
-    if (!(entity instanceof EntityPlayer)) {
-      return;
-    }
-
-    NBTTagCompound tags = TagUtil.getTagSafe(stack);
-    EntityPlayer player = (EntityPlayer) entity;
-
-    if (player.inventory.getCurrentItem() != stack) {
-      if (!isLoaded(stack)) {
-        tags.setInteger(TAG_ReloadProgress, 0);
+      if (!stack.hasTagCompound()) {
+        return;//no idea how this would happen
       }
-      return;
-    }
 
-    if (isReloading(stack)) {
-      int timeLeft = getReloadingProgress(stack);
-      if (timeLeft == -1) {
-        timeLeft++;
+      if (!(entity instanceof EntityPlayer)) {
+        return;
       }
-      timeLeft++;
-      tags.setInteger(TAG_ReloadProgress, timeLeft);
-      if (getDrawbackProgress(stack, timeLeft) - 1.0F >= -1E-7) {
-        setLoaded(stack, true);
-        tags.setBoolean(TAG_Reloading, false);
-        Sounds.PlaySoundForPlayer(player, Sounds.crossbow_reload, 1.5f, 0.9f + itemRand.nextFloat() * 0.1f);
+
+      NBTTagCompound tags = TagUtil.getTagSafe(stack);
+      EntityPlayer player = (EntityPlayer) entity;
+
+      if (player.inventory.getCurrentItem() != stack) {
+        if (!isLoaded(stack)) {
+          tags.setInteger(TAG_ReloadProgress, 0);
         }
-    }
-    if (!isReloading(stack) && tags.getInteger(TAG_ReloadProgress) == -1) {
-      tags.setBoolean(TAG_Reloading, true);
+        return;
+      }
+
+      if (isReloading(stack)) {
+        int timeLeft = getReloadingProgress(stack);
+        if (timeLeft == -1) {
+          timeLeft++;
+        }
+        timeLeft++;
+        tags.setInteger(TAG_ReloadProgress, timeLeft);
+        if (getDrawbackProgress(stack, timeLeft) - 1.0F >= -1E-7) {
+          setLoaded(stack, true);
+          tags.setBoolean(TAG_Reloading, false);
+          Sounds.PlaySoundForPlayer(player, Sounds.crossbow_reload, 1.5f, 0.9f + itemRand.nextFloat() * 0.1f);
+        }
+      }
+      if (!isReloading(stack) && tags.getInteger(TAG_ReloadProgress) == -1) {
+        tags.setBoolean(TAG_Reloading, true);
+      }
+    } else {
+      super.onUpdate(stack, world, entity, itemSlot, isSelected);
     }
   }
 
   @Override
   protected float getDrawbackProgress(ItemStack itemStack, int timePassed) {
-    float drawProgress = ProjectileLauncherNBT.from(itemStack).drawSpeed * (float) timePassed;
-    return Math.min(1f, drawProgress / (float) getDrawTime());
+    if (autoCrossbowReload) {
+      float drawProgress = ProjectileLauncherNBT.from(itemStack).drawSpeed * (float) timePassed;
+      return Math.min(1f, drawProgress / (float) getDrawTime());
+    } else {
+      return super.getDrawbackProgress(itemStack, timePassed);
+    }
   }
 
   @Override
   public float getDrawbackProgress(ItemStack itemstack, EntityLivingBase entityIn) {
-//    if(itemstack.getItem() instanceof WeaponCrossbowOveride) {
+    if (autoCrossbowReload) {
+      //    if(itemstack.getItem() instanceof WeaponCrossbowOveride) {
       int timePassed = getReloadingProgress(itemstack);
       return getDrawbackProgress(itemstack, timePassed);
 //    }
 //    else {
 //      return 0f;
 //    }
+    } else {
+      return super.getDrawbackProgress(itemstack, entityIn);
+    }
   }
 
   public int getReloadingProgress(ItemStack stack) {
@@ -200,12 +225,16 @@ public class WeaponCrossbowOveride extends CrossBow {
   @SideOnly(Side.CLIENT)
   @Override
   public float getCrosshairState(ItemStack itemStack, EntityPlayer player) {
-    if (isLoaded(itemStack)) {
-      return 1f;
+    if (autoCrossbowReload) {
+      if (isLoaded(itemStack)) {
+        return 1f;
+      }
+      if (isReloading(itemStack)) {
+        return getDrawbackProgress(itemStack, getReloadingProgress(itemStack));
+      }
+      return 0;
+    } else {
+      return super.getCrosshairState(itemStack, player);
     }
-    if (isReloading(itemStack)) {
-      return getDrawbackProgress(itemStack, getReloadingProgress(itemStack));
-    }
-    return 0;
   }
 }

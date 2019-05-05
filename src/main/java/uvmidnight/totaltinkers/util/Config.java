@@ -29,8 +29,9 @@ public class Config {
   public static int cutlassSpeedStrength;
 
   public static boolean isReplacingCrossbow;
-
   public static boolean crossbowOldCrosshair;
+  public static boolean autoCrossbowReload;
+
   public static boolean fullGuardFromVillages;
   public static boolean greatbladeCoreFromEndShip;
 
@@ -74,6 +75,7 @@ public class Config {
     berserkerJumpBoost = cfg.getInt("berserkerJumpBoost", CATEGORY_BATTLEAXE, 1, Short.MIN_VALUE, Short.MAX_VALUE, "Level of jump boost berserker gives. 1 is jump boost 2.");
 
     crossbowOldCrosshair = cfg.getBoolean("crossbowOldCrosshair", CATEGORY_CROSSBOW, true, "If the old crossbow cursor should be used");
+    autoCrossbowReload = cfg.getBoolean("autoCrossbowReload", CATEGORY_CROSSBOW, false, "EXPERIMENTAL FEATURE. If enabled, the crossbow will automatically reload after being shot. Works mechanically fine, but animations are broken");
   }
 
 }
