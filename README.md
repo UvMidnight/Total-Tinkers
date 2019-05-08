@@ -3,7 +3,7 @@
 
 Total Tinkers is a mod that aims to add in more to tinkers construct. It aims to add in the 1.7 tinkers weapons, reimagined for 1.12.
 
-Total Tinkers is under the <a href="https://tldrlegal.com/license/mit-license"> MIT License</a>. I don't particularly care what you do, althought it would be cool to see if you use my garbage code.
+Total Tinkers is under the <a href="https://tldrlegal.com/license/mit-license"> MIT License</a>. I don't particularly care what you do, althought it would be cool to know if you use my code.
 
 <h2>TODO:</h2>
 
