@@ -11,10 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
@@ -25,7 +22,7 @@ import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
 import slimeknights.tconstruct.tools.TinkerTools;
-import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersRegister;
 import uvmidnight.totaltinkers.util.Config;
 
 import javax.annotation.Nonnull;
@@ -41,7 +38,7 @@ public class WeaponGreatblade extends SwordCore {
     super(PartMaterialType.handle(TinkerTools.toughToolRod),
             PartMaterialType.head(TinkerTools.largeSwordBlade),
             PartMaterialType.head(TinkerTools.largeSwordBlade),
-            PartMaterialType.extra(TotalTinkersItems.greatbladeCore));
+            PartMaterialType.extra(TotalTinkersRegister.greatbladeCore));
 
     this.addCategory(Category.WEAPON);
 
@@ -89,15 +86,15 @@ public class WeaponGreatblade extends SwordCore {
     if (entity instanceof EntityLivingBase) {
       EntityLivingBase e = (EntityLivingBase) entity;
       boolean isBoss = !e.isNonBoss();
-      percentDmg = (isBoss ? (Config.greatbladeBossMultiplier * e.getMaxHealth() * percentHp / 100.0F) : (e.getMaxHealth() * percentHp / 100.0F));
+      percentDmg =  (isBoss ? (Math.min(Config.greatbladeBossCap, Config.greatbladeBossMultiplier * e.getMaxHealth() * percentHp / 100.0F)) : (Math.min(Config.greatbladeNormalCap, e.getMaxHealth() * percentHp / 100.0F)));
     } else if (entity instanceof MultiPartEntityPart) {
       MultiPartEntityPart e = (MultiPartEntityPart) entity;
       if (e.parent instanceof EntityDragon) {// Must be DamageSource.Player for dragon
-        percentDmg = Config.greatbladeBossMultiplier * ((EntityDragon) e.parent).getMaxHealth() * percentHp / 100.0F;
+        percentDmg = Math.min(Config.greatbladeBossCap, Config.greatbladeBossMultiplier * ((EntityDragon) e.parent).getMaxHealth() * percentHp / 100.0F);
       } else if (e.parent != null && e.parent instanceof EntityLivingBase) {
         EntityLivingBase living = (EntityLivingBase) e.parent;
         boolean isBoss = !e.isNonBoss();
-        percentDmg = (isBoss ? (Config.greatbladeBossMultiplier * living.getMaxHealth() * percentHp / 100.0F) : (living.getMaxHealth() * percentHp / 100.0F));
+        percentDmg = (isBoss ? (Math.min(Config.greatbladeBossCap, Config.greatbladeBossMultiplier * living.getMaxHealth() * percentHp / 100.0F)) : (Math.min(Config.greatbladeNormalCap, living.getMaxHealth() * percentHp / 100.0F)));
       }
     }
     return super.dealDamage(stack, player, entity, damage + percentDmg * cooledModifier);
@@ -167,7 +164,7 @@ public class WeaponGreatblade extends SwordCore {
     data.extra(binding);
     data.handle(handle);
 
-    data.attack += 4; //ensure you cannot create a totally garbage weapon
+    data.attack += 2;
     return data;
   }
 }

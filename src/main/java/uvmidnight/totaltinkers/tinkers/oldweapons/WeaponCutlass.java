@@ -14,7 +14,7 @@ import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.tools.TinkerTools;
-import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersRegister;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class WeaponCutlass extends SwordCore {
   public WeaponCutlass() {
     super(PartMaterialType.handle(TinkerTools.toolRod),
             PartMaterialType.head(TinkerTools.swordBlade),
-            PartMaterialType.extra(TotalTinkersItems.fullGuard));
+            PartMaterialType.extra(TotalTinkersRegister.fullGuard));
 
     addCategory(Category.WEAPON);
 
@@ -70,6 +70,11 @@ public class WeaponCutlass extends SwordCore {
       }
     }
     return super.dealDamage(stack, player, entity, damage);
+  }
+
+  @Override
+  public int[] getRepairParts() {
+    return new int[]{1};
   }
 
   @Override

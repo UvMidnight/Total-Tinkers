@@ -15,46 +15,46 @@ import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import uvmidnight.totaltinkers.TotalTinkers;
-import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersRegister;
 import uvmidnight.totaltinkers.tinkers.oldweapons.LayerBattleaxe;
 
+//I need to remove the proxy from existence
 public class ClientProxy extends CommonProxy {
   private LayerBattleaxe layerBattleaxe;
 
   public void initToolGuis() {
-    TotalTinkers.logger.info("initing tool guis");
-    if (TotalTinkersItems.greatblade != null) {
-      ToolBuildGuiInfo greatbladeInfo = new ToolBuildGuiInfo(TotalTinkersItems.greatblade);
+    if (TotalTinkersRegister.greatblade != null) {
+      ToolBuildGuiInfo greatbladeInfo = new ToolBuildGuiInfo(TotalTinkersRegister.greatblade);
       greatbladeInfo.addSlotPosition(33 - 10 - 14, 42 + 10 + 12); // handle
       greatbladeInfo.addSlotPosition(33 - 8, 42 - 10 + 4); // head
       greatbladeInfo.addSlotPosition(33 + 14, 42 - 10 - 2); // plate/shield
       greatbladeInfo.addSlotPosition(33 + 10 - 10, 42 + 10 + 6); // guard
       TinkerRegistryClient.addToolBuilding(greatbladeInfo);
     }
-    if (TotalTinkersItems.battleaxe != null) {
-      ToolBuildGuiInfo battleaxeInfo = new ToolBuildGuiInfo(TotalTinkersItems.battleaxe);
+    if (TotalTinkersRegister.battleaxe != null) {
+      ToolBuildGuiInfo battleaxeInfo = new ToolBuildGuiInfo(TotalTinkersRegister.battleaxe);
       battleaxeInfo.addSlotPosition(33 - 10 - 2, 42 + 10); // handle
       battleaxeInfo.addSlotPosition(33 + 10 + 16 - 2, 42 - 10 + 16); // head 1
       battleaxeInfo.addSlotPosition(33 + 10 - 16 - 2, 42 - 10 - 16); // head 2
       battleaxeInfo.addSlotPosition(33 + 13 - 2, 42 - 13); // binding
       TinkerRegistryClient.addToolBuilding(battleaxeInfo);
     }
-    if (TotalTinkersItems.cutlass != null) {
-      ToolBuildGuiInfo cutlassInfo = new ToolBuildGuiInfo(TotalTinkersItems.cutlass);
+    if (TotalTinkersRegister.cutlass != null) {
+      ToolBuildGuiInfo cutlassInfo = new ToolBuildGuiInfo(TotalTinkersRegister.cutlass);
       cutlassInfo.addSlotPosition(33 - 20 - 1, 42 + 20); // handle
       cutlassInfo.addSlotPosition(33 + 20 - 5, 42 - 20 + 4); // blade
       cutlassInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
       TinkerRegistryClient.addToolBuilding(cutlassInfo);
     }
-    if (TotalTinkersItems.javelin != null) {
-      ToolBuildGuiInfo javelinInfo = new ToolBuildGuiInfo(TotalTinkersItems.javelin);
+    if (TotalTinkersRegister.javelin != null) {
+      ToolBuildGuiInfo javelinInfo = new ToolBuildGuiInfo(TotalTinkersRegister.javelin);
       javelinInfo.addSlotPosition(33 + 20 - 1, 42 + 20); // handle
       javelinInfo.addSlotPosition(33 - 20 + 5, 42 - 20 + 4); // blade
       javelinInfo.addSlotPosition(33 - 2 + 1, 42 + 2); // guard
       TinkerRegistryClient.addToolBuilding(javelinInfo);
     }
-    if (TotalTinkersItems.dagger != null) {
-      ToolBuildGuiInfo daggerInfo = new ToolBuildGuiInfo(TotalTinkersItems.dagger);
+    if (TotalTinkersRegister.dagger != null) {
+      ToolBuildGuiInfo daggerInfo = new ToolBuildGuiInfo(TotalTinkersRegister.dagger);
       daggerInfo.addSlotPosition(33 - 20 - 1, 42 + 20); // handle
       daggerInfo.addSlotPosition(33 + 20 - 5, 42 - 20 + 4); // blade
       daggerInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
@@ -73,7 +73,8 @@ public class ClientProxy extends CommonProxy {
 
   public void renderScreenFullColor(int color, boolean bool) {
     if (layerBattleaxe != null) layerBattleaxe.makeRenderFullColor(color, bool);
-}
+  }
+
   public boolean hasBattleaxeOverlay() {
     if (layerBattleaxe != null) {
       return layerBattleaxe.isRendering();

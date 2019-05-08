@@ -24,7 +24,7 @@ import slimeknights.tconstruct.library.tools.ranged.ProjectileCore;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
-import uvmidnight.totaltinkers.tinkers.oldweapons.entities.EntityJavelin;
+import uvmidnight.totaltinkers.tinkers.entities.EntityJavelin;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -34,6 +34,8 @@ import java.util.List;
 //
 //Alternative config option gives it similarity with the cutlass NYI
 public class WeaponJavelin extends ProjectileCore {
+  public static final float DURABILITY_MODIFIER = 0.7f;
+
   private static PartMaterialType rodPMT = new PartMaterialType(TinkerTools.toughToolRod, MaterialTypes.EXTRA, MaterialTypes.PROJECTILE);
 
   public WeaponJavelin() {
@@ -49,7 +51,7 @@ public class WeaponJavelin extends ProjectileCore {
     data.head(head);
     data.extra(materials.get(0).getStatsOrUnknown(MaterialTypes.EXTRA),
             materials.get(2).getStatsOrUnknown(MaterialTypes.EXTRA));
-    data.durability *= 0.7f;
+    data.durability *= DURABILITY_MODIFIER;
     return data;
   }
 
@@ -114,6 +116,10 @@ public class WeaponJavelin extends ProjectileCore {
     return 1.5f;
   }
 
+  @Override
+  public int[] getRepairParts() {
+    return new int[]{1};
+  }
 
   @Override
   public EntityProjectileBase getProjectile(@Nonnull ItemStack stack, @Nonnull ItemStack launcher, World world, EntityPlayer player, float speed, float inaccuracy, float power, boolean usedAmmo) {

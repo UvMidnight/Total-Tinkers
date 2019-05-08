@@ -17,7 +17,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.potions.PotionBerserkerEffect;
-import uvmidnight.totaltinkers.tinkers.TotalTinkersItems;
+import uvmidnight.totaltinkers.tinkers.TotalTinkersRegister;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -79,16 +79,16 @@ public class WeaponBattleAxe extends AoeToolCore {
 
 
       if (!worldIn.isRemote) {
-        if (!playerIn.isPotionActive(TotalTinkersItems.potionBerserker)) {
-          playerIn.addPotionEffect(new PotionBerserkerEffect(TotalTinkersItems.potionBerserker, Integer.MAX_VALUE));
+        if (!playerIn.isPotionActive(TotalTinkersRegister.potionBerserker)) {
+          playerIn.addPotionEffect(new PotionBerserkerEffect(TotalTinkersRegister.potionBerserker, Integer.MAX_VALUE));
           playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 100);//cooldown is only applied when adding it.
         } else {
-          playerIn.removePotionEffect(TotalTinkersItems.potionBerserker);
+          playerIn.removePotionEffect(TotalTinkersRegister.potionBerserker);
         }
       }
 
       if (worldIn.isRemote) {
-        TotalTinkers.proxy.renderScreenFullColor(0xffff0000, !playerIn.isPotionActive(TotalTinkersItems.potionBerserker)); // I have no idea why it is flipped but hey it works somehow
+        TotalTinkers.proxy.renderScreenFullColor(0xffff0000, !playerIn.isPotionActive(TotalTinkersRegister.potionBerserker)); // I have no idea why it is flipped but hey it works somehow
       }
     }
     return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);

@@ -6,5 +6,13 @@
     "broken1": "totaltinkers:item/javelin/javelin_head_broken"
   },
   "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, -90, -45 ],
+      "translation": [ 0, 0.0, 1.5 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, 45 ],
+      "translation": [ 0, 0.0, 1.5 ]
+    }
   }
 }

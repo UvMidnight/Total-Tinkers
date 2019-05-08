@@ -3,7 +3,7 @@ package uvmidnight.totaltinkers.tinkers.oldweapons;
 import net.minecraft.client.renderer.entity.RenderManager;
 import org.lwjgl.opengl.GL11;
 import slimeknights.tconstruct.library.client.renderer.RenderProjectileBase;
-import uvmidnight.totaltinkers.tinkers.oldweapons.entities.EntityJavelin;
+import uvmidnight.totaltinkers.tinkers.entities.EntityJavelin;
 
 public class RenderJavelin extends RenderProjectileBase<EntityJavelin> {
   public RenderJavelin(RenderManager renderManager) {

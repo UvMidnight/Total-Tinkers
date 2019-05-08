@@ -1,7 +1,6 @@
 package uvmidnight.totaltinkers.tinkers.oldweapons;
 
 
-import javafx.scene.layout.Pane;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,12 +20,9 @@ import slimeknights.tconstruct.library.client.crosshair.Crosshairs;
 import slimeknights.tconstruct.library.client.crosshair.ICrosshair;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tools.ProjectileLauncherNBT;
-import slimeknights.tconstruct.library.tools.ranged.BowCore;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
-import slimeknights.tconstruct.tools.ranged.TinkerRangedWeapons;
 import slimeknights.tconstruct.tools.ranged.item.CrossBow;
-import uvmidnight.totaltinkers.TotalTinkers;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -86,8 +82,8 @@ public class WeaponCrossbowOveride extends CrossBow {
   @Nonnull
   @Override
   public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-    if (autoCrossbowReload){
-      TotalTinkers.logger.info("onItemRightCLick ran");
+    if (autoCrossbowReload) {
+
       ItemStack itemStackIn = playerIn.getHeldItem(hand);
 
       NBTTagCompound tags = TagUtil.getTagSafe(itemStackIn);
@@ -105,7 +101,7 @@ public class WeaponCrossbowOveride extends CrossBow {
 //      tags.removeTag(TAG_ReloadProgress);
           return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
         }
-      } else if (!isReloading(itemStackIn) &&(!findAmmo(itemStackIn, playerIn).isEmpty() || playerIn.capabilities.isCreativeMode)) {
+      } else if (!isReloading(itemStackIn) && (!findAmmo(itemStackIn, playerIn).isEmpty() || playerIn.capabilities.isCreativeMode)) {
         initiateReload(itemStackIn, playerIn, tags);
       }
       return ActionResult.newResult(EnumActionResult.PASS, itemStackIn);

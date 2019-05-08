@@ -10,6 +10,9 @@ import slimeknights.tconstruct.tools.TinkerTools;
 import java.util.List;
 
 public class WeaponDagger extends SwordCore {
+
+  public static final float DURABILITY_MODIFIER = 0.75f;
+
   private static PartMaterialType daggerpmt = new PartMaterialType(TinkerTools.knifeBlade, MaterialTypes.HEAD, MaterialTypes.PROJECTILE);
 
   public WeaponDagger() {
@@ -40,6 +43,11 @@ public class WeaponDagger extends SwordCore {
   }
 
   @Override
+  public int[] getRepairParts() {
+    return new int[]{1};
+  }
+
+  @Override
   public ProjectileNBT buildTagData(List<Material> materials) {
     HandleMaterialStats handle = materials.get(0).getStatsOrUnknown(MaterialTypes.HANDLE);
     HeadMaterialStats head = materials.get(1).getStatsOrUnknown(MaterialTypes.HEAD);
@@ -49,6 +57,7 @@ public class WeaponDagger extends SwordCore {
     data.handle(handle);
     data.extra(extra);
 
+    data.durability *= DURABILITY_MODIFIER;
     return data;
   }
 }
