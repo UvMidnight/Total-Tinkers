@@ -9,35 +9,40 @@ Total Tinkers is under the <a href="https://tldrlegal.com/license/mit-license"> 
 
 Code and package structure is very haphazard. Code needs some significant changes. Remove proxies by version 1.0. Clean up render code.
 
-Implement following weapons:
+<h3>Changes to old weapons:</h3>
 
-Proper Javelin behavior
+* Proper Javelin behavior
+* Proper dagger behavior. as of now it is only a meele weapon.
+* Throwing knives - needs rework. Probably not going to even bother to implement this
+* Battleaxe needs the option to use the old behavior
+<h3>Remake a lot of textures:</h3>
 
-Proper dagger behavior. as of now it is only a meele weapon.
+* Dagger is still using all the old ones
 
-Throwing knives - needs rework. Probably not going to even bother to implement this
+* Not very happy with some of the greatblade ones
 
-Remake a lot of textures:
+* Add sounds and particles to all the weapons
 
-Dagger is still using all the old ones
+<h3>Some new weapons to work on:</h3>
 
-Not very happy with some of the greatblade ones
+* Scimitar. Weak weapon that focuses on using bleeds to obliterate targets
 
-Add sounds and particles to all the weapons
+* Boomerang. Self explanatory
 
-Some new weapons to work on:
+* Gunblade: Meele weapon with occasional shooting. Think warframe's high noon bullet guns.
 
-Scimitar. Weak weapon that focuses on using bleeds to obliterate targets
+* Shield: Battlesign but less battle-ish
 
-Boomerang. Self explanatory
+* Some alternative to the current bow type weapons.
 
-Gunblade: Meele weapon with occasional shooting. Think warframe's high noon bullet guns.
+<h3>Tweaks to implement</h3>
 
-Shield: Battlesign but less battle-ish
+* Enable option to remove damage cap - (library/utils/toolhelper, literally just return whats given)
 
-Add custom Particles to added weapons
+* Stricter "Two Handed" weapons. 
 
-Learn how to do asm:
+<h3>QOL:</h3>
 
-
-Enable option to remove damage cap - library/utils/toolhelper, literally just return whats given
+* If the stencils that are loot from dungeons are enabled, a tooltip should be added to them.
+* Clean up descriptions
+* Move location of crafting for some of the weapons
