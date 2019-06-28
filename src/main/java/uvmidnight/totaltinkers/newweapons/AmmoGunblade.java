@@ -1,4 +1,4 @@
-package uvmidnight.totaltinkers.tinkers.newweapons;
+package uvmidnight.totaltinkers.newweapons;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,18 +12,18 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 public class AmmoGunblade extends ProjectileCore {
-  @Override
-  public ProjectileNBT buildTagData(List<Material> materials) {
-    return null;
-  }
+    @Override
+    public ProjectileNBT buildTagData(List<Material> materials) {
+        return null;
+    }
 
-  @Override
-  public float damagePotential() {
-    return 0;
-  }
+    @Override
+    public float damagePotential() {
+        return 0;
+    }
 
-  @Override
-  public EntityProjectileBase getProjectile(@Nonnull ItemStack stack, @Nonnull ItemStack launcher, World world, EntityPlayer player, float speed, float inaccuracy, float power, boolean usedAmmo) {
-    return null;
-  }
+    @Override
+    public EntityProjectileBase getProjectile(@Nonnull ItemStack stack, @Nonnull ItemStack launcher, World world, EntityPlayer player, float speed, float inaccuracy, float power, boolean usedAmmo) {
+        return null;
+    }
 }
