@@ -35,12 +35,14 @@ public class WeaponCrossbowOveride extends CrossBow {
 
     private static boolean autoCrossbowReload;
     private static boolean crossbowOldCrosshair;
+    private static boolean offhandTicking;
 
     public WeaponCrossbowOveride() {
         super();
 
         autoCrossbowReload = OldWeapons.autoCrossbowReload.getBoolean();
         crossbowOldCrosshair = OldWeapons.crossbowOldCrosshair.getBoolean();
+        offhandTicking = OldWeapons.autoCrossbowDualWield.getBoolean();
 
         if (autoCrossbowReload) {
             this.addPropertyOverride(PROPERTY_PULL_PROGRESS, new IItemPropertyGetter() {
@@ -57,16 +59,28 @@ public class WeaponCrossbowOveride extends CrossBow {
                 }
             });
 
-            this.addPropertyOverride(PROPERTY_IS_PULLING, new BooleanItemPropertyGetter() {
-                @Override
+            this.addPropertyOverride(PROPERTY_IS_PULLING, new IItemPropertyGetter() {
+
+                @SideOnly(Side.CLIENT)
+                public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                    return applyIf(stack, worldIn, entityIn) ? 1f : 0f;
+                }
+
+                @SideOnly(Side.CLIENT)
                 public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-                    return true;
+                    return isReloading(stack);
                 }
             });
 
-            this.addPropertyOverride(PROPERTY_IS_LOADED, new BooleanItemPropertyGetter() {
+            this.addPropertyOverride(PROPERTY_IS_LOADED, new IItemPropertyGetter() {
+                @SideOnly(Side.CLIENT)
                 @Override
-                public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                    return applyIf(stack, worldIn, entityIn) ? 1f : 0f;
+                }
+
+                @SideOnly(Side.CLIENT)
+               public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
                     return entityIn != null && isLoaded(stack) && !isReloading(stack);
                 }
             });
@@ -118,12 +132,23 @@ public class WeaponCrossbowOveride extends CrossBow {
             NBTTagCompound tags = TagUtil.getTagSafe(stack);
             EntityPlayer player = (EntityPlayer) entity;
 
-            if (player.inventory.getCurrentItem() != stack) {
-//        preventSlowDown(player, 0.195f);
-                if (!isLoaded(stack)) {
-                    tags.setInteger(TAG_ReloadProgress, 0);
+
+            if (offhandTicking) {
+                if ((player.inventory.getCurrentItem() != stack && player.getHeldItemOffhand() != stack)) {
+                    //preventSlowDown(player, 0.195f);
+                    if (!isLoaded(stack)) {
+                        tags.setInteger(TAG_ReloadProgress, 0);
+                    }
+                    return;
                 }
-                return;
+            } else {
+                if (player.inventory.getCurrentItem() != stack) {
+                    //preventSlowDown(player, 0.195f);
+                    if (!isLoaded(stack)) {
+                        tags.setInteger(TAG_ReloadProgress, 0);
+                    }
+                    return;
+                }
             }
 
             if (isReloading(stack)) {
@@ -216,6 +241,9 @@ public class WeaponCrossbowOveride extends CrossBow {
         if (autoCrossbowReload) {
             if (isLoaded(itemStack)) {
                 return 1f;
+            }
+            if (offhandTicking && player.getHeldItemOffhand().getItem() instanceof WeaponCrossbowOveride && player.getHeldItemMainhand().getItem() instanceof WeaponCrossbowOveride) {
+                return 1f; //disables crosshair while dual wielding
             }
             if (isReloading(itemStack)) {
                 return getDrawbackProgress(itemStack, getReloadingProgress(itemStack));

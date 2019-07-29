@@ -15,6 +15,11 @@ public class EntityBullet extends EntityProjectileBase {
         super(world, d, d1, d2);
     }
 
+    @Override
+    protected ItemStack getArrowStack() {
+        return null;
+    }
+
     public EntityBullet(World world, EntityPlayer player, float speed, float inaccuracy, ItemStack stack, ItemStack launchingStack) {
         super(world, player, speed, inaccuracy, 1f, stack, launchingStack);
     }

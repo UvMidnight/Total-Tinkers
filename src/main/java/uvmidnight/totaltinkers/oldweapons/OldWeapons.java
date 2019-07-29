@@ -39,6 +39,7 @@ public class OldWeapons implements IModule {
     public static Property crossbowOldCrosshair;
     public static Property autoCrossbowReload;
     public static Property autoCrossbowSlowdown;
+    public static Property autoCrossbowDualWield;
 
     public static Property fullGuardEnabled;
     public static Property fullGuardFromVillages;
@@ -72,8 +73,9 @@ public class OldWeapons implements IModule {
         berserkerStrength = cfg.get(CategoryName, "Berserker Effect Strength", 0, "Level of Strength berserker gives. 1 is Strength 2, or 3 hearts extra of damage per hit.");
         berserkerJumpBoost = cfg.get(CategoryName, "Berserker Effect Jump Boost", 1, "Level of jump boost berserker gives. 1 is jump boost 2.", Short.MIN_VALUE, Short.MAX_VALUE);
 
-        crossbowOldCrosshair = cfg.get(CategoryName, "crossbowOldCrosshair", true, "If the old crossbow cursor should be used");
-        autoCrossbowReload = cfg.get(CategoryName, "autoCrossbowReload", false, "If enabled, the crossbow will automatically reload after being shot.");
+        crossbowOldCrosshair = cfg.get(CategoryName, "Crossbow Crosshair", true, "If the old crossbow cursor should be used");
+        autoCrossbowReload = cfg.get(CategoryName, "Crossbow Automatic Reload After Shooting", false, "If enabled, the crossbow will automatically reload after being shot.");
+        autoCrossbowDualWield = cfg.get(CategoryName, "Crossbow Apply automatic behavior to dual wield", true, "If enabled, the crossbow will still automatically reload while in offhand");
 //    autoCrossbowSlowdown = cfg.getBoolean("autoCrossbowSlowdown", CATEGORY_CROSSBOW, true, "If the automatic reload function is enabled, the crossbow will slow the player while reloading");
     }
 

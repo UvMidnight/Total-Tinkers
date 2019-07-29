@@ -6,6 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.entity.EntityProjectileBase;
 
+import javax.annotation.Nonnull;
+
 public class EntityJavelin extends EntityProjectileBase {
 
     // animation
@@ -19,6 +21,12 @@ public class EntityJavelin extends EntityProjectileBase {
 
     public EntityJavelin(World world, double d, double d1, double d2) {
         super(world, d, d1, d2);
+    }
+
+    @Nonnull
+    @Override
+    protected ItemStack getArrowStack() {
+        return tinkerProjectile.getItemStack();
     }
 
     public EntityJavelin(World world, EntityPlayer player, float speed, float inaccuracy, ItemStack stack, ItemStack launchingStack) {

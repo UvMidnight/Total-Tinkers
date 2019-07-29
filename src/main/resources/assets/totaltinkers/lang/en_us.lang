@@ -22,3 +22,5 @@ tinkers.greatblade.bossmultiplier.negative=§cEnemy HP Based Damage to Bosses: -
 
 tooltip.fullGuard=Perhaps your villager friends may help out with this?
 tooltip.greatbladecore=Can be found in end ships
+
+effect.berserker=Berserker

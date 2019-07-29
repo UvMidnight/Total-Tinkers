@@ -1,6 +1,7 @@
 package uvmidnight.totaltinkers.oldweapons;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -92,6 +93,19 @@ public class WeaponBattleAxe extends AoeToolCore {
         }
         return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
     }
+
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
+        if (!(entity instanceof EntityPlayer)) {
+            super.onUpdate(stack, world, entity, itemSlot, isSelected);
+        }
+        EntityPlayer player = (EntityPlayer) entity;
+        if (!(player.getHeldItemMainhand().getItem() instanceof WeaponBattleAxe)) {
+            TotalTinkers.proxy.renderScreenFullColor(0xffff0000, false);
+        }
+    }
+
+
 
     @Override
     protected ToolNBT buildTagData(List<Material> materials) {
