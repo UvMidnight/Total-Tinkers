@@ -81,9 +81,10 @@ public class WeaponBattleAxe extends AoeToolCore {
             if (!worldIn.isRemote) {
                 if (!playerIn.isPotionActive(OldWeapons.potionBerserker)) {
                     playerIn.addPotionEffect(new PotionBerserkerEffect(OldWeapons.potionBerserker, Integer.MAX_VALUE));
-                    playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 100);//cooldown is only applied when adding it.
+                    playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 80);
                 } else {
                     playerIn.removePotionEffect(OldWeapons.potionBerserker);
+                    playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 80);
                 }
             }
 
@@ -99,10 +100,18 @@ public class WeaponBattleAxe extends AoeToolCore {
         if (!(entity instanceof EntityPlayer)) {
             super.onUpdate(stack, world, entity, itemSlot, isSelected);
         }
-        EntityPlayer player = (EntityPlayer) entity;
-        if (!(player.getHeldItemMainhand().getItem() instanceof WeaponBattleAxe)) {
-            TotalTinkers.proxy.renderScreenFullColor(0xffff0000, false);
-        }
+//        EntityPlayer player = (EntityPlayer) entity;
+//        if (!(player.getHeldItemMainhand().getItem() instanceof WeaponBattleAxe)) {
+//            if (world.isRemote) {
+//                TotalTinkers.proxy.renderScreenFullColor(0xffff0000, false);
+//            }
+//        } else {
+//            if (player.isPotionActive(OldWeapons.potionBerserker)) {
+//                if (world.isRemote) {
+//                    TotalTinkers.proxy.renderScreenFullColor(0xffff0000, !player.isPotionActive(OldWeapons.potionBerserker));
+//                }
+//            }
+//        }
     }
 
 
