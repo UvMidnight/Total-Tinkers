@@ -17,7 +17,7 @@ public class PotionBerserkerEffect extends PotionEffect {
 
     @Override
     public boolean onUpdate(EntityLivingBase entityIn) {
-        entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 300, OldWeapons.berserkerResistance.getInt(), false, false));
+        entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 30, OldWeapons.berserkerResistance.getInt(), false, false));
         if (entityIn.getHeldItemMainhand().getItem() instanceof WeaponBattleAxe) {
             entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 30, OldWeapons.berserkerSpeed.getInt(), false, false));
             entityIn.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 30, OldWeapons.berserkerJumpBoost.getInt(), false, false));
