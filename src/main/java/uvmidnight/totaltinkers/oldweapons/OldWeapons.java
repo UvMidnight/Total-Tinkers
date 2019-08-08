@@ -91,7 +91,7 @@ public class OldWeapons implements IModule {
                 TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), fullGuard));
             }
         }
-        if (OldWeapons.fullGuardFromVillages.getBoolean()) {
+        if (OldWeapons.battleaxeEnabled.getBoolean()) {
             OldWeapons.battleaxe = new WeaponBattleAxe();
             TotalTinkersRegister.initForgeTool(OldWeapons.battleaxe, event);
         }
@@ -113,9 +113,6 @@ public class OldWeapons implements IModule {
             TinkerRegistry.registerToolStationCrafting(OldWeapons.dagger);
             TotalTinkers.proxy.registerToolModel(OldWeapons.dagger);
         }
-        TinkerRegistry.registerToolForgeCrafting(OldWeapons.dagger);
-        TinkerRegistry.registerToolStationCrafting(OldWeapons.dagger);
-        TotalTinkers.proxy.registerToolModel(OldWeapons.dagger);
         if (OldWeapons.isReplacingCrossbow.getBoolean()) {
             TinkerRangedWeapons.crossBow = new WeaponCrossbowOveride();
             TotalTinkersRegister.initForgeTool(TinkerRangedWeapons.crossBow, event);
