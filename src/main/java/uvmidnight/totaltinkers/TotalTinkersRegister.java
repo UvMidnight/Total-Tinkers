@@ -67,7 +67,7 @@ public class TotalTinkersRegister {
     public static void onRegisterPotions(RegistryEvent.Register<Potion> event) {
         if (OldWeapons.battleaxeEnabled.getBoolean()) {
             OldWeapons.potionBerserker = new PotionBerserker(false, 0xff0000);
-//            event.getRegistry().register(OldWeapons.potionBerserker);
+            event.getRegistry().register(OldWeapons.potionBerserker);
         }
         if (Experimental.scimitarEnabled.getBoolean()){
             Experimental.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
