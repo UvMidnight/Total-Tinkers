@@ -12,7 +12,7 @@ public class PotionHemorrhageEffect extends PotionEffect {
     //Every level of hemorrhage on the target deals 1 damage every second.
     @Override
     public boolean onUpdate(EntityLivingBase entityIn) {
-        entityIn.attackEntityFrom(DamageSource.MAGIC, 2.0F * getAmplifier());
+        entityIn.attackEntityFrom(DamageSource.GENERIC, 2.0F * getAmplifier());
 
         return super.onUpdate(entityIn);
     }
