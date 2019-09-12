@@ -17,7 +17,7 @@ import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
 import uvmidnight.totaltinkers.TotalTinkers;
-import uvmidnight.totaltinkers.oldweapons.potions.PotionBerserkerEffect;
+import uvmidnight.totaltinkers.oldweapons.potion.PotionBerserkerEffect;
 
 import javax.annotation.Nonnull;
 import java.util.List;

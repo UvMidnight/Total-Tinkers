@@ -14,7 +14,7 @@ import slimeknights.tconstruct.tools.ranged.TinkerRangedWeapons;
 import uvmidnight.totaltinkers.IModule;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.TotalTinkersRegister;
-import uvmidnight.totaltinkers.oldweapons.potions.PotionBerserker;
+import uvmidnight.totaltinkers.oldweapons.potion.PotionBerserker;
 
 public class OldWeapons implements IModule {
     final static String CategoryName = "Old Tools";

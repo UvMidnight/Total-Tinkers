@@ -24,7 +24,7 @@ import slimeknights.tconstruct.library.tools.ranged.ProjectileCore;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
-import uvmidnight.totaltinkers.oldweapons.entities.EntityJavelin;
+import uvmidnight.totaltinkers.oldweapons.entity.EntityJavelin;
 
 import javax.annotation.Nonnull;
 import java.util.List;

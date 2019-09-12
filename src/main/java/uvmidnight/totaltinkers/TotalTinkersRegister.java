@@ -1,7 +1,6 @@
 package uvmidnight.totaltinkers;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -12,21 +11,18 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.tools.Pattern;
 import slimeknights.tconstruct.library.tools.ToolCore;
-import slimeknights.tconstruct.library.tools.ToolPart;
 import slimeknights.tconstruct.tools.TinkerModifiers;
-import slimeknights.tconstruct.tools.TinkerTools;
 
-import uvmidnight.totaltinkers.newweapons.NewWeapons;
-import uvmidnight.totaltinkers.newweapons.WeaponGreatblade;
+import uvmidnight.totaltinkers.experimental.Experimental;
+import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhage;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 import uvmidnight.totaltinkers.oldweapons.RenderJavelin;
-import uvmidnight.totaltinkers.oldweapons.entities.EntityJavelin;
-import uvmidnight.totaltinkers.oldweapons.potions.PotionBerserker;
+import uvmidnight.totaltinkers.oldweapons.entity.EntityJavelin;
+import uvmidnight.totaltinkers.oldweapons.potion.PotionBerserker;
 
+//THIS IS LEGACY CODE!!! I AM TOO LAZY TO FIX IT
 @Mod.EventBusSubscriber
 public class TotalTinkersRegister {
 
@@ -72,6 +68,9 @@ public class TotalTinkersRegister {
         if (OldWeapons.battleaxeEnabled.getBoolean()) {
             OldWeapons.potionBerserker = new PotionBerserker(false, 0xff0000);
             event.getRegistry().register(OldWeapons.potionBerserker);
+        }
+        if (Experimental.scimitarEnabled.getBoolean()){
+            Experimental.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
         }
     }
 

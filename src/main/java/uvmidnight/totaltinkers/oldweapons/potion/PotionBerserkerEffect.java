@@ -1,9 +1,8 @@
-package uvmidnight.totaltinkers.oldweapons.potions;
+package uvmidnight.totaltinkers.oldweapons.potion;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 import uvmidnight.totaltinkers.oldweapons.WeaponBattleAxe;
 

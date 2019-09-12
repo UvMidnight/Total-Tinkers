@@ -1,4 +1,4 @@
-package uvmidnight.totaltinkers.oldweapons.potions;
+package uvmidnight.totaltinkers.oldweapons.potion;
 
 import net.minecraft.potion.Potion;
 

@@ -1,4 +1,4 @@
-package uvmidnight.totaltinkers.oldweapons.entities;
+package uvmidnight.totaltinkers.oldweapons.entity;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
