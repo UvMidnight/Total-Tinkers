@@ -1,0 +1,8 @@
+{
+  "textures": {
+    "layer0": "totaltinkers:item/scimitar/handle",
+    "layer1": "totaltinkers:item/scimitar/blade",
+    "layer2": "totaltinkers:item/scimitar/guard",
+    "broken1": "totaltinkers:item/scimitar/broken_blade"
+  }
+}

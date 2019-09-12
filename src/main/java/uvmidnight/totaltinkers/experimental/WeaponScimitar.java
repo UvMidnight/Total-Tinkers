@@ -66,8 +66,8 @@ public class WeaponScimitar extends SwordCore {
                 }
 
                 NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-                int duration = (int) tag.getFloat(Tags.ATTACK) * 6 + 20;
-                System.out.println(amp);
+                int duration = (int) tag.getFloat(Tags.ATTACK) * 6;
+
                 ((EntityLivingBase) entity).addPotionEffect(new PotionHemorrhageEffect(Experimental.potionHemorrhage, duration, amp + 1));
             }
         }
