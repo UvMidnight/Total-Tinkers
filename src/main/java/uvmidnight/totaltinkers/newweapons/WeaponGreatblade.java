@@ -45,7 +45,7 @@ public class WeaponGreatblade extends SwordCore {
 
     @Override
     public float damagePotential() {
-        return 0.6F;
+        return 0.7F;
     }
 
     @Override
