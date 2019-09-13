@@ -4,6 +4,7 @@ item.cutlass.name=Cutlass
 item.javelin.name=Javelin
 item.dagger.name=Dagger
 item.tconstruct:crossbow.name=Crossbow
+item.scimitar.name=Scimitar
 
 item.fullGuard.name=Full Guard
 item.greatbladeCore.name=Greatblade Core
@@ -13,14 +14,19 @@ item.battleaxe.desc=The Battleaxe is a heavy offensive weapon. It is capable of 
 item.cutlass.desc=The Cutlass is a weapon for those of great skill, or those who think they have it and want to show off. On critical hits, a short burst of speed is granted.
 item.javelin.desc=Ranged Melee weapon hybrid. Potent as a melee weapon, devastating at range.
 item.tconstruct:crossbow.desc=The Crossbow is a slow but very powerful weapon. It has to be loaded beforehand, but can be fired at any moment afterwards.\nUses Tinkers' Bolts.
-item.dagger.desc="The Dagger is a short blade that can not be thrown."
+item.dagger.desc=The Dagger is a short blade that can not be thrown.
+item.scimitar.desc=The scimitar is a sharp, lightweight blade designed to bleed enemies to death.
 
 tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: §9%.2f%%
 tinkers.greatblade.bossmultiplier.hpHover=§9+%.2f%% Enemy Maximum HP Damage
 tinkers.greatblade.bossmultiplier.positive=§9Enemy HP Based Damage to Bosses: +%.2f%%
 tinkers.greatblade.bossmultiplier.negative=§cEnemy HP Based Damage to Bosses: -%.2f%%
 
+tinkers.scimitar.bleed.hover=§c%1$,.2f bleed duration
+tinkers.scimitar.bleed.duration=Bleed duration: §c%1$,.2fs
+
 tooltip.fullGuard=Perhaps your villager friends may help out with this?
 tooltip.greatbladecore=Can be found in end ships
 
 effect.berserker=Berserker
+effect.hemorrhage=Hemorrhage

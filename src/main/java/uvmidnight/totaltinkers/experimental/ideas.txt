@@ -1,5 +1,8 @@
 Bomb: Extremely low capacity, explosive throwing weapon with a heavy arc. Crafted with an explosives core, large plate, and tough tool rod.
 
-Scimitar: Extremely low damage weapon with most of its damage coming from ramping dot effects. Crafted from binding, sword blade, and rod.
-
 Boomerang: the weapon of the boomers and the down under
+
+
+DONE:
+
+Scimitar: Extremely low damage weapon with most of its damage coming from ramping dot effects. Crafted from binding, sword blade, and rod.

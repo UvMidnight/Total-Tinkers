@@ -1,5 +1,6 @@
 package uvmidnight.totaltinkers.experimental;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -12,10 +13,13 @@ import slimeknights.tconstruct.library.tools.SwordCore;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
+import slimeknights.tconstruct.library.utils.ToolHelper;
+import slimeknights.tconstruct.library.utils.TooltipBuilder;
 import slimeknights.tconstruct.tools.TinkerTools;
 import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhageEffect;
 import uvmidnight.totaltinkers.newweapons.NewWeapons;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WeaponScimitar extends SwordCore {
@@ -72,5 +76,39 @@ public class WeaponScimitar extends SwordCore {
             }
         }
         return super.dealDamage(stack, player, entity, damage);
+    }
+    @Override
+    public List<String> getInformation(ItemStack stack, boolean detailed) {
+        List<String> list = new ArrayList<>();
+        TooltipBuilder info = new TooltipBuilder(stack);
+        String out;
+        NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
+
+        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F)/20F;
+
+        info.addDurability(!detailed);
+
+        out = I18n.format("tinkers.scimitar.bleed.duration", bleedduration);
+        info.add(out);
+
+        info.addAttack();
+
+        if (ToolHelper.getFreeModifiers(stack) > 0) {
+            info.addFreeModifiers();
+        }
+        if (detailed) {
+            info.addModifierInfo();
+        }
+
+        list.addAll(info.getTooltip());
+
+        return list;
+    }
+    @Override
+    public void getTooltip(ItemStack stack, List<String> tooltips) {
+        super.getTooltip(stack, tooltips);
+        NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
+        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F)/20F;
+        tooltips.add(I18n.format("tinkers.scimitar.bleed.hover", bleedduration));
     }
 }

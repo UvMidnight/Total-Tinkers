@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.event.RegistryEvent;
+import slimeknights.tconstruct.library.TinkerRegistry;
 import uvmidnight.totaltinkers.IModule;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhage;
@@ -30,8 +31,9 @@ public class Experimental implements IModule {
         if (scimitarEnabled.getBoolean()) {
             weaponScimitar = new WeaponScimitar();
             event.getRegistry().register(weaponScimitar);
+            TinkerRegistry.registerToolForgeCrafting(weaponScimitar);
+            TinkerRegistry.registerToolStationCrafting(weaponScimitar);
             TotalTinkers.proxy.registerToolModel(weaponScimitar);
-
         }
     }
     @Override

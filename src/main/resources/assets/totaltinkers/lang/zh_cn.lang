@@ -13,7 +13,7 @@ item.battleaxe.desc=战斧是种重型攻击武器。它能砍到小型树木。
 item.cutlass.desc=弯刀适合那些技巧高超、或是想用它来炫技的人的武器。暴击时可以短时间获得爆发速度。
 item.javelin.desc=近战远程兼具的武器，近战时拥有毁灭性的攻击距离。
 item.tconstruct:crossbow.desc=十字弩是一个装填速度缓慢但威力强劲的武器。它可以事先通过右键来装填好，之后任意时刻就可以直接发射。\n使用匠魂的弩箭。
-item.dagger.desc="匕首剑刃较小并且不能投掷。"
+item.dagger.desc=匕首剑刃较小并且不能投掷。
 
 tinkers.greatblade.bossmultiplier.percentMaxHp=敌方最大生命值伤害: §9%.2f%%
 tinkers.greatblade.bossmultiplier.hpHover=§9+%.2f%% 敌方最大生命值伤害
