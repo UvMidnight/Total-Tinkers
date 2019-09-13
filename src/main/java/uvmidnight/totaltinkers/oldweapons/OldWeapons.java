@@ -65,6 +65,7 @@ public class OldWeapons implements IModule {
         cutlassSpeedStrength = cfg.get(CategoryName, "Cutlass Speed Effect Strength", 2, "What speed amplitude to give. 3 is default", -1, Short.MAX_VALUE);
 
         fullGuardFromVillages = cfg.get(CategoryName, "fullGuardFromVillages", true, "Should the full guard pattern come from villages. Disable to make it craftable in the stencil table.");
+        fullGuardEnabled = cfg.get(CategoryName, "fullguardCraftable", true, "If the full guard should be obtainable normally. If you wish to add your own recipe, set this to false.");
 
         disable_screen_overlay = cfg.get(CategoryName, "Battle Axe Overlay Disabled", false, "If the red overlay for battleaxe's berserker is disabled");
         berserkerSpeed = cfg.get(CategoryName, "Berserker Effect Speed", 1, "Level of speed berserker gives. 1 is speed 2.", Short.MIN_VALUE, Short.MAX_VALUE);
@@ -87,7 +88,7 @@ public class OldWeapons implements IModule {
             event.getRegistry().register(fullGuard);
             TinkerRegistry.registerToolPart(fullGuard);
             TotalTinkers.proxy.registerToolPartModel(fullGuard);
-            if (!OldWeapons.fullGuardFromVillages.getBoolean()) {
+            if (!OldWeapons.fullGuardFromVillages.getBoolean() && fullGuardEnabled.getBoolean()) {
                 TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), fullGuard));
             }
         }

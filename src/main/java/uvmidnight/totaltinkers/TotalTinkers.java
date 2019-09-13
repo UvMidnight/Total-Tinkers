@@ -21,6 +21,9 @@ import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 import java.io.File;
 import java.util.ArrayList;
 
+import static uvmidnight.totaltinkers.newweapons.NewWeapons.greatbladeCoreCraftable;
+import static uvmidnight.totaltinkers.oldweapons.OldWeapons.fullGuardEnabled;
+
 
 @Mod.EventBusSubscriber
 @Mod(name = TotalTinkers.NAME, modid = TotalTinkers.MODID, version = TotalTinkers.VERSION, dependencies = "after:tconstruct", acceptedMinecraftVersions = "[1.12, 1.13)")
@@ -44,12 +47,12 @@ public class TotalTinkers {
 
     @SubscribeEvent
     public static void modifyLootTables(LootTableLoadEvent e) {
-        if (e.getName().toString().equals("minecraft:chests/village_blacksmith") && OldWeapons.fullGuardFromVillages.getBoolean()) {
+        if (e.getName().toString().equals("minecraft:chests/village_blacksmith") && OldWeapons.fullGuardFromVillages.getBoolean() && fullGuardEnabled.getBoolean()) {
             LootEntry entry = new LootEntryTable(new ResourceLocation("totaltinkers:inject/village_blacksmith"), 1, 0, new LootCondition[0], MODID + ":greatbladePatternEndTreasure");
             LootPool pool = new LootPool(new LootEntry[]{entry}, new LootCondition[0], new RandomValueRange(1F, 1F), new RandomValueRange(0F, 0F), MODID + ":greatbladePatternEndTreasure");
             e.getTable().addPool(pool);
         }
-        if (e.getName().toString().equals("minecraft:chests/end_city_treasure") && NewWeapons.greatbladeCoreFromEndShip.getBoolean()) {
+        if (e.getName().toString().equals("minecraft:chests/end_city_treasure") && NewWeapons.greatbladeCoreFromEndShip.getBoolean() && greatbladeCoreCraftable.getBoolean()) {
             LootEntry entry = new LootEntryTable(new ResourceLocation("totaltinkers:inject/end_city_treasure"), 1, 0, new LootCondition[0], MODID + ":fullGuardPatternVillageBlacksmith");
             LootPool pool = new LootPool(new LootEntry[]{entry}, new LootCondition[0], new RandomValueRange(1F, 1F), new RandomValueRange(0F, 0F), MODID + ":fullGuardPatternVillageBlacksmith");
             e.getTable().addPool(pool);
