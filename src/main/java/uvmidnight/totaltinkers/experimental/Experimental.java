@@ -8,7 +8,6 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import uvmidnight.totaltinkers.IModule;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhage;
-import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 
 public class Experimental implements IModule {
     final static String CategoryName = "Experimental Module";
@@ -19,11 +18,12 @@ public class Experimental implements IModule {
 
     public static PotionHemorrhage potionHemorrhage;
     public static WeaponScimitar weaponScimitar;
+
     @Override
     public void buildConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CategoryName, "Configuration for new experimental weapons.");
-        boomerangEnabled = cfg.get(CategoryName,"Boomerang Enabled", false, "If the boomerang should be enabled");
-        bombEnabled = cfg.get(CategoryName, "Bomb Enabled", false,  "If the bomb should be enabled");
+        boomerangEnabled = cfg.get(CategoryName, "Boomerang Enabled", false, "If the boomerang should be enabled");
+        bombEnabled = cfg.get(CategoryName, "Bomb Enabled", false, "If the bomb should be enabled");
         scimitarEnabled = cfg.get(CategoryName, "Scimitar Enabled", true, "If the scimitar is enabled");
     }
 
@@ -35,14 +35,5 @@ public class Experimental implements IModule {
             TinkerRegistry.registerToolStationCrafting(weaponScimitar);
             TotalTinkers.proxy.registerToolModel(weaponScimitar);
         }
-    }
-    @Override
-    public String getCategoryName() {
-        return null;
-    }
-
-    @Override
-    public Property getConfigProperty() {
-        return null;
     }
 }

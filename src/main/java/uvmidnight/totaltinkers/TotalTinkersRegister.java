@@ -22,19 +22,12 @@ import uvmidnight.totaltinkers.oldweapons.RenderJavelin;
 import uvmidnight.totaltinkers.oldweapons.entity.EntityJavelin;
 import uvmidnight.totaltinkers.oldweapons.potion.PotionBerserker;
 
-//THIS IS LEGACY CODE!!! I AM TOO LAZY TO FIX IT
+//THIS IS LEGACY CODE!
 @Mod.EventBusSubscriber
 public class TotalTinkersRegister {
 
-    //public static SemiPistol semiPistol;
-
     @SubscribeEvent
     public static void initItems(RegistryEvent.Register<Item> event) {
-        /*
-        semiPistol = new SemiPistol();
-        event.getRegistry().register(semiPistol);
-        TotalTinkers.proxy.registerToolModel(semiPistol);
-        */
         for (IModule module : TotalTinkers.Modules) {
             module.initItems(event);
         }

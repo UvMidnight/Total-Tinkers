@@ -5,7 +5,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.PotionEffect;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
@@ -17,7 +16,6 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
 import slimeknights.tconstruct.tools.TinkerTools;
 import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhageEffect;
-import uvmidnight.totaltinkers.newweapons.NewWeapons;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +26,8 @@ public class WeaponScimitar extends SwordCore {
                 PartMaterialType.head(TinkerTools.swordBlade),
                 PartMaterialType.extra(TinkerTools.binding));
 
-
         this.addCategory(Category.WEAPON);
-
         setTranslationKey("scimitar").setRegistryName("scimitar");
-
     }
 
 
@@ -46,6 +41,8 @@ public class WeaponScimitar extends SwordCore {
         data.head(head0);
         data.extra(binding);
         data.handle(handle);
+
+        data.durability *= 1.3;
 
         return data;
     }
@@ -65,7 +62,7 @@ public class WeaponScimitar extends SwordCore {
         if (readyForSpecialAttack(player)) {
             if (entity instanceof EntityLivingBase) {
                 int amp = 0;
-                if (((EntityLivingBase) entity).isPotionActive(Experimental.potionHemorrhage)){
+                if (((EntityLivingBase) entity).isPotionActive(Experimental.potionHemorrhage)) {
                     amp = ((EntityLivingBase) entity).getActivePotionEffect(Experimental.potionHemorrhage).getAmplifier();
                 }
 
@@ -77,6 +74,7 @@ public class WeaponScimitar extends SwordCore {
         }
         return super.dealDamage(stack, player, entity, damage);
     }
+
     @Override
     public List<String> getInformation(ItemStack stack, boolean detailed) {
         List<String> list = new ArrayList<>();
@@ -84,7 +82,7 @@ public class WeaponScimitar extends SwordCore {
         String out;
         NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
 
-        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F)/20F;
+        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F) / 20F;
 
         info.addDurability(!detailed);
 
@@ -104,11 +102,12 @@ public class WeaponScimitar extends SwordCore {
 
         return list;
     }
+
     @Override
     public void getTooltip(ItemStack stack, List<String> tooltips) {
         super.getTooltip(stack, tooltips);
         NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F)/20F;
+        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F) / 20F;
         tooltips.add(I18n.format("tinkers.scimitar.bleed.hover", bleedduration));
     }
 }

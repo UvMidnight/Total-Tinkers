@@ -2,7 +2,8 @@ Bomb: Extremely low capacity, explosive throwing weapon with a heavy arc. Crafte
 
 Boomerang: the weapon of the boomers and the down under
 
+Halbeard: Long reach meele weapon that does significantly increased damage to mounted units and flying players.
 
 DONE:
 
-Scimitar: Extremely low damage weapon with most of its damage coming from ramping dot effects. Crafted from binding, sword blade, and rod.
+Scimitar: Low base damage weapon with most of its damage coming from ramping dot effects. Crafted from binding, sword blade, and rod.

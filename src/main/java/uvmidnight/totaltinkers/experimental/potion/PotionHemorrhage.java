@@ -1,6 +1,5 @@
 package uvmidnight.totaltinkers.experimental.potion;
 
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.potion.Potion;
 
 public class PotionHemorrhage extends Potion {

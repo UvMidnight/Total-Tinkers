@@ -9,7 +9,7 @@ public class PotionHemorrhageEffect extends PotionEffect {
         super(potion, effectDuration, amplifier, false, true);
     }
 
-    //Every level of hemorrhage on the target deals 1 damage every second.
+    //Every level of hemorrhage on the target deals 2 damage every second.
     @Override
     public boolean onUpdate(EntityLivingBase entityIn) {
         entityIn.attackEntityFrom(DamageSource.GENERIC, 2.0F * getAmplifier());

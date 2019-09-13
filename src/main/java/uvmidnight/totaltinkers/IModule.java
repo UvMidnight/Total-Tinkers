@@ -8,10 +8,6 @@ import net.minecraftforge.event.RegistryEvent;
 public interface IModule {
     void buildConfig(Configuration cfg);
 
-    String getCategoryName();
-
-    Property getConfigProperty();
-
     default void preInit() {
     }
 

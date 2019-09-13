@@ -59,14 +59,4 @@ public class NewWeapons implements IModule {
             TotalTinkersRegister.initForgeTool(greatblade, event);
         }
     }
-
-    @Override
-    public String getCategoryName() {
-        return null;
-    }
-
-    @Override
-    public Property getConfigProperty() {
-        return null;
-    }
 }

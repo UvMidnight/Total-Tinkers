@@ -119,15 +119,4 @@ public class OldWeapons implements IModule {
             TotalTinkersRegister.initForgeTool(TinkerRangedWeapons.crossBow, event);
         }
     }
-
-
-    @Override
-    public String getCategoryName() {
-        return null;
-    }
-
-    @Override
-    public Property getConfigProperty() {
-        return null;
-    }
 }
