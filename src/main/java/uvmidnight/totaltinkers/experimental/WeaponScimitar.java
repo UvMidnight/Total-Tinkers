@@ -43,6 +43,7 @@ public class WeaponScimitar extends SwordCore {
         data.handle(handle);
 
         data.durability *= 1.3;
+        data.attack += 1;
 
         return data;
     }

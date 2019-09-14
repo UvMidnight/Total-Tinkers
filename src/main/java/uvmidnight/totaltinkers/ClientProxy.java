@@ -66,6 +66,7 @@ public class ClientProxy extends CommonProxy {
             scimitarInfo.addSlotPosition(33 - 20 - 1, 42 + 20); // handle
             scimitarInfo.addSlotPosition(33 + 20 - 5, 42 - 20 + 4); // blade
             scimitarInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
+            TinkerRegistryClient.addToolBuilding(scimitarInfo);
         }
     }
 

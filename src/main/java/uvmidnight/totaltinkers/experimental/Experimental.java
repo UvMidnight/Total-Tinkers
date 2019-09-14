@@ -22,8 +22,8 @@ public class Experimental implements IModule {
     @Override
     public void buildConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CategoryName, "Configuration for new experimental weapons.");
-        boomerangEnabled = cfg.get(CategoryName, "Boomerang Enabled", false, "If the boomerang should be enabled");
-        bombEnabled = cfg.get(CategoryName, "Bomb Enabled", false, "If the bomb should be enabled");
+        //boomerangEnabled = cfg.get(CategoryName, "Boomerang Enabled", false, "If the boomerang should be enabled");
+        //bombEnabled = cfg.get(CategoryName, "Bomb Enabled", false, "If the bomb should be enabled");
         scimitarEnabled = cfg.get(CategoryName, "Scimitar Enabled", true, "If the scimitar is enabled");
     }
 
