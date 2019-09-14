@@ -4,6 +4,8 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_necrotic",
 		"javelin": "totaltinkers:item/javelin/mod_necrotic",
 		"dagger": "totaltinkers:item/dagger/mod_necrotic",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_necrotic"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_necrotic",
+		"scimitar": "totaltinkers:item/scimitar/mod_necrotic"
+
 	}
 }

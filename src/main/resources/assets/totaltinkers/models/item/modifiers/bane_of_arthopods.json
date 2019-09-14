@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_bane_spider",
 		"javelin": "totaltinkers:item/javelin/mod_bane_spider",
 		"dagger": "totaltinkers:item/dagger/mod_bane_spider",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_bane_spider"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_bane_spider",
+		"scimitar": "totaltinkers:item/scimitar/mod_bane_spider"
 	}
 }

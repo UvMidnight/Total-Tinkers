@@ -4,6 +4,8 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_smite",
 		"javelin": "totaltinkers:item/javelin/mod_smite",
 		"dagger": "totaltinkers:item/dagger/mod_smite",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_smite"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_smite",
+		"scimitar": "totaltinkers:item/scimitar/mod_smite"
+
 	}
 }

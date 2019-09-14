@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_reinforced",
 		"javelin": "totaltinkers:item/javelin/mod_reinforced",
 		"dagger": "totaltinkers:item/dagger/mod_reinforced",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_reinforced"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_reinforced",
+		"scimitar": "totaltinkers:item/scimitar/mod_reinforced"
 	}
 }

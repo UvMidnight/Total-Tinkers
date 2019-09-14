@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_glowing",
 		"javelin": "totaltinkers:item/javelin/mod_glowing",
 		"dagger": "totaltinkers:item/dagger/mod_glowing",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_glowing"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_glowing",
+		"scimitar": "totaltinkers:item/scimitar/mod_glowing"
 	}
 }

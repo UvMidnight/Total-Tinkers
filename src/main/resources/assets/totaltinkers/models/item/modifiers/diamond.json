@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_diamond",
 		"javelin": "totaltinkers:item/javelin/mod_diamond",
 		"dagger": "totaltinkers:item/dagger/mod_diamond",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_diamond"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_diamond",
+		"scimitar": "totaltinkers:item/scimitar/mod_diamond"
 	}
 }

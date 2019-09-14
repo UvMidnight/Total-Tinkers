@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_mending_moss",
 		"javelin": "totaltinkers:item/javelin/mod_mending_moss",
 		"dagger": "totaltinkers:item/dagger/mod_mending_moss",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_mending_moss"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_mending_moss",
+		"scimitar": "totaltinkers:item/scimitar/mod_mending_moss"
 	}
 }

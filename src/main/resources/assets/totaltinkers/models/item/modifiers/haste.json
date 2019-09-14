@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_haste",
 		"javelin": "totaltinkers:item/javelin/mod_haste",
 		"dagger": "totaltinkers:item/dagger/mod_haste",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_haste"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_haste",
+		"scimitar": "totaltinkers:item/scimitar/mod_haste"
 	}
 }

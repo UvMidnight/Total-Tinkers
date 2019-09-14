@@ -4,6 +4,8 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_silk",
 		"javelin": "totaltinkers:item/javelin/mod_silk",
 		"dagger": "totaltinkers:item/dagger/mod_silk",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_silk"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_silk",
+		"scimitar": "totaltinkers:item/scimitar/mod_silk"
+
 	}
 }

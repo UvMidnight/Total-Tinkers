@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_beheading",
 		"javelin": "totaltinkers:item/javelin/mod_beheading",
 		"dagger": "totaltinkers:item/dagger/mod_beheading",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_beheading"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_beheading",
+		"scimitar": "totaltinkers:item/scimitar/mod_beheading"
 	}
 }

@@ -4,6 +4,8 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_soulbound",
 		"javelin": "totaltinkers:item/javelin/mod_soulbound",
 		"dagger": "totaltinkers:item/dagger/mod_soulbound",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_soulbound"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_soulbound",
+		"scimitar": "totaltinkers:item/scimitar/mod_soulbound"
+
 	}
 }

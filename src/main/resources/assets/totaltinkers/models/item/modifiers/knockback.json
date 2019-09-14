@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_knockback",
 		"javelin": "totaltinkers:item/javelin/mod_knockback",
 		"dagger": "totaltinkers:item/dagger/mod_knockback",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_knockback"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_knockback",
+		"scimitar": "totaltinkers:item/scimitar/mod_knockback"
 	}
 }

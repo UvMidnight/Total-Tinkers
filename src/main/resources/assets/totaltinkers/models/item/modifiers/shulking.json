@@ -4,6 +4,8 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_shulking",
 		"javelin": "totaltinkers:item/javelin/mod_shulking",
 		"dagger": "totaltinkers:item/dagger/mod_shulking",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_shulking"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_shulking",
+		"scimitar": "totaltinkers:item/scimitar/mod_shulking"
+
 	}
 }

@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_sharpness",
 		"javelin": "totaltinkers:item/javelin/mod_sharpness",
 		"dagger": "totaltinkers:item/dagger/mod_sharpness",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_sharpness"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_sharpness",
+		"scimitar": "totaltinkers:item/scimitar/mod_sharpness"
 	}
 }

@@ -4,6 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_emerald",
 		"javelin": "totaltinkers:item/javelin/mod_emerald",
 		"dagger": "totaltinkers:item/dagger/mod_emerald",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_emerald"
+		"battleaxe": "totaltinkers:item/battleaxe/mod_emerald",
+		"scimitar": "totaltinkers:item/scimitar/mod_emerald"
 	}
 }
