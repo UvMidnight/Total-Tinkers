@@ -22,7 +22,7 @@ tinkers.greatblade.bossmultiplier.hpHover=§9+%.2f%% Enemy Maximum HP Damage
 tinkers.greatblade.bossmultiplier.positive=§9Enemy HP Based Damage to Bosses: +%.2f%%
 tinkers.greatblade.bossmultiplier.negative=§cEnemy HP Based Damage to Bosses: -%.2f%%
 
-tinkers.scimitar.bleed.hover=§c%1$,.2f bleed duration
+tinkers.scimitar.bleed.hover=§c%1$,.2fs bleed duration
 tinkers.scimitar.bleed.duration=Bleed duration: §c%1$,.2fs
 
 tooltip.fullGuard=Perhaps your villager friends may help out with this?

@@ -68,7 +68,7 @@ public class WeaponScimitar extends SwordCore {
                 }
 
                 NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-                int duration = (int) tag.getFloat(Tags.ATTACK) * 6;
+                int duration = Math.max((int) (tag.getFloat(Tags.ATTACK) * 8F - 12F), 0);
 
                 ((EntityLivingBase) entity).addPotionEffect(new PotionHemorrhageEffect(Experimental.potionHemorrhage, duration, amp + 1));
             }
@@ -83,7 +83,7 @@ public class WeaponScimitar extends SwordCore {
         String out;
         NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
 
-        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F) / 20F;
+        float bleedduration = Math.max((tag.getFloat(Tags.ATTACK) * 8F - 12F) / 20F, 0);
 
         info.addDurability(!detailed);
 
@@ -108,7 +108,7 @@ public class WeaponScimitar extends SwordCore {
     public void getTooltip(ItemStack stack, List<String> tooltips) {
         super.getTooltip(stack, tooltips);
         NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-        float bleedduration = (tag.getFloat(Tags.ATTACK) * 6F) / 20F;
+        float bleedduration = Math.max((tag.getFloat(Tags.ATTACK) * 8F - 12F) / 20F, 0);
         tooltips.add(I18n.format("tinkers.scimitar.bleed.hover", bleedduration));
     }
 }
