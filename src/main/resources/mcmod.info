@@ -5,10 +5,10 @@
   "description": "Adds some tools, old and new, to Tinkers Construct",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/total-tinkers",
   "updateUrl": "",
   "authorList": ["UvMidnight"],
-  "credits": "Lots of people for answering my annoying questions",
+  "credits": "Teeto_Kaziim for emotional inspiration, Landmaster and plustic for technical inspiration",
   "logoFile": "",
   "screenshots": [],
   "dependencies": ["Tinkers Construct"]
