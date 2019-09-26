@@ -29,6 +29,7 @@ public class OldWeapons implements IModule {
     public static Property cutlassSpeedStrength;
 
     public static Property disable_screen_overlay;
+    public static Property battleaxeOverlayNew;
 
     public static Property berserkerSpeed;
     public static Property berserkerHaste;
@@ -68,6 +69,7 @@ public class OldWeapons implements IModule {
         fullGuardEnabled = cfg.get(CategoryName, "fullguardCraftable", true, "If the full guard should be obtainable normally. If you wish to add your own recipe, set this to false.");
 
         disable_screen_overlay = cfg.get(CategoryName, "Battle Axe Overlay Disabled", false, "If the red overlay for battleaxe's berserker is disabled");
+        battleaxeOverlayNew = cfg.get(CategoryName, "New Battleaxe Overlay", true, "Should the new less aggresive gradient be used.");
         berserkerSpeed = cfg.get(CategoryName, "Berserker Effect Speed", 1, "Level of speed berserker gives. 1 is speed 2.", Short.MIN_VALUE, Short.MAX_VALUE);
         berserkerHaste = cfg.get(CategoryName, "Berserker Effect Haste", 2, "Level of haste berserker gives. 2 is haste 3.", Short.MIN_VALUE, Short.MAX_VALUE);
         berserkerResistance = cfg.get(CategoryName, "Berserker Effect Resistance", -5, "Level of resistance berserker gives. -4 is +80% damage dealt, 20% per level of resistance");

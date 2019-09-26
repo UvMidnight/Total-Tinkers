@@ -27,9 +27,11 @@ public class LayerBattleaxe extends Gui {
     private int screenColor = 0;
     private boolean rendering = false;
     private int renderFullColor;
+    private boolean isNewRender;
 
     public LayerBattleaxe(Minecraft mc) {
         this.mc = mc;
+        isNewRender = OldWeapons.battleaxeOverlayNew.getBoolean();
     }
 
     @SubscribeEvent
@@ -39,7 +41,11 @@ public class LayerBattleaxe extends Gui {
         if (event.phase == TickEvent.Phase.END)
             return;
         if (rendering) {
-            screenColor = renderFullColor;
+            if (mc.player.isPotionActive(OldWeapons.potionBerserker)) {
+                screenColor = renderFullColor;
+            } else {
+                screenColor = 0;
+            }
         } else {
             screenColor = 0;
         }
@@ -122,11 +128,12 @@ public class LayerBattleaxe extends Gui {
 
             bh = Math.round(h / (float) 4 * 0.5F);
             bw = Math.round(w / (float) 8 * 0.5F);
-
-            this.drawGradientRect(0, 0, w, bh, screenColor, 0x000);
-            this.drawGradientRect(0, h - bh, w, h, 0x00000000, screenColor);
-            this.drawGradientRect2(0, 0, bw, h, 0x000000, screenColor);
-            this.drawGradientRect2(w - bw, 0, w, h, screenColor, 0x00);
+            if (!isNewRender) {
+                this.drawGradientRect(0, 0, w, bh, screenColor, 0x000);
+                this.drawGradientRect(0, h - bh, w, h, 0x00000000, screenColor);
+                this.drawGradientRect2(0, 0, bw, h, 0x000000, screenColor);
+                this.drawGradientRect2(w - bw, 0, w, h, screenColor, 0x00);
+            }
 //      }
             GL11.glEnable(GL11.GL_DEPTH_TEST);
             GlStateManager.popMatrix();
