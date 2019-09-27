@@ -43,9 +43,18 @@ public class WeaponGreatblade extends SwordCore {
         setTranslationKey("greatblade").setRegistryName("greatblade");
     }
 
+    public static float calcPercent(ItemStack stack) {
+        NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
+        float tagHP = tag.getFloat(Tags.ATTACK);
+
+        return (float) Math.min(25, 0.7 * tagHP * Math.pow(Math.E, -tagHP / 100F));
+//        float percentHp = tagHP * 0.7F;
+//        return percentHp;
+    }
+
     @Override
     public float damagePotential() {
-        return 0.7F;
+        return 0.9F;
     }
 
     @Override
@@ -69,10 +78,7 @@ public class WeaponGreatblade extends SwordCore {
     //TODO enable usage of percent current or missing hp
     @Override
     public boolean dealDamage(ItemStack stack, EntityLivingBase player, Entity entity, float damage) {
-        NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-        float percentHp = tag.getFloat(Tags.ATTACK);
-
-        float percentDmg = 0;
+        float percentHp = calcPercent(stack);
 
         //apparently how the attack damage due to combat update works
         float cooledModifier = 0.0F;
@@ -81,6 +87,7 @@ public class WeaponGreatblade extends SwordCore {
             cooledModifier = (0.2F + f * f * 0.8F);
         }
 
+        float percentDmg = 0;
         if (entity instanceof EntityLivingBase) {
             EntityLivingBase e = (EntityLivingBase) entity;
             boolean isBoss = !e.isNonBoss();
@@ -103,13 +110,10 @@ public class WeaponGreatblade extends SwordCore {
         List<String> list = new ArrayList<>();
         TooltipBuilder info = new TooltipBuilder(stack);
         String out;
-        NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-
-        float percentHp = tag.getFloat(Tags.ATTACK);
 
         info.addDurability(!detailed);
 
-        out = I18n.format("tinkers.greatblade.bossmultiplier.percentMaxHp", percentHp);
+        out = I18n.format("tinkers.greatblade.bossmultiplier.percentMaxHp", calcPercent(stack));
         info.add(out);
 
         if (Math.abs(NewWeapons.greatbladeBossMultiplier.getDouble() - 1) >= 1E-4) { // if it is not equal to one, a multiplier is displayed
@@ -140,9 +144,7 @@ public class WeaponGreatblade extends SwordCore {
     @Override
     public void getTooltip(ItemStack stack, List<String> tooltips) {
         super.getTooltip(stack, tooltips);
-        NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-        float percentHp = tag.getFloat(Tags.ATTACK);
-        tooltips.add(I18n.format("tinkers.greatblade.bossmultiplier.hpHover", percentHp));
+        tooltips.add(I18n.format("tinkers.greatblade.bossmultiplier.hpHover", calcPercent(stack)));
     }
 
     @Override
@@ -162,7 +164,8 @@ public class WeaponGreatblade extends SwordCore {
         data.extra(binding);
         data.handle(handle);
 
-        data.attack += 2;
+        data.attack += 1;
+        data.durability *= 1.4;
         return data;
     }
 }
