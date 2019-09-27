@@ -22,6 +22,8 @@ public class NewWeapons implements IModule {
     public static Property greatbladeBossMultiplier;
     public static Property greatbladeBossCap;
     public static Property greatbladeNormalCap;
+    public static Property greatbladePercentCap;
+    public static Property greatbladePercentCalc;
 
     public static Property greatbladeCoreCraftable;
     public static Property greatbladeCoreFromEndShip;
@@ -37,6 +39,8 @@ public class NewWeapons implements IModule {
         greatbladeBossMultiplier = cfg.get(CategoryNew, "Greatblade Boss Multiplier", 1f, "Multiplier for the percent damage dealt to bosses.", 0f, 20f);
         greatbladeBossCap = cfg.get(CategoryNew, "Greatblade Boss Damage Cap", 9000, "Cap for the damage that the hp damage does to bosses", 0, 9000);
         greatbladeNormalCap = cfg.get(CategoryNew, "Greatblade Normal Enemy Damage Cap", 9000, "Cap for the damage that the hp damage does to normal entities. This is separate of the cap to bosses", 0, 9000);
+        greatbladePercentCap = cfg.get(CategoryNew, "Greatblade percent HP Cap", 25.0F, "Cap for the percent of damage that the greatblade can deal per hit.");
+        greatbladePercentCalc = cfg.get(CategoryNew, "Greatblade Diminishing Calculations", 100F, "Internal number used for calculating the diminishing returns for the relation of Attack Damage to Percent HP damage. Lower numbers means that the value diminishes faster, Higher values makes the percent HP scaling more linear.");
         greatbladeCoreCraftable = cfg.get(CategoryNew, "greatbladeCoreCraftable", true, "If the greatblade core should be obtainable normally. If you wish to add your own recipe, set this to false.");
         greatbladeCoreFromEndShip = cfg.get(CategoryNew, "Greatblade Core Stencil from End Cities?", true, "Should the greatblade core pattern come from end cities. Disable to make it craftable in the stencil table.");
     }

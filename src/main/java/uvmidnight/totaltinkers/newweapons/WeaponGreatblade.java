@@ -46,8 +46,13 @@ public class WeaponGreatblade extends SwordCore {
     public static float calcPercent(ItemStack stack) {
         NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
         float tagHP = tag.getFloat(Tags.ATTACK);
-
-        return (float) Math.min(25, 0.7 * tagHP * Math.pow(Math.E, -tagHP / 100F));
+        float percentCap = (float) NewWeapons.greatbladePercentCap.getDouble();
+        float percentCalc = (float) NewWeapons.greatbladePercentCalc.getDouble();
+        if (tagHP < percentCalc) {
+            return (float) Math.min( percentCap, 0.7 * tagHP * Math.pow(Math.E, -tagHP / percentCalc));
+        } else {
+            return (float) Math.min(percentCap, 0.7 * percentCalc * Math.pow(Math.E, -percentCalc / percentCalc);
+        }
 //        float percentHp = tagHP * 0.7F;
 //        return percentHp;
     }

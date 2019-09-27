@@ -17,10 +17,10 @@ item.tconstruct:crossbow.desc=The Crossbow is a slow but very powerful weapon. I
 item.dagger.desc=The Dagger is a short blade that can not be thrown.
 item.scimitar.desc=The scimitar is a sharp, lightweight blade designed to bleed enemies to death.
 
-tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: §9%.2f%%
-tinkers.greatblade.bossmultiplier.hpHover=§9+%.2f%% Enemy Maximum HP Damage
-tinkers.greatblade.bossmultiplier.positive=§9Enemy HP Based Damage to Bosses: +%.2f%%
-tinkers.greatblade.bossmultiplier.negative=§cEnemy HP Based Damage to Bosses: -%.2f%%
+tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: §9%1$,.2f%%
+tinkers.greatblade.bossmultiplier.hpHover=§9+%1$,.2f%% Enemy Maximum HP Damage
+tinkers.greatblade.bossmultiplier.positive=§9Enemy HP Based Damage to Bosses: +%1$,.2f%%
+tinkers.greatblade.bossmultiplier.negative=§cEnemy HP Based Damage to Bosses: -%1$,.2f%%
 
 tinkers.scimitar.bleed.hover=§c%1$,.2fs bleed duration
 tinkers.scimitar.bleed.duration=Bleed duration: §c%1$,.2fs
