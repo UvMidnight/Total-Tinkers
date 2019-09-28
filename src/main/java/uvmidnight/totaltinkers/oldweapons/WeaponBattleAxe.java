@@ -87,7 +87,6 @@ public class WeaponBattleAxe extends AoeToolCore {
                     playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 80);
                 }
             }
-
             if (worldIn.isRemote) {
                 TotalTinkers.proxy.renderScreenFullColor(0xffff0000, !playerIn.isPotionActive(OldWeapons.potionBerserker)); // I have no idea why it is flipped but hey it works somehow
             }
@@ -113,7 +112,6 @@ public class WeaponBattleAxe extends AoeToolCore {
 //            }
 //        }
     }
-
 
 
     @Override

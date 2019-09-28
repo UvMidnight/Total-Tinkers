@@ -1,18 +1,22 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-build/
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
 
-tinkers 1\.12/
+# gradle
+build
+.gradle
 
-run/
-
-Scimitars\.iml
-
-python generation/
-
-\.idea/
-
-classes/
-
-eclipse/
-
-\.gradle/
+# other
+eclipse
+run

@@ -18,6 +18,7 @@ public class Experimental implements IModule {
 
     public static PotionHemorrhage potionHemorrhage;
     public static WeaponScimitar weaponScimitar;
+//    public static WeaponBomb weaponbomb;
 
     @Override
     public void buildConfig(Configuration cfg) {
@@ -35,5 +36,7 @@ public class Experimental implements IModule {
             TinkerRegistry.registerToolStationCrafting(weaponScimitar);
             TotalTinkers.proxy.registerToolModel(weaponScimitar);
         }
+//        weaponbomb = new WeaponBomb();
+//        event.getRegistry().register(weaponbomb);
     }
 }

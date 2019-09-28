@@ -15,7 +15,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.common.Sounds;
-import slimeknights.tconstruct.library.client.BooleanItemPropertyGetter;
 import slimeknights.tconstruct.library.client.crosshair.Crosshairs;
 import slimeknights.tconstruct.library.client.crosshair.ICrosshair;
 import slimeknights.tconstruct.library.tinkering.Category;
@@ -29,7 +28,6 @@ import javax.annotation.Nullable;
 
 
 public class WeaponCrossbowOveride extends CrossBow {
-
     private static final String TAG_ReloadProgress = "ReloadProgress";
     private static final String TAG_Reloading = "getReloadingProgress";
 
@@ -80,14 +78,13 @@ public class WeaponCrossbowOveride extends CrossBow {
                 }
 
                 @SideOnly(Side.CLIENT)
-               public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                public boolean applyIf(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
                     return entityIn != null && isLoaded(stack) && !isReloading(stack);
                 }
             });
         }
         addCategory(Category.LAUNCHER);
         setTranslationKey("tconstruct:crossbow").setRegistryName("tconstruct:crossbow");
-
     }
 
 

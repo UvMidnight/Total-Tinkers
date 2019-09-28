@@ -4,7 +4,7 @@
 		"cutlass": "totaltinkers:item/cutlass/mod_web",
 		"javelin": "totaltinkers:item/javelin/mod_web",
 		"dagger": "totaltinkers:item/dagger/mod_web",
-		"battleaxe": "totaltinkers:item/battleaxe/mod_web",
+		"battleaxe": "totaltinkers:item/battleaxe/mod_web",	
 		"scimitar": "totaltinkers:item/scimitar/mod_web"
 	}
 }

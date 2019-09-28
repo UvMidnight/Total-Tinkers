@@ -49,9 +49,9 @@ public class WeaponGreatblade extends SwordCore {
         float percentCap = (float) NewWeapons.greatbladePercentCap.getDouble();
         float percentCalc = (float) NewWeapons.greatbladePercentCalc.getDouble();
         if (tagHP < percentCalc) {
-            return (float) Math.min( percentCap, 0.7 * tagHP * Math.pow(Math.E, -tagHP / percentCalc));
+            return (float) Math.min(percentCap, 0.7 * tagHP * Math.pow(Math.E, -tagHP / percentCalc));
         } else {
-            return (float) Math.min(percentCap, 0.7 * percentCalc * Math.pow(Math.E, -percentCalc / percentCalc);
+            return (float) Math.min(percentCap, 0.7 * percentCalc * Math.pow(Math.E, -percentCalc / percentCalc));
         }
 //        float percentHp = tagHP * 0.7F;
 //        return percentHp;

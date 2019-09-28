@@ -14,7 +14,6 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.tools.TinkerModifiers;
-
 import uvmidnight.totaltinkers.experimental.Experimental;
 import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhage;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
@@ -62,7 +61,7 @@ public class TotalTinkersRegister {
             OldWeapons.potionBerserker = new PotionBerserker(false, 0xff0000);
             event.getRegistry().register(OldWeapons.potionBerserker);
         }
-        if (Experimental.scimitarEnabled.getBoolean()){
+        if (Experimental.scimitarEnabled.getBoolean()) {
             Experimental.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
 //            event.getRegistry().register(Experimental.potionHemorrhage);
         }
@@ -72,7 +71,9 @@ public class TotalTinkersRegister {
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         if (OldWeapons.javelinEnabled.getBoolean()) {
             EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "javelin"), EntityJavelin.class, "javelin", 1, TotalTinkers.instance, 64, 1, false);
+
         }
+//        EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "bomb"), EntityBomb.class, "bomb", 1, TotalTinkers.instance, 64, 1, false);
     }
 
     @SubscribeEvent
@@ -80,7 +81,9 @@ public class TotalTinkersRegister {
         if (OldWeapons.javelinEnabled.getBoolean()) {
             RenderingRegistry.registerEntityRenderingHandler(EntityJavelin.class, RenderJavelin::new);
         }
+//        RenderingRegistry.registerEntityRenderingHandler(EntityBomb.class, RenderBomb::new);
     }
+
 
     public static void initForgeTool(ToolCore core, RegistryEvent.Register<Item> event) {
         event.getRegistry().register(core);

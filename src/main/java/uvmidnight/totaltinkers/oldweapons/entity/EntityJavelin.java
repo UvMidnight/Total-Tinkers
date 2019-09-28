@@ -23,14 +23,14 @@ public class EntityJavelin extends EntityProjectileBase {
         super(world, d, d1, d2);
     }
 
+    public EntityJavelin(World world, EntityPlayer player, float speed, float inaccuracy, ItemStack stack, ItemStack launchingStack) {
+        super(world, player, speed, inaccuracy, 1f, stack, launchingStack);
+    }
+
     @Nonnull
     @Override
     protected ItemStack getArrowStack() {
         return tinkerProjectile.getItemStack();
-    }
-
-    public EntityJavelin(World world, EntityPlayer player, float speed, float inaccuracy, ItemStack stack, ItemStack launchingStack) {
-        super(world, player, speed, inaccuracy, 1f, stack, launchingStack);
     }
 
     @Override
