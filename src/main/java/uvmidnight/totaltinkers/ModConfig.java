@@ -30,7 +30,7 @@ public class ModConfig {
         cfg.addCustomCategoryComment("Enabled Modules", "What Modules are enabled");
         boolean oldWeapons = cfg.getBoolean("Old Weapons Enabled?", "Enabled Modules", true, "Should the old 1.7 weapons be added, born anew");
         boolean newWeapons = cfg.getBoolean("New Weapons Enabled?", "Enabled Modules", true, "Should new relatively polished weapons be added");
-        boolean experimental = cfg.getBoolean("Experimental Enabled?", "Enabled Modules", true, "Should the experimental module be enabled. Nothing in the module is enabled by default");
+        boolean experimental = cfg.getBoolean("Experimental Enabled?", "Enabled Modules", false, "Should the experimental module be enabled. Nothing in the module is enabled by default");
         if (oldWeapons) {
             TotalTinkers.Modules.add(new OldWeapons());
         }
