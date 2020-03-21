@@ -34,7 +34,7 @@ import java.util.List;
 //
 //Alternative config option gives it similarity with the cutlass NYI
 public class WeaponJavelin extends ProjectileCore {
-    public static final float DURABILITY_MODIFIER = 0.7f;
+    public static final float DURABILITY_MODIFIER = 0.6F;
 
     private static PartMaterialType rodPMT = new PartMaterialType(TinkerTools.toughToolRod, MaterialTypes.EXTRA, MaterialTypes.PROJECTILE);
 
@@ -52,6 +52,7 @@ public class WeaponJavelin extends ProjectileCore {
         data.extra(materials.get(0).getStatsOrUnknown(MaterialTypes.EXTRA),
                 materials.get(2).getStatsOrUnknown(MaterialTypes.EXTRA));
         data.durability *= DURABILITY_MODIFIER;
+        data.durability += 150;
         return data;
     }
 
