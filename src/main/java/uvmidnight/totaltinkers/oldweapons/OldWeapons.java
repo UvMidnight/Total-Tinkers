@@ -16,7 +16,7 @@ import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.TotalTinkersRegister;
 import uvmidnight.totaltinkers.oldweapons.potion.PotionBerserker;
 
-public class OldWeapons implements IModule {
+public class OldWeapons extends IModule {
     final static String CategoryName = "Old Tools";
 
     public static Property battleaxeEnabled;
@@ -51,6 +51,10 @@ public class OldWeapons implements IModule {
     public static PotionBerserker potionBerserker;
     public static WeaponJavelin javelin;
     public static WeaponDagger dagger;
+
+    public OldWeapons(boolean isEnabled) {
+        super(isEnabled);
+    }
 
     @Override
     public void buildConfig(Configuration cfg) {

@@ -9,7 +9,7 @@ import uvmidnight.totaltinkers.IModule;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhage;
 
-public class Experimental implements IModule {
+public class Experimental extends IModule {
     final static String CategoryName = "Experimental Module";
 
     public static Property boomerangEnabled;
@@ -18,6 +18,10 @@ public class Experimental implements IModule {
 
     public static PotionHemorrhage potionHemorrhage;
     public static WeaponScimitar weaponScimitar;
+
+    public Experimental(boolean isEnabled) {
+        super(isEnabled);
+    }
 //    public static WeaponBomb weaponbomb;
 
     @Override

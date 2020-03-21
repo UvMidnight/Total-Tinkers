@@ -14,7 +14,7 @@ import uvmidnight.totaltinkers.IModule;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.TotalTinkersRegister;
 
-public class NewWeapons implements IModule {
+public class NewWeapons extends IModule {
     public static String CategoryNew = "New Weapons";
 
     public static Property greatbladeEnabled;
@@ -30,6 +30,10 @@ public class NewWeapons implements IModule {
 
     public static ToolPart greatbladeCore;
     public static WeaponGreatblade greatblade;
+
+    public NewWeapons(boolean isEnabled) {
+        super(isEnabled);
+    }
 
     @Override
     public void buildConfig(Configuration cfg) {

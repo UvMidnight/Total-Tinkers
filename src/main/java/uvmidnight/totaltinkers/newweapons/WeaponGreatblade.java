@@ -82,35 +82,6 @@ public class WeaponGreatblade extends SwordCore {
 
     //TODO enable usage of percent current or missing hp
     @Override
-    public boolean dealDamage(ItemStack stack, EntityLivingBase player, Entity entity, float damage) {
-        float percentHp = calcPercent(stack);
-
-        //apparently how the attack damage due to combat update works
-        float cooledModifier = 0.0F;
-        if (player instanceof EntityPlayer) {//no idea how this interacts with fake players nor do I care
-            float f = ((EntityPlayer) player).getCooledAttackStrength(0.5F);
-            cooledModifier = (0.2F + f * f * 0.8F);
-        }
-
-        float percentDmg = 0;
-        if (entity instanceof EntityLivingBase) {
-            EntityLivingBase e = (EntityLivingBase) entity;
-            boolean isBoss = !e.isNonBoss();
-            percentDmg = (isBoss ? (Math.min((float) NewWeapons.greatbladeBossCap.getDouble(), (float) NewWeapons.greatbladeBossMultiplier.getDouble() * e.getMaxHealth() * percentHp / 100.0F)) : (Math.min((float) NewWeapons.greatbladeNormalCap.getDouble(), e.getMaxHealth() * percentHp / 100.0F)));
-        } else if (entity instanceof MultiPartEntityPart) {
-            MultiPartEntityPart e = (MultiPartEntityPart) entity;
-            if (e.parent instanceof EntityDragon) {// Must be DamageSource.Player for dragon
-                percentDmg = Math.min((float) NewWeapons.greatbladeBossCap.getDouble(), (float) NewWeapons.greatbladeBossMultiplier.getDouble() * ((EntityDragon) e.parent).getMaxHealth() * percentHp / 100.0F);
-            } else if (e.parent != null && e.parent instanceof EntityLivingBase) {
-                EntityLivingBase living = (EntityLivingBase) e.parent;
-                boolean isBoss = !e.isNonBoss();
-                percentDmg = (isBoss ? (Math.min((float) NewWeapons.greatbladeBossCap.getDouble(), (float) NewWeapons.greatbladeBossMultiplier.getDouble() * living.getMaxHealth() * percentHp / 100.0F)) : (Math.min(((float) NewWeapons.greatbladeNormalCap.getDouble()), living.getMaxHealth() * percentHp / 100.0F)));
-            }
-        }
-        return super.dealDamage(stack, player, entity, damage + percentDmg * cooledModifier);
-    }
-
-    @Override
     public List<String> getInformation(ItemStack stack, boolean detailed) {
         List<String> list = new ArrayList<>();
         TooltipBuilder info = new TooltipBuilder(stack);
@@ -144,6 +115,35 @@ public class WeaponGreatblade extends SwordCore {
         list.addAll(info.getTooltip());
 
         return list;
+    }
+
+    @Override
+    public boolean dealDamage(ItemStack stack, EntityLivingBase player, Entity entity, float damage) {
+        float percentHp = calcPercent(stack);
+
+        //apparently how the attack damage due to combat update works
+        float cooledModifier = 0.0F;
+        if (player instanceof EntityPlayer) {//no idea how this interacts with fake players nor do I care
+            float f = ((EntityPlayer) player).getCooledAttackStrength(0.5F);
+            cooledModifier = (0.2F + f * f * 0.8F);
+        }
+
+        float percentDmg = 0;
+        if (entity instanceof EntityLivingBase) {
+            EntityLivingBase e = (EntityLivingBase) entity;
+            boolean isBoss = !e.isNonBoss();
+            percentDmg = (isBoss ? (Math.min((float) NewWeapons.greatbladeBossCap.getDouble(), (float) NewWeapons.greatbladeBossMultiplier.getDouble() * e.getMaxHealth() * percentHp / 100.0F)) : (Math.min((float) NewWeapons.greatbladeNormalCap.getDouble(), e.getMaxHealth() * percentHp / 100.0F)));
+        } else if (entity instanceof MultiPartEntityPart) {
+            MultiPartEntityPart e = (MultiPartEntityPart) entity;
+            if (e.parent instanceof EntityDragon) {// Must be DamageSource.Player for dragon
+                percentDmg = Math.min((float) NewWeapons.greatbladeBossCap.getDouble(), (float) NewWeapons.greatbladeBossMultiplier.getDouble() * ((EntityDragon) e.parent).getMaxHealth() * percentHp / 100.0F);
+            } else if (e.parent != null && e.parent instanceof EntityLivingBase) {
+                EntityLivingBase living = (EntityLivingBase) e.parent;
+                boolean isBoss = !e.isNonBoss();
+                percentDmg = (isBoss ? (Math.min((float) NewWeapons.greatbladeBossCap.getDouble(), (float) NewWeapons.greatbladeBossMultiplier.getDouble() * living.getMaxHealth() * percentHp / 100.0F)) : (Math.min(((float) NewWeapons.greatbladeNormalCap.getDouble()), living.getMaxHealth() * percentHp / 100.0F)));
+            }
+        }
+        return super.dealDamage(stack, player, entity, damage + percentDmg * cooledModifier);
     }
 
     @Override

@@ -4,16 +4,24 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 
-public interface IModule {
-    void buildConfig(Configuration cfg);
+public abstract class IModule {
+    protected boolean isEnabled;
 
-    default void preInit() {
+    public IModule(boolean isEnabled) {
+        this.isEnabled = isEnabled;
+    }
+    public abstract void buildConfig(Configuration cfg);
+
+    public void preInit() {
     }
 
-    default void init() {
+    public void init() {
+    }
+    public boolean isEnabled() {
+        return isEnabled;
     }
 
-    default void initItems(RegistryEvent.Register<Item> event) {
+    public void initItems(RegistryEvent.Register<Item> event) {
     }
 
 }

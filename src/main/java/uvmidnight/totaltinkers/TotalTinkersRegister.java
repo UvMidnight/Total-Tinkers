@@ -28,7 +28,9 @@ public class TotalTinkersRegister {
     @SubscribeEvent
     public static void initItems(RegistryEvent.Register<Item> event) {
         for (IModule module : TotalTinkers.Modules) {
-            module.initItems(event);
+            if (module.isEnabled()) {
+                module.initItems(event);
+            }
         }
 
         for (IModifier modifier : new IModifier[]{
@@ -57,11 +59,11 @@ public class TotalTinkersRegister {
 
     @SubscribeEvent
     public static void onRegisterPotions(RegistryEvent.Register<Potion> event) {
-        if (OldWeapons.battleaxeEnabled.getBoolean()) {
+        if (OldWeapons.battleaxeEnabled.getBoolean() && ModConfig.oldWeapons) {
             OldWeapons.potionBerserker = new PotionBerserker(false, 0xff0000);
             event.getRegistry().register(OldWeapons.potionBerserker);
         }
-        if (Experimental.scimitarEnabled.getBoolean()) {
+        if (Experimental.scimitarEnabled.getBoolean() && ModConfig.experimental) {
             Experimental.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
 //            event.getRegistry().register(Experimental.potionHemorrhage);
         }
@@ -69,7 +71,7 @@ public class TotalTinkersRegister {
 
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
-        if (OldWeapons.javelinEnabled.getBoolean()) {
+        if (OldWeapons.javelinEnabled.getBoolean() && ModConfig.oldWeapons) {
             EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "javelin"), EntityJavelin.class, "javelin", 1, TotalTinkers.instance, 64, 1, false);
 
         }
@@ -78,7 +80,7 @@ public class TotalTinkersRegister {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        if (OldWeapons.javelinEnabled.getBoolean()) {
+        if (OldWeapons.javelinEnabled.getBoolean() && ModConfig.oldWeapons) {
             RenderingRegistry.registerEntityRenderingHandler(EntityJavelin.class, RenderJavelin::new);
         }
 //        RenderingRegistry.registerEntityRenderingHandler(EntityBomb.class, RenderBomb::new);
