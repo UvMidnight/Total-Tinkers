@@ -40,6 +40,7 @@ public class TotalTinkersRegister {
                 TinkerModifiers.modEmerald,
                 TinkerModifiers.modGlowing,
                 TinkerModifiers.modHaste,
+                TinkerModifiers.modFiery,
                 TinkerModifiers.modKnockback,
                 TinkerModifiers.modLuck,
                 TinkerModifiers.modMendingMoss,

@@ -1,0 +1,10 @@
+{
+  "textures": {
+	"greatblade": "totaltinkers:item/greatblade/mod_fiery",
+	"cutlass": "totaltinkers:item/cutlass/mod_fiery",
+	"javelin": "totaltinkers:item/javelin/mod_fiery",
+	"dagger": "totaltinkers:item/dagger/mod_fiery",
+	"battleaxe": "totaltinkers:item/battleaxe/mod_fiery",
+	"scimitar": "totaltinkers:item/scimitar/mod_fiery"
+  }
+  }
