@@ -22,7 +22,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import static uvmidnight.totaltinkers.newweapons.NewWeapons.greatbladeCoreCraftable;
-import static uvmidnight.totaltinkers.oldweapons.OldWeapons.fullGuardEnabled;
+import static uvmidnight.totaltinkers.oldweapons.OldWeapons.fullGuardCraftable;
 
 
 @Mod.EventBusSubscriber
@@ -47,7 +47,7 @@ public class TotalTinkers {
 
     @SubscribeEvent
     public static void modifyLootTables(LootTableLoadEvent e) {
-        if (e.getName().toString().equals("minecraft:chests/village_blacksmith") && OldWeapons.fullGuardFromVillages.getBoolean() && fullGuardEnabled.getBoolean()) {
+        if (e.getName().toString().equals("minecraft:chests/village_blacksmith") && OldWeapons.fullGuardFromVillages.getBoolean() && fullGuardCraftable.getBoolean()) {
             LootEntry entry = new LootEntryTable(new ResourceLocation("totaltinkers:inject/village_blacksmith"), 1, 0, new LootCondition[0], MODID + ":greatbladePatternEndTreasure");
             LootPool pool = new LootPool(new LootEntry[]{entry}, new LootCondition[0], new RandomValueRange(1F, 1F), new RandomValueRange(0F, 0F), MODID + ":greatbladePatternEndTreasure");
             e.getTable().addPool(pool);

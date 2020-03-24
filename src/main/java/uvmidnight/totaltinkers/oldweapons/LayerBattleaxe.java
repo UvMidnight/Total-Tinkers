@@ -72,7 +72,7 @@ public class LayerBattleaxe extends Gui {
     @SubscribeEvent(priority = EventPriority.LOW)
     public void onRenderWorldLast(RenderWorldLastEvent event) {
 
-        if (!OldWeapons.disable_screen_overlay.getBoolean() && screenColor != 0) {
+        if (!OldWeapons.disableBattleaxeScreenOverlay.getBoolean() && screenColor != 0) {
             // Set the working matrix/layer to a layer directly on the screen/in front of
             // the player
             ScaledResolution scaledresolution = new ScaledResolution(this.mc);

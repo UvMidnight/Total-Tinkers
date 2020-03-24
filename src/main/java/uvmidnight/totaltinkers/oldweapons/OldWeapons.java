@@ -28,7 +28,7 @@ public class OldWeapons extends IModule {
     public static Property cutlassSpeedDuration;
     public static Property cutlassSpeedStrength;
 
-    public static Property disable_screen_overlay;
+    public static Property disableBattleaxeScreenOverlay;
     public static Property battleaxeOverlayNew;
 
     public static Property berserkerSpeed;
@@ -39,10 +39,9 @@ public class OldWeapons extends IModule {
 
     public static Property crossbowOldCrosshair;
     public static Property autoCrossbowReload;
-    public static Property autoCrossbowSlowdown;
     public static Property autoCrossbowDualWield;
 
-    public static Property fullGuardEnabled;
+    public static Property fullGuardCraftable;
     public static Property fullGuardFromVillages;
     public static ToolPart fullGuard;
 
@@ -70,9 +69,9 @@ public class OldWeapons extends IModule {
         cutlassSpeedStrength = cfg.get(CategoryName, "Cutlass Speed Effect Strength", 2, "What speed amplitude to give. 3 is default", -1, Short.MAX_VALUE);
 
         fullGuardFromVillages = cfg.get(CategoryName, "fullGuardFromVillages", true, "Should the full guard pattern come from villages. Disable to make it craftable in the stencil table.");
-        fullGuardEnabled = cfg.get(CategoryName, "fullguardCraftable", true, "If the full guard should be obtainable normally. If you wish to add your own recipe, set this to false.");
+        fullGuardCraftable = cfg.get(CategoryName, "fullguardCraftable", true, "If the full guard should be obtainable via one of sthe two normal ways. If you wish to add your own recipe, set this to false.");
 
-        disable_screen_overlay = cfg.get(CategoryName, "Battle Axe Overlay Disabled", false, "If the red overlay for battleaxe's berserker is disabled");
+        disableBattleaxeScreenOverlay = cfg.get(CategoryName, "Battle Axe Overlay Disabled", false, "If the red overlay for battleaxe's berserker is disabled");
         battleaxeOverlayNew = cfg.get(CategoryName, "New Battleaxe Overlay", true, "Should the new less aggresive gradient be used.");
         berserkerSpeed = cfg.get(CategoryName, "Berserker Effect Speed", 1, "Level of speed berserker gives. 1 is speed 2.", Short.MIN_VALUE, Short.MAX_VALUE);
         berserkerHaste = cfg.get(CategoryName, "Berserker Effect Haste", 2, "Level of haste berserker gives. 2 is haste 3.", Short.MIN_VALUE, Short.MAX_VALUE);
@@ -94,7 +93,7 @@ public class OldWeapons extends IModule {
             event.getRegistry().register(fullGuard);
             TinkerRegistry.registerToolPart(fullGuard);
             TotalTinkers.proxy.registerToolPartModel(fullGuard);
-            if (!OldWeapons.fullGuardFromVillages.getBoolean() && fullGuardEnabled.getBoolean()) {
+            if (!OldWeapons.fullGuardFromVillages.getBoolean() && fullGuardCraftable.getBoolean()) {
                 TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), fullGuard));
             }
         }
