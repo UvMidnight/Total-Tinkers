@@ -30,7 +30,7 @@ import static uvmidnight.totaltinkers.oldweapons.OldWeapons.fullGuardCraftable;
 public class TotalTinkers {
     public static final String NAME = "Total Tinkers";
     public static final String MODID = "totaltinkers";
-    public static final String VERSION = "0.4.3";
+    public static final String VERSION = "0.4.5";
 
 
     @Mod.Instance(MODID)
