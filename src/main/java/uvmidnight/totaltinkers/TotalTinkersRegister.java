@@ -14,8 +14,8 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.tools.TinkerModifiers;
-import uvmidnight.totaltinkers.experimental.Experimental;
-import uvmidnight.totaltinkers.experimental.potion.PotionHemorrhage;
+import uvmidnight.totaltinkers.newweapons.potion.PotionHemorrhage;
+import uvmidnight.totaltinkers.newweapons.NewWeapons;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 import uvmidnight.totaltinkers.oldweapons.RenderJavelin;
 import uvmidnight.totaltinkers.oldweapons.entity.EntityJavelin;
@@ -64,8 +64,8 @@ public class TotalTinkersRegister {
             OldWeapons.potionBerserker = new PotionBerserker(false, 0xff0000);
             event.getRegistry().register(OldWeapons.potionBerserker);
         }
-        if (Experimental.scimitarEnabled.getBoolean() && ModConfig.experimental) {
-            Experimental.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
+        if (NewWeapons.scimitarEnabled.getBoolean() && ModConfig.newWeapons) {
+            NewWeapons.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
 //            event.getRegistry().register(Experimental.potionHemorrhage);
         }
     }

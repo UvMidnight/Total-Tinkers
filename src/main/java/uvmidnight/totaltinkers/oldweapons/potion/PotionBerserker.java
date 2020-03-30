@@ -5,7 +5,7 @@ import net.minecraft.potion.Potion;
 public class PotionBerserker extends Potion {
     public PotionBerserker(boolean isBadEffectIn, int liquidColorIn) {
         super(isBadEffectIn, liquidColorIn);
-        setPotionName("effect.berserker");
+        setPotionName("effect.totaltinkers.berserker");
         this.setRegistryName("totaltinkers", "berserker");
     }
 

@@ -68,11 +68,11 @@ public class OldWeapons extends IModule {
         cutlassSpeedDuration = cfg.get(CategoryName, "Cutlass Speed Effect Duration", 30, "How many ticks of speed to give", 0, Integer.MAX_VALUE);
         cutlassSpeedStrength = cfg.get(CategoryName, "Cutlass Speed Effect Strength", 2, "What speed amplitude to give. 3 is default", -1, Short.MAX_VALUE);
 
-        fullGuardFromVillages = cfg.get(CategoryName, "fullGuardFromVillages", true, "Should the full guard pattern come from villages. Disable to make it craftable in the stencil table.");
-        fullGuardCraftable = cfg.get(CategoryName, "fullguardCraftable", true, "If the full guard should be obtainable via one of the two normal ways. If you wish to add your own recipe, set this to false.");
+        fullGuardFromVillages = cfg.get(CategoryName, "Full Guard From Village", true, "Should the full guard pattern come from villages. Disable to make it craftable in the stencil table.");
+        fullGuardCraftable = cfg.get(CategoryName, "Full Guard Craftable", true, "If the full guard should be obtainable via one of the two normal ways. If you wish to add your own recipe, set this to false.");
 
         disableBattleaxeScreenOverlay = cfg.get(CategoryName, "Battle Axe Overlay Disabled", false, "If the red overlay for battleaxe's berserker is disabled");
-        battleaxeOverlayNew = cfg.get(CategoryName, "New Battleaxe Overlay", true, "Should the new less aggresive gradient be used.");
+        battleaxeOverlayNew = cfg.get(CategoryName, "New Battleaxe Overlay", true, "Should the new less aggressive gradient be used.");
         berserkerSpeed = cfg.get(CategoryName, "Berserker Effect Speed", 1, "Level of speed berserker gives. 1 is speed 2.", Short.MIN_VALUE, Short.MAX_VALUE);
         berserkerHaste = cfg.get(CategoryName, "Berserker Effect Haste", 2, "Level of haste berserker gives. 2 is haste 3.", Short.MIN_VALUE, Short.MAX_VALUE);
         berserkerResistance = cfg.get(CategoryName, "Berserker Effect Resistance", -5, "Level of resistance berserker gives. -4 is +80% damage dealt, 20% per level of resistance");

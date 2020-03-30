@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -72,7 +73,6 @@ public class WeaponBattleAxe extends AoeToolCore {
     @Nonnull
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        // todo: special action - beserk rage stuff
         ItemStack itemStackIn = playerIn.getHeldItem(hand);
 
         if (itemStackIn == playerIn.getHeldItemMainhand()) {    //if it is in the offhand nothing happens
@@ -84,6 +84,7 @@ public class WeaponBattleAxe extends AoeToolCore {
                     playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 80);
                 } else {
                     playerIn.removePotionEffect(OldWeapons.potionBerserker);
+                    playerIn.removePotionEffect(Potion.getPotionById(11));
                     playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 80);
                 }
             }

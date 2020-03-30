@@ -15,7 +15,7 @@ item.cutlass.desc=The Cutlass is a weapon for those of great skill, or those who
 item.javelin.desc=Ranged Melee weapon hybrid. Potent as a melee weapon, devastating at range.
 item.tconstruct:crossbow.desc=The Crossbow is a slow but very powerful weapon. It has to be loaded beforehand, but can be fired at any moment afterwards.\nUses Tinkers' Bolts.
 item.dagger.desc=The Dagger is a short blade that can not be thrown.
-item.scimitar.desc=The scimitar is a sharp, lightweight blade designed to bleed enemies to death.
+item.scimitar.desc=The scimitar is a sharp, lightweight blade focused on bleeding enemies to death.
 
 tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: §9%1$,.2f%%
 tinkers.greatblade.bossmultiplier.hpHover=§9+%1$,.2f%% Enemy Maximum HP Damage
@@ -28,5 +28,7 @@ tinkers.scimitar.bleed.duration=Bleed duration: §c%1$,.2fs
 tooltip.fullGuard=Perhaps your villager friends may help out with this?
 tooltip.greatbladecore=Can be found in end ships
 
-effect.berserker=Berserker
-effect.hemorrhage=Hemorrhage
+effect.totaltinkers.berserker=Berserker
+effect.totaltinkers.hemorrhage=Hemorrhage
+
+death.attack.totaltinkers.hemorrhage=%1$s died due to exsanguination

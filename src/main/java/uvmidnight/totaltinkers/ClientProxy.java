@@ -14,7 +14,6 @@ import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
-import uvmidnight.totaltinkers.experimental.Experimental;
 import uvmidnight.totaltinkers.newweapons.NewWeapons;
 import uvmidnight.totaltinkers.oldweapons.LayerBattleaxe;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
@@ -61,8 +60,8 @@ public class ClientProxy extends CommonProxy {
             daggerInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
             TinkerRegistryClient.addToolBuilding(daggerInfo);
         }
-        if (Experimental.weaponScimitar != null) {
-            ToolBuildGuiInfo scimitarInfo = new ToolBuildGuiInfo(Experimental.weaponScimitar);
+        if (NewWeapons.weaponScimitar != null) {
+            ToolBuildGuiInfo scimitarInfo = new ToolBuildGuiInfo(NewWeapons.weaponScimitar);
             scimitarInfo.addSlotPosition(33 - 20 - 1, 42 + 20); // handle
             scimitarInfo.addSlotPosition(33 + 20 - 5, 42 - 20 + 4); // blade
             scimitarInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
