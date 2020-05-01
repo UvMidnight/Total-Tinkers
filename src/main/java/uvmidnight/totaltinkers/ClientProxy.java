@@ -14,6 +14,7 @@ import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
+import uvmidnight.totaltinkers.explosives.Explosives;
 import uvmidnight.totaltinkers.newweapons.NewWeapons;
 import uvmidnight.totaltinkers.oldweapons.LayerBattleaxe;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
@@ -66,6 +67,21 @@ public class ClientProxy extends CommonProxy {
             scimitarInfo.addSlotPosition(33 + 20 - 5, 42 - 20 + 4); // blade
             scimitarInfo.addSlotPosition(33 - 2 - 1, 42 + 2); // guard
             TinkerRegistryClient.addToolBuilding(scimitarInfo);
+        }
+        if (Explosives.explosiveBow != null) {
+            ToolBuildGuiInfo explosiveBowInfo = new ToolBuildGuiInfo(Explosives.explosiveBow);
+            explosiveBowInfo.addSlotPosition(32 + 12, 41 - 22); // top limb
+            explosiveBowInfo.addSlotPosition(32 - 22, 41 + 12); // left limb
+            explosiveBowInfo.addSlotPosition(32 - 15, 41 - 15); // grip
+            explosiveBowInfo.addSlotPosition(32 + 6, 41 + 6); // center bowstring
+            TinkerRegistryClient.addToolBuilding(explosiveBowInfo);
+        }
+        if (Explosives.explosiveArrow != null) {
+            ToolBuildGuiInfo explosiveArrowInfo = new ToolBuildGuiInfo(Explosives.explosiveArrow);
+            explosiveArrowInfo.addSlotPosition(32, 41); // center
+            explosiveArrowInfo.addSlotPosition(32 + 18, 41 - 18); // top right
+            explosiveArrowInfo.addSlotPosition(32 - 18, 41 + 18); // bot left
+            TinkerRegistryClient.addToolBuilding(explosiveArrowInfo);
         }
     }
 

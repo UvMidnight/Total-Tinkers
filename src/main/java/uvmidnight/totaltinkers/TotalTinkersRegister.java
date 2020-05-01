@@ -14,6 +14,11 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.tools.TinkerModifiers;
+import uvmidnight.totaltinkers.explosives.Explosives;
+import uvmidnight.totaltinkers.explosives.entity.EntityBomb;
+import uvmidnight.totaltinkers.explosives.entity.EntityExplosiveArrow;
+import uvmidnight.totaltinkers.explosives.entity.RenderBomb;
+import uvmidnight.totaltinkers.explosives.entity.RenderExplosiveArrow;
 import uvmidnight.totaltinkers.newweapons.potion.PotionHemorrhage;
 import uvmidnight.totaltinkers.newweapons.NewWeapons;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
@@ -66,17 +71,21 @@ public class TotalTinkersRegister {
         }
         if (NewWeapons.scimitarEnabled.getBoolean() && ModConfig.newWeapons) {
             NewWeapons.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
-//            event.getRegistry().register(Experimental.potionHemorrhage);
+            event.getRegistry().register(NewWeapons.potionHemorrhage);
         }
     }
 
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityEntry> event) {
         if (OldWeapons.javelinEnabled.getBoolean() && ModConfig.oldWeapons) {
-            EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "javelin"), EntityJavelin.class, "javelin", 1, TotalTinkers.instance, 64, 1, false);
-
+            EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "javelin"), EntityJavelin.class, "javelin", 9937, TotalTinkers.instance, 64, 1, false);
         }
-//        EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "bomb"), EntityBomb.class, "bomb", 1, TotalTinkers.instance, 64, 1, false);
+        if (Explosives.bombEnabled.getBoolean()) {
+            EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "bomb"), EntityBomb.class, "bomb", 1843, TotalTinkers.instance, 64, 1, false);
+        }
+        if (Explosives.explosiveBowEnabled.getBoolean()) {
+            EntityRegistry.registerModEntity(new ResourceLocation(TotalTinkers.MODID, "explosive_arrow"), EntityExplosiveArrow.class, "explosive_arrow", 2491, TotalTinkers.instance, 64, 1, false);
+        }
     }
 
     @SubscribeEvent
@@ -84,7 +93,13 @@ public class TotalTinkersRegister {
         if (OldWeapons.javelinEnabled.getBoolean() && ModConfig.oldWeapons) {
             RenderingRegistry.registerEntityRenderingHandler(EntityJavelin.class, RenderJavelin::new);
         }
-//        RenderingRegistry.registerEntityRenderingHandler(EntityBomb.class, RenderBomb::new);
+        if (Explosives.bombEnabled.getBoolean()) {
+            RenderingRegistry.registerEntityRenderingHandler(EntityBomb.class, RenderBomb::new);
+        }
+
+        if (Explosives.explosiveBowEnabled.getBoolean()) {
+            RenderingRegistry.registerEntityRenderingHandler(EntityExplosiveArrow.class, RenderExplosiveArrow::new);
+        }
     }
 
 

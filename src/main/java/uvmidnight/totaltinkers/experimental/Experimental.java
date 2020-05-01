@@ -11,12 +11,11 @@ public class Experimental extends IModule {
     final static String CategoryName = "Experimental Module";
 
     public static Property boomerangEnabled;
-    public static Property bombEnabled;
+
 
     public Experimental(boolean isEnabled) {
         super(isEnabled);
     }
-    //public static WeaponBomb weaponbomb;
 
     @Override
     public void buildConfig(Configuration cfg) {
@@ -25,8 +24,5 @@ public class Experimental extends IModule {
         //bombEnabled = cfg.get(CategoryName, "Bomb Enabled", false, "If the bomb should be enabled");
     }
 
-    public void initItems(RegistryEvent.Register<Item> event) {
-        //weaponbomb = new WeaponBomb();
-        //event.getRegistry().register(weaponbomb);
-    }
+
 }

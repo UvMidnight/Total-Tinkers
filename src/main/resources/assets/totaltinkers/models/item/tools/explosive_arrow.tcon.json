@@ -1,0 +1,7 @@
+{
+    "textures": {
+        "layer0": "totaltinkers:item/explosive_arrow/shaft",
+        "layer1": "totaltinkers:item/explosive_arrow/head",
+        "layer2": "totaltinkers:item/explosive_arrow/fletching"
+    }
+}

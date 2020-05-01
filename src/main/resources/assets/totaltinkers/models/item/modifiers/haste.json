@@ -5,6 +5,10 @@
 		"javelin": "totaltinkers:item/javelin/mod_haste",
 		"dagger": "totaltinkers:item/dagger/mod_haste",
 		"battleaxe": "totaltinkers:item/battleaxe/mod_haste",
-		"scimitar": "totaltinkers:item/scimitar/mod_haste"
+		"scimitar": "totaltinkers:item/scimitar/mod_haste",
+	  	"explosive_bow": "totaltinkers:item/explosive_bow/mod_haste",
+	  	"explosive_bow1": "totaltinkers:item/explosive_bow/mod_haste_1",
+	  	"explosive_bow2": "totaltinkers:item/explosive_bow/mod_haste_2",
+	  	"explosive_bow3": "totaltinkers:item/explosive_bow/mod_haste_3"
 	}
 }

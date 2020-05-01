@@ -63,7 +63,6 @@ public class OldWeapons extends IModule {
         cutlassEnabled = cfg.get(CategoryName, "Cutlass Enabled?", true, "Here be the sword of the seas.");
         javelinEnabled = cfg.get(CategoryName, "Javelin Enabled", true, "If the warframe's worst throwing weapon is enabled");
         daggerEnabled = cfg.get(CategoryName, "Dagger Enabled?", true, "Should the rouge's weapon, the dagger, be enabled");
-        isReplacingCrossbow = cfg.get(CategoryName, "Replace Tinker's Crossbow", false, "Should the crossbow be replaced by a custom version. This is REQUIRED for any of the crossbow tweaks");
 
         cutlassSpeedDuration = cfg.get(CategoryName, "Cutlass Speed Effect Duration", 30, "How many ticks of speed to give", 0, Integer.MAX_VALUE);
         cutlassSpeedStrength = cfg.get(CategoryName, "Cutlass Speed Effect Strength", 2, "What speed amplitude to give. 3 is default", -1, Short.MAX_VALUE);
@@ -78,6 +77,8 @@ public class OldWeapons extends IModule {
         berserkerResistance = cfg.get(CategoryName, "Berserker Effect Resistance", -5, "Level of resistance berserker gives. -4 is +80% damage dealt, 20% per level of resistance");
         berserkerStrength = cfg.get(CategoryName, "Berserker Effect Strength", 0, "Level of Strength berserker gives. 1 is Strength 2, or 3 hearts extra of damage per hit.");
         berserkerJumpBoost = cfg.get(CategoryName, "Berserker Effect Jump Boost", 1, "Level of jump boost berserker gives. 1 is jump boost 2.", Short.MIN_VALUE, Short.MAX_VALUE);
+
+        isReplacingCrossbow = cfg.get(CategoryName, "Replace Tinker's Crossbow", false, "Should the crossbow be replaced by a custom version. This is REQUIRED for any of the crossbow tweaks");
 
         crossbowOldCrosshair = cfg.get(CategoryName, "Crossbow Crosshair", true, "If the old crossbow cursor should be used");
         autoCrossbowReload = cfg.get(CategoryName, "Crossbow Automatic Reload After Shooting", false, "If enabled, the crossbow will automatically reload after being shot.");

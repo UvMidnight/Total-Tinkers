@@ -41,7 +41,7 @@ public class NewWeapons extends IModule {
     public static Property scimitarDamageStackable;
     public static Property scimitarBleedDurationRefreshable;
     public static Property canScimitarBleedDamageBosses;
-
+    public static Property scimitarCraftableInToolStation;
     public NewWeapons(boolean isEnabled) {
         super(isEnabled);
     }
@@ -65,7 +65,7 @@ public class NewWeapons extends IModule {
         scimitarDamagePerStack = cfg.get(CategoryNew, "Scimitar Bleed Damage Per Stack", 1f, "If damage is stackable, this is the damage that will be added to the damage per tick of the scimitar. The bleed will tick every half a second.", Double.MIN_VALUE, Double.MAX_VALUE);
         scimitarBleedDurationRefreshable = cfg.get(CategoryNew, "Scimitar Bleed Duration Refreshable", true, "If the duration that the scimitar's bleed lasts can be stacked by repeatedly damaging targets with mostly charged attacks. The bleed will tick every half a second.");
         canScimitarBleedDamageBosses = cfg.get(CategoryNew, "Can Scimitar Bleed Damage Bosses", true, "If the bleed from the scimitar can damage bosses at all. Note that both the Ender Dragon and Wither are immune to potion effects.");
-
+        scimitarCraftableInToolStation = cfg.get(CategoryNew, "Can Scimitar be crafted in Tool Station", false, "If the scimitar should only be craftable in the Tool Forge, and not the Tool Station..");
     }
 
     @Override
@@ -79,18 +79,18 @@ public class NewWeapons extends IModule {
             if (!NewWeapons.greatbladeCoreFromEndShip.getBoolean() && greatbladeCoreCraftable.getBoolean()) {
                 TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), greatbladeCore));
             }
-            if (NewWeapons.scimitarEnabled.getBoolean()) {
-                NewWeapons.weaponScimitar = new WeaponScimitar();
-                event.getRegistry().register(NewWeapons.weaponScimitar);
-                TinkerRegistry.registerToolForgeCrafting(NewWeapons.weaponScimitar);
-                TinkerRegistry.registerToolStationCrafting(NewWeapons.weaponScimitar);
-                TotalTinkers.proxy.registerToolModel(NewWeapons.weaponScimitar);
-            }
-        }
-
-        if (NewWeapons.greatbladeEnabled.getBoolean()) {
             greatblade = new WeaponGreatblade();
             TotalTinkersRegister.initForgeTool(greatblade, event);
+        }
+
+        if (NewWeapons.scimitarEnabled.getBoolean()) {
+            NewWeapons.weaponScimitar = new WeaponScimitar();
+            event.getRegistry().register(NewWeapons.weaponScimitar);
+            TinkerRegistry.registerToolForgeCrafting(NewWeapons.weaponScimitar);
+            if (scimitarCraftableInToolStation.getBoolean()) {
+                TinkerRegistry.registerToolStationCrafting(NewWeapons.weaponScimitar);
+            }
+            TotalTinkers.proxy.registerToolModel(NewWeapons.weaponScimitar);
         }
     }
 }

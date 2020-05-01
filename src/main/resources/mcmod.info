@@ -8,7 +8,7 @@
   "url": "https://www.curseforge.com/minecraft/mc-mods/total-tinkers",
   "updateUrl": "",
   "authorList": ["UvMidnight"],
-  "credits": "Teeto_Kaziim for emotional inspiration, Landmaster and plustic for technical inspiration",
+  "credits": "Teeto_Kaziim for emotional inspiration",
   "logoFile": "",
   "screenshots": [],
   "dependencies": ["Tinkers Construct"]

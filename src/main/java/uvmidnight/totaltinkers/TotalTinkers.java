@@ -11,6 +11,7 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
@@ -38,6 +39,8 @@ public class TotalTinkers {
 
     public static Configuration config;
 
+    public static File directory;
+
     public static Logger logger = LogManager.getLogger(MODID);
 
     @SidedProxy(serverSide = "uvmidnight.totaltinkers.CommonProxy", clientSide = "uvmidnight.totaltinkers.ClientProxy")
@@ -61,14 +64,33 @@ public class TotalTinkers {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e) {
-        File directory = e.getModConfigurationDirectory();
+        directory = e.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "totaltinkers.cfg"));
         ModConfig.readConfig(Modules);
         proxy.registerSubscriptions();
+        for (IModule module : TotalTinkers.Modules) {
+            if (module.isEnabled()) {
+                module.preInit(e);
+            }
+        }
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.initToolGuis();
+        for (IModule module : TotalTinkers.Modules) {
+            if (module.isEnabled()) {
+                module.init(event);
+            }
+        }
+    }
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.initToolGuis();
+        for (IModule module : TotalTinkers.Modules) {
+            if (module.isEnabled()) {
+                module.postInit(event);
+            }
+        }
     }
 }

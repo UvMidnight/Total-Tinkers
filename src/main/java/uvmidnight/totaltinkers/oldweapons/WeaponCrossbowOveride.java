@@ -91,8 +91,9 @@ public class WeaponCrossbowOveride extends CrossBow {
     @Nonnull
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        if (autoCrossbowReload) {
 
+        if (autoCrossbowReload) {
+            playerIn.setActiveHand(hand);
             ItemStack itemStackIn = playerIn.getHeldItem(hand);
 
             NBTTagCompound tags = TagUtil.getTagSafe(itemStackIn);
@@ -115,6 +116,8 @@ public class WeaponCrossbowOveride extends CrossBow {
 
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
+
+
         if (autoCrossbowReload) {
             onUpdateTraits(stack, world, entity, itemSlot, isSelected);
 
