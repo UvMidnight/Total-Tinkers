@@ -14,7 +14,6 @@ import slimeknights.tconstruct.tools.ranged.TinkerRangedWeapons;
 import uvmidnight.totaltinkers.IModule;
 import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.TotalTinkersRegister;
-import uvmidnight.totaltinkers.oldweapons.potion.PotionBerserker;
 
 public class OldWeapons extends IModule {
     final static String CategoryName = "Old Tools";
@@ -28,14 +27,10 @@ public class OldWeapons extends IModule {
     public static Property cutlassSpeedDuration;
     public static Property cutlassSpeedStrength;
 
-    public static Property disableBattleaxeScreenOverlay;
-    public static Property battleaxeOverlayNew;
+//    public static Property disableBattleaxeScreenOverlay;
+//    public static Property battleaxeOverlayNew;
 
-    public static Property berserkerSpeed;
-    public static Property berserkerHaste;
-    public static Property berserkerResistance;
-    public static Property berserkerStrength;
-    public static Property berserkerJumpBoost;
+    public static Property battleaxeIncreasedDamage;
 
     public static Property crossbowOldCrosshair;
     public static Property autoCrossbowReload;
@@ -47,7 +42,7 @@ public class OldWeapons extends IModule {
 
     public static WeaponBattleAxe battleaxe;
     public static WeaponCutlass cutlass;
-    public static PotionBerserker potionBerserker;
+//    public static PotionBerserker potionBerserker;
     public static WeaponJavelin javelin;
     public static WeaponDagger dagger;
 
@@ -70,13 +65,9 @@ public class OldWeapons extends IModule {
         fullGuardFromVillages = cfg.get(CategoryName, "Full Guard From Village", true, "Should the full guard pattern come from villages. Disable to make it craftable in the stencil table.");
         fullGuardCraftable = cfg.get(CategoryName, "Full Guard Craftable", true, "If the full guard should be obtainable via one of the two normal ways. If you wish to add your own recipe, set this to false.");
 
-        disableBattleaxeScreenOverlay = cfg.get(CategoryName, "Battle Axe Overlay Disabled", false, "If the red overlay for battleaxe's berserker is disabled");
-        battleaxeOverlayNew = cfg.get(CategoryName, "New Battleaxe Overlay", true, "Should the new less aggressive gradient be used.");
-        berserkerSpeed = cfg.get(CategoryName, "Berserker Effect Speed", 1, "Level of speed berserker gives. 1 is speed 2.", Short.MIN_VALUE, Short.MAX_VALUE);
-        berserkerHaste = cfg.get(CategoryName, "Berserker Effect Haste", 2, "Level of haste berserker gives. 2 is haste 3.", Short.MIN_VALUE, Short.MAX_VALUE);
-        berserkerResistance = cfg.get(CategoryName, "Berserker Effect Resistance", -5, "Level of resistance berserker gives. -4 is +80% damage dealt, 20% per level of resistance");
-        berserkerStrength = cfg.get(CategoryName, "Berserker Effect Strength", 0, "Level of Strength berserker gives. 1 is Strength 2, or 3 hearts extra of damage per hit.");
-        berserkerJumpBoost = cfg.get(CategoryName, "Berserker Effect Jump Boost", 1, "Level of jump boost berserker gives. 1 is jump boost 2.", Short.MIN_VALUE, Short.MAX_VALUE);
+
+        battleaxeIncreasedDamage = cfg.get(CategoryName, "Battleaxe Increased damage Taken", 2.0, "Multiplier for damage taken while using battleaxe.", Short.MIN_VALUE, Short.MAX_VALUE);
+
 
         isReplacingCrossbow = cfg.get(CategoryName, "Replace Tinker's Crossbow", false, "Should the crossbow be replaced by a custom version. This is REQUIRED for any of the crossbow tweaks");
 

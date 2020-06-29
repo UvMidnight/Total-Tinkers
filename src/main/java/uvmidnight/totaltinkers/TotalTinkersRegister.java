@@ -24,7 +24,6 @@ import uvmidnight.totaltinkers.newweapons.NewWeapons;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 import uvmidnight.totaltinkers.oldweapons.RenderJavelin;
 import uvmidnight.totaltinkers.oldweapons.entity.EntityJavelin;
-import uvmidnight.totaltinkers.oldweapons.potion.PotionBerserker;
 
 //THIS IS LEGACY CODE!
 @Mod.EventBusSubscriber
@@ -65,10 +64,6 @@ public class TotalTinkersRegister {
 
     @SubscribeEvent
     public static void onRegisterPotions(RegistryEvent.Register<Potion> event) {
-        if (OldWeapons.battleaxeEnabled.getBoolean() && ModConfig.oldWeapons) {
-            OldWeapons.potionBerserker = new PotionBerserker(false, 0xff0000);
-            event.getRegistry().register(OldWeapons.potionBerserker);
-        }
         if (NewWeapons.scimitarEnabled.getBoolean() && ModConfig.newWeapons) {
             NewWeapons.potionHemorrhage = new PotionHemorrhage(true, 0xff0000);
             event.getRegistry().register(NewWeapons.potionHemorrhage);

@@ -10,17 +10,20 @@ item.fullGuard.name=Full Guard
 item.greatbladeCore.name=Greatblade Core
 
 item.greatblade.desc=The Great Equalizer. The heavy Greatblade sacrifices raw damage for enemy percent HP damage, and excels vs bosses. Slow, Requires two hands!
-item.battleaxe.desc=The Battleaxe is a heavy offensive weapon. It is capable of bringing down small trees.\nRight Click: Berserker. If you have the Battleaxe in your main hand, you get a range of buffs, while taking significantly increased damage.
+item.battleaxe.desc=The Battleaxe is a heavy offensive weapon. As a berserker, you deal and take significantly more damage. \n It is capable of bringing down small trees.
 item.cutlass.desc=The Cutlass is a weapon for those of great skill, or those who think they have it and want to show off. On critical hits, a short burst of speed is granted.
 item.javelin.desc=Ranged Melee weapon hybrid. Potent as a melee weapon, devastating at range.
 item.tconstruct:crossbow.desc=The Crossbow is a slow but very powerful weapon. It has to be loaded beforehand, but can be fired at any moment afterwards.\nUses Tinkers' Bolts.
 item.dagger.desc=The Dagger is a short blade that can not be thrown.
 item.scimitar.desc=The scimitar is a sharp, lightweight blade focused on bleeding enemies to death.
+item.explosive_bow.desc=A special bow variant that catalyzes materials when activated.
 
 tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: §9%1$,.2f%%
 tinkers.greatblade.bossmultiplier.hpHover=§9+%1$,.2f%% Enemy Maximum HP Damage
 tinkers.greatblade.bossmultiplier.positive=§9Enemy HP Based Damage to Bosses: +%1$,.2f%%
 tinkers.greatblade.bossmultiplier.negative=§cEnemy HP Based Damage to Bosses: -%1$,.2f%%
+
+tinkers.battleaxe.extradamage.hover=§c%1$,.2fx damage taken
 
 tinkers.scimitar.bleed.hover=§c%1$,.2fs bleed duration
 tinkers.scimitar.bleed.duration=Bleed duration: §c%1$,.2fs

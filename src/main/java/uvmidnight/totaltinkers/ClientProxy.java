@@ -16,12 +16,10 @@ import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import uvmidnight.totaltinkers.explosives.Explosives;
 import uvmidnight.totaltinkers.newweapons.NewWeapons;
-import uvmidnight.totaltinkers.oldweapons.LayerBattleaxe;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 
 //I need to remove the proxy from existence
 public class ClientProxy extends CommonProxy {
-    private LayerBattleaxe layerBattleaxe;
 
     public void initToolGuis() {
         if (NewWeapons.greatblade != null) {
@@ -82,37 +80,6 @@ public class ClientProxy extends CommonProxy {
             explosiveArrowInfo.addSlotPosition(32 + 18, 41 - 18); // top right
             explosiveArrowInfo.addSlotPosition(32 - 18, 41 + 18); // bot left
             TinkerRegistryClient.addToolBuilding(explosiveArrowInfo);
-        }
-    }
-
-
-    public void registerSubscriptions() {
-        layerBattleaxe = new LayerBattleaxe(Minecraft.getMinecraft());
-        MinecraftForge.EVENT_BUS.register(layerBattleaxe);
-//    MinecraftForge.EVENT_BUS.register(new RenderHandler(Minecraft.getMinecraft()));
-//    MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
-
-    }
-
-    public void renderScreenFullColor(int color, boolean bool) {
-        if (layerBattleaxe != null) layerBattleaxe.makeRenderFullColor(color, bool);
-    }
-
-    public boolean hasBattleaxeOverlay() {
-        if (layerBattleaxe != null) {
-            return layerBattleaxe.isRendering();
-        } else {
-            return false;
-        }
-    }
-
-    public void toggleBattleAxeOverlay(int color) {
-        if (layerBattleaxe != null) {
-            if (!layerBattleaxe.isRendering()) {
-                layerBattleaxe.makeRenderFullColor(color);
-            } else {
-                layerBattleaxe.makeRenderFullColor(false);
-            }
         }
     }
 

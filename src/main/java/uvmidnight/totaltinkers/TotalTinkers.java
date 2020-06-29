@@ -78,6 +78,7 @@ public class TotalTinkers {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.initToolGuis();
+        proxy.init();
         for (IModule module : TotalTinkers.Modules) {
             if (module.isEnabled()) {
                 module.init(event);

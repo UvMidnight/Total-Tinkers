@@ -2,13 +2,20 @@ package uvmidnight.totaltinkers;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.ToolCore;
+import uvmidnight.totaltinkers.oldweapons.BattleaxeHandler;
+import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 
 //I need to remove the proxy from existence
 public class CommonProxy {
-
+    public void init() {
+        if (OldWeapons.battleaxe != null) {
+            MinecraftForge.EVENT_BUS.register(BattleaxeHandler.INSTANCE);
+        }
+    }
     public void initToolGuis() {
     }
 
