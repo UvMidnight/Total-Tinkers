@@ -5,6 +5,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextComponentKeybind;
 import net.minecraft.util.text.TextFormatting;
@@ -16,6 +17,8 @@ import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.ProjectileNBT;
 import slimeknights.tconstruct.library.tools.ranged.ProjectileCore;
+import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
 import slimeknights.tconstruct.tools.TinkerMaterials;
@@ -69,7 +72,7 @@ public class ExplosiveArrow extends ProjectileCore {
         data.explosiveCores(head);
         data.fletchings(fletching);
         data.shafts(this, shaft);
-
+        data.durability *= 0.4;
 //        data.attack += 2;
 
         return data;
@@ -79,7 +82,9 @@ public class ExplosiveArrow extends ProjectileCore {
     public EntityProjectileBase getProjectile(ItemStack stack, ItemStack bow, World world, EntityPlayer player, float speed, float inaccuracy, float power, boolean usedAmmo) {
         inaccuracy -= (1f - 1f / ProjectileNBT.from(stack).accuracy) * speed / 2f;
         float radius = ExplosiveProjectileNBT.from(stack).radius;
-        return new EntityExplosiveArrow(world, player, speed, inaccuracy, power, getProjectileStack(stack, world, player, usedAmmo), bow, radius);
+        NBTTagCompound root = TagUtil.getTagSafe(stack);
+        return new EntityExplosiveArrow(world, player, speed, inaccuracy, power, getProjectileStack(stack, world, player, usedAmmo), bow, radius, TinkerUtil.hasModifier(root, "true_explosive"));
+
     }
 
     @Override

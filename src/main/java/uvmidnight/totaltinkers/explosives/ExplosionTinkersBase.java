@@ -277,4 +277,5 @@ public class ExplosionTinkersBase{
         TagUtil.setToolTag(stack, tag);
     }
 
+
 }

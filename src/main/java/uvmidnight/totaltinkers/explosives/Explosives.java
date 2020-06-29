@@ -1,6 +1,7 @@
 package uvmidnight.totaltinkers.explosives;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
@@ -27,6 +28,7 @@ import uvmidnight.totaltinkers.TotalTinkers;
 import uvmidnight.totaltinkers.explosives.materials.ExplosiveMaterialStats;
 import uvmidnight.totaltinkers.explosives.materials.ExplosivePartType;
 import uvmidnight.totaltinkers.explosives.modifiers.ModRange;
+import uvmidnight.totaltinkers.explosives.modifiers.ModTrueExplosive;
 import uvmidnight.totaltinkers.newweapons.NewWeapons;
 import uvmidnight.totaltinkers.oldweapons.OldWeapons;
 
@@ -42,8 +44,8 @@ public class Explosives extends IModule {
 
     public static Property explosiveCoresFromConfig;
 
-    public static Property bombEnabled;
-    public static WeaponBomb weaponbomb;
+//    public static Property bombEnabled;
+//    public static WeaponBomb weaponbomb;
 
     public static ExplosiveBow explosiveBow;
     public static ExplosiveArrow explosiveArrow;
@@ -51,6 +53,11 @@ public class Explosives extends IModule {
 
     public static ToolPart explosiveCore;
     public static Modifier EXPLOSIVERANGE;
+    public static Modifier TRUEEXPLOSIVE;
+
+    public static Property trueExplosionEnabled;
+    public static Property trueExplosionMult;
+
 //    public static Modifier EXTENSION;
 //    public static Modifier EXTENSION;
 
@@ -60,9 +67,11 @@ public class Explosives extends IModule {
 
     @Override
     public void buildConfig(Configuration cfg) {
-        bombEnabled = cfg.get(CategoryName, "Bomb Enabled", true, "If the bomb should be enabled");
+//        bombEnabled = cfg.get(CategoryName, "Bomb Enabled", true, "If the bomb should be enabled");
         explosiveBowEnabled = cfg.get(CategoryName,"Explosive Bow Enabled", true, "If the explosive bow and ammunition should be enabled");
-        explosiveCoresFromConfig = cfg.get(CategoryName,"Explosive Cores from Config", false, "If explosive core materials should be loaded from config directory. Disables default materials. For examples check the assets.");
+        explosiveCoresFromConfig = cfg.get(CategoryName,"Explosive Cores from Config", false, "If explosive core materials should be loaded from config directory instead of the mod's resource folder. Disables default materials. For examples check the assets.");
+//        trueExplosionEnabled = cfg.get(CategoryName,"True Explosion modifier Enabled", true, "Enable a modifier to spawn an actual explosion. Damages terrain and requires a dragon egg.");
+//        trueExplosionMult = cfg.get(CategoryName,"True Explosion modifier radius ", 0.8, "How large the radius of true explosion should be.");
     }
 
     public void initItems(RegistryEvent.Register<Item> event) {
@@ -107,7 +116,9 @@ public class Explosives extends IModule {
         }
         EXPLOSIVERANGE = new ModRange();
         EXPLOSIVERANGE.addItem(new ItemStack(Blocks.TNT), 1,1);
-
+//        TRUEEXPLOSIVE = new ModTrueExplosive();
+//        TRUEEXPLOSIVE.addItem(new ItemStack(Blocks.DRAGON_EGG), 1, 1);
+//
 //        weaponbomb = new WeaponBomb();
 //        event.getRegistry().register(weaponbomb);
         if (explosiveBowEnabled.getBoolean()) {

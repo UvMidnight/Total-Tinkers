@@ -1,26 +1,17 @@
 package uvmidnight.totaltinkers.explosives.modifiers;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import slimeknights.tconstruct.gadgets.TinkerGadgets;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
-import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
-import uvmidnight.totaltinkers.explosives.Explosives;
 import uvmidnight.totaltinkers.explosives.materials.ExplosiveProjectileNBT;
 
-public class ModRange extends ToolModifier {
-    public ModRange() {
-        super("explosive_range", 0x4FDCFF);
-        addAspects(new ModifierAspect.MultiAspect(this, 5, 15, 1));
-    }
-
-    @Override
-    protected boolean canApplyCustom(ItemStack stack) throws TinkerGuiException {
-        return stack.getItem() == Explosives.explosiveArrow;
+public class ModTrueExplosive extends ToolModifier {
+    public ModTrueExplosive() {
+        super("true_explosive",  0xC70039 );
+        addAspects(new ModifierAspect.DataAspect(this), new ModifierAspect.SingleAspect(this));
     }
 
     @Override
@@ -28,7 +19,7 @@ public class ModRange extends ToolModifier {
         ModifierNBT.IntegerNBT data = ModifierNBT.readInteger(modifierTag);
 
         ExplosiveProjectileNBT toolData = new ExplosiveProjectileNBT(TagUtil.getTagSafe(rootCompound, Tags.TOOL_DATA));
-        toolData.radius += data.level * 0.5;
+        toolData.radius -= 1;
 
         TagUtil.setToolTag(rootCompound, toolData.get());
     }
