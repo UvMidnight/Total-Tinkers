@@ -8,22 +8,37 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatBase;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.client.crosshair.Crosshairs;
+import slimeknights.tconstruct.library.client.crosshair.ICrosshair;
+import slimeknights.tconstruct.library.client.crosshair.ICustomCrosshairUser;
 import slimeknights.tconstruct.library.entity.EntityProjectileBase;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
+import slimeknights.tconstruct.library.tools.ProjectileLauncherNBT;
 import slimeknights.tconstruct.library.tools.ProjectileNBT;
+import slimeknights.tconstruct.library.tools.ranged.BowCore;
+import slimeknights.tconstruct.library.tools.ranged.ILauncher;
 import slimeknights.tconstruct.library.tools.ranged.ProjectileCore;
+import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.TinkerTools;
+import slimeknights.tconstruct.tools.ranged.TinkerRangedWeapons;
 import uvmidnight.totaltinkers.oldweapons.entity.EntityJavelin;
 
 import javax.annotation.Nonnull;
@@ -33,7 +48,7 @@ import java.util.List;
 //But lets be honest, it was total garbage
 //
 //Alternative config option gives it similarity with the cutlass NYI
-public class WeaponJavelin extends ProjectileCore {
+public class WeaponJavelin extends ProjectileCore{
     public static final float DURABILITY_MODIFIER = 0.7F;
 
     private static PartMaterialType rodPMT = new PartMaterialType(TinkerTools.toughToolRod, MaterialTypes.EXTRA, MaterialTypes.PROJECTILE);
@@ -54,24 +69,6 @@ public class WeaponJavelin extends ProjectileCore {
                 materials.get(2).getStatsOrUnknown(MaterialTypes.EXTRA));
         data.durability *= DURABILITY_MODIFIER;
         return data;
-    }
-
-    @Nonnull
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        ItemStack itemStackIn = playerIn.getHeldItem(hand);
-        if (ToolHelper.isBroken(itemStackIn)) {
-            return ActionResult.newResult(EnumActionResult.FAIL, itemStackIn);
-        }
-        playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 16);
-
-        if (!worldIn.isRemote) {
-            boolean usedAmmo = useAmmo(itemStackIn, playerIn);
-            EntityProjectileBase projectile = getProjectile(itemStackIn, itemStackIn, worldIn, playerIn, 2.1f, 0f, 1f, usedAmmo);
-            worldIn.spawnEntity(projectile);
-        }
-
-        return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
     }
 
     //maybe with everything I overrid extending projectilecore was a bad idea
@@ -121,6 +118,70 @@ public class WeaponJavelin extends ProjectileCore {
     @Override
     public int[] getRepairParts() {
         return new int[]{1};
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        preventSlowDown(entityIn, 1.0f);
+
+        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+    }
+
+    @Nonnull
+    @Override
+    public EnumAction getItemUseAction(ItemStack stack) {
+        return EnumAction.BOW;
+    }
+
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 72000;
+    }
+
+    @Nonnull
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
+        ItemStack itemStackIn = playerIn.getHeldItem(hand);
+        if(!ToolHelper.isBroken(itemStackIn)) {
+                playerIn.setActiveHand(hand);
+                return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+        }
+
+        return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
+    }
+
+    @Override
+    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
+        if(ToolHelper.isBroken(stack) || !(entityLiving instanceof EntityPlayer)) {
+            return;
+        }
+        EntityPlayer player = (EntityPlayer) entityLiving;
+        if(stack.isEmpty() && !player.capabilities.isCreativeMode) {
+            return;
+        }
+
+        int useTime = this.getMaxItemUseDuration(stack) - timeLeft;
+
+        useTime = ForgeEventFactory.onArrowLoose(stack, worldIn, player, useTime, !stack.isEmpty());
+
+        if(useTime < 4) {
+            return;
+        }
+        float progress = Math.min(1f, useTime / (float) 15);
+        float power = ItemBow.getArrowVelocity((int)(progress * 20f)) * progress * 1.6f;
+
+        if (!worldIn.isRemote) {
+            boolean usedAmmo = !player.capabilities.isCreativeMode && useAmmo(stack, entityLiving);
+            EntityProjectileBase projectile = getProjectile(stack, stack, worldIn, player, power + 0.7f, 0f, /*Math.min(progress + 0.5f, 1f)*/ progress * progress, usedAmmo);
+            worldIn.spawnEntity(projectile);
+        }
+
+        StatBase statBase = StatList.getObjectUseStats(this);
+        assert statBase != null;
+        player.addStat(statBase);
+
+        TinkerRangedWeapons.proxy.updateEquippedItemForRendering(entityLiving.getActiveHand());
+        TagUtil.setResetFlag(stack, true);
     }
 
     @Override
