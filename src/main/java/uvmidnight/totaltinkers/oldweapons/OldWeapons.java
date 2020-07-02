@@ -27,6 +27,7 @@ public class OldWeapons extends IModule {
     public static Property cutlassSpeedDuration;
     public static Property cutlassSpeedStrength;
 
+    public static Property javelinLegacyMode;
 //    public static Property disableBattleaxeScreenOverlay;
 //    public static Property battleaxeOverlayNew;
 
@@ -68,6 +69,7 @@ public class OldWeapons extends IModule {
 
         battleaxeIncreasedDamage = cfg.get(CategoryName, "Battleaxe Increased damage Taken", 2.0, "Multiplier for damage taken while using battleaxe.", Short.MIN_VALUE, Short.MAX_VALUE);
 
+        javelinLegacyMode = cfg.get(CategoryName, "Javelin Legacy Mode", false, "Enable legacy mode for the javelin. Rather than charging the javelin, javelins are instantly thrown but have a moderate cooldown between throws.");
 
         isReplacingCrossbow = cfg.get(CategoryName, "Replace Tinker's Crossbow", false, "Should the crossbow be replaced by a custom version. This is REQUIRED for any of the crossbow tweaks");
 

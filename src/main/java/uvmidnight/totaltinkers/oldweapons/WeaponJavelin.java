@@ -130,21 +130,44 @@ public class WeaponJavelin extends ProjectileCore{
     @Nonnull
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.BOW;
+        if (!OldWeapons.javelinLegacyMode.getBoolean()) {
+            return EnumAction.BOW;
+        } else {
+            return super.getItemUseAction(stack);
+        }
     }
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return 72000;
+        if (!OldWeapons.javelinLegacyMode.getBoolean()) {
+            return 72000;
+        } else {
+            return super.getMaxItemUseDuration(stack);
+        }
     }
 
     @Nonnull
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
+
         ItemStack itemStackIn = playerIn.getHeldItem(hand);
-        if(!ToolHelper.isBroken(itemStackIn)) {
+        if (!OldWeapons.javelinLegacyMode.getBoolean()) {
+            if (!ToolHelper.isBroken(itemStackIn)) {
                 playerIn.setActiveHand(hand);
+                playerIn.setActiveHand(EnumHand.OFF_HAND);
                 return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+            }
+        } else {
+            if (ToolHelper.isBroken(itemStackIn)) {
+                return ActionResult.newResult(EnumActionResult.FAIL, itemStackIn);
+            }
+            playerIn.getCooldownTracker().setCooldown(itemStackIn.getItem(), 16);
+
+            if (!worldIn.isRemote) {
+                boolean usedAmmo = useAmmo(itemStackIn, playerIn);
+                EntityProjectileBase projectile = getProjectile(itemStackIn, itemStackIn, worldIn, playerIn, 2.1f, 0f, 1f, usedAmmo);
+                worldIn.spawnEntity(projectile);
+            }
         }
 
         return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
@@ -152,36 +175,41 @@ public class WeaponJavelin extends ProjectileCore{
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
-        if(ToolHelper.isBroken(stack) || !(entityLiving instanceof EntityPlayer)) {
-            return;
+        if (!OldWeapons.javelinLegacyMode.getBoolean()) {
+            if(ToolHelper.isBroken(stack) || !(entityLiving instanceof EntityPlayer)) {
+                return;
+            }
+            EntityPlayer player = (EntityPlayer) entityLiving;
+            if(stack.isEmpty() && !player.capabilities.isCreativeMode) {
+                return;
+            }
+
+            int useTime = this.getMaxItemUseDuration(stack) - timeLeft;
+
+            useTime = ForgeEventFactory.onArrowLoose(stack, worldIn, player, useTime, !stack.isEmpty());
+
+            if(useTime < 4) {
+                return;
+            }
+            float progress = Math.min(1f, useTime / (float) 15);
+            float power = ItemBow.getArrowVelocity((int)(progress * 20f)) * progress * 1.6f;
+
+            if (!worldIn.isRemote) {
+                boolean usedAmmo = !player.capabilities.isCreativeMode && useAmmo(stack, entityLiving);
+                EntityProjectileBase projectile = getProjectile(stack, stack, worldIn, player, power + 0.7f, 0f, /*Math.min(progress + 0.5f, 1f)*/ progress * progress, usedAmmo);
+                worldIn.spawnEntity(projectile);
+            }
+
+            StatBase statBase = StatList.getObjectUseStats(this);
+            assert statBase != null;
+            player.addStat(statBase);
+
+            TinkerRangedWeapons.proxy.updateEquippedItemForRendering(entityLiving.getActiveHand());
+            TagUtil.setResetFlag(stack, true);
         }
-        EntityPlayer player = (EntityPlayer) entityLiving;
-        if(stack.isEmpty() && !player.capabilities.isCreativeMode) {
-            return;
+        else {
+            super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
         }
-
-        int useTime = this.getMaxItemUseDuration(stack) - timeLeft;
-
-        useTime = ForgeEventFactory.onArrowLoose(stack, worldIn, player, useTime, !stack.isEmpty());
-
-        if(useTime < 4) {
-            return;
-        }
-        float progress = Math.min(1f, useTime / (float) 15);
-        float power = ItemBow.getArrowVelocity((int)(progress * 20f)) * progress * 1.6f;
-
-        if (!worldIn.isRemote) {
-            boolean usedAmmo = !player.capabilities.isCreativeMode && useAmmo(stack, entityLiving);
-            EntityProjectileBase projectile = getProjectile(stack, stack, worldIn, player, power + 0.7f, 0f, /*Math.min(progress + 0.5f, 1f)*/ progress * progress, usedAmmo);
-            worldIn.spawnEntity(projectile);
-        }
-
-        StatBase statBase = StatList.getObjectUseStats(this);
-        assert statBase != null;
-        player.addStat(statBase);
-
-        TinkerRangedWeapons.proxy.updateEquippedItemForRendering(entityLiving.getActiveHand());
-        TagUtil.setResetFlag(stack, true);
     }
 
     @Override
