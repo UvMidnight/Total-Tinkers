@@ -54,7 +54,7 @@ public class WeaponJavelin extends ProjectileCore{
     private static PartMaterialType rodPMT = new PartMaterialType(TinkerTools.toughToolRod, MaterialTypes.EXTRA, MaterialTypes.PROJECTILE);
 
     public WeaponJavelin() {
-        super(rodPMT, PartMaterialType.arrowHead(TinkerTools.arrowHead), rodPMT);
+        super(PartMaterialType.handle(TinkerTools.toughToolRod), PartMaterialType.arrowHead(TinkerTools.arrowHead), rodPMT);
         durabilityPerAmmo = 2;
         addCategory(Category.PROJECTILE, Category.WEAPON);
         setTranslationKey("javelin").setRegistryName("javelin");
@@ -65,8 +65,8 @@ public class WeaponJavelin extends ProjectileCore{
         ProjectileNBT data = new ProjectileNBT();
         HeadMaterialStats head = materials.get(1).getStatsOrUnknown(MaterialTypes.HEAD);
         data.head(head);
-        data.extra(materials.get(0).getStatsOrUnknown(MaterialTypes.EXTRA),
-                materials.get(2).getStatsOrUnknown(MaterialTypes.EXTRA));
+        data.extra(materials.get(2).getStatsOrUnknown(MaterialTypes.EXTRA));
+        data.handle(materials.get(0).getStatsOrUnknown(MaterialTypes.HANDLE));
         data.durability *= DURABILITY_MODIFIER;
         return data;
     }
@@ -154,7 +154,6 @@ public class WeaponJavelin extends ProjectileCore{
         if (!OldWeapons.javelinLegacyMode.getBoolean()) {
             if (!ToolHelper.isBroken(itemStackIn)) {
                 playerIn.setActiveHand(hand);
-                playerIn.setActiveHand(EnumHand.OFF_HAND);
                 return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
             }
         } else {
@@ -168,6 +167,7 @@ public class WeaponJavelin extends ProjectileCore{
                 EntityProjectileBase projectile = getProjectile(itemStackIn, itemStackIn, worldIn, playerIn, 2.1f, 0f, 1f, usedAmmo);
                 worldIn.spawnEntity(projectile);
             }
+            return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
         }
 
         return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);

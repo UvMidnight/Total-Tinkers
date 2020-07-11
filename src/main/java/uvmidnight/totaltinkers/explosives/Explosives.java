@@ -4,6 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -101,6 +102,8 @@ public class Explosives extends IModule {
         event.getRegistry().register(explosiveCore);
         TinkerRegistry.registerToolPart(explosiveCore);
         TotalTinkers.proxy.registerToolPartModel(explosiveCore);
+        TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), explosiveCore));
+
         for (ToolCore toolCore : TinkerRegistry.getTools())
         {
             for (PartMaterialType partMaterialType : toolCore.getRequiredComponents())
