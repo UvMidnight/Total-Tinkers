@@ -26,6 +26,7 @@ modifier.explosive_range.name=Catalyzing
 modifier.explosive_range.desc=Explosions have additional range due to additional catalyzation efficiency
 
 stat.totaltinkers.explosive.radius.name=Explosion Radius
+stat.explosivecore.name=Explosion Catalyzer
 
 tinkers.greatblade.bossmultiplier.percentMaxHp=Enemy Maximum HP Damage: §9%1$,.2f%%
 tinkers.greatblade.bossmultiplier.hpHover=§9+%1$,.2f%% Enemy Maximum HP Damage
