@@ -22,11 +22,11 @@ item.scimitar.desc=东方短弯刀是一种尖锐而轻的刀，可以让敌人�
 item.explosive_bow.desc=激活时可以催化材料进行反应的一种特殊弓。使用爆炸箭。
 item.explosive_arrow.desc=用于从导轨上发射的一种特殊重型箭。用于装填爆炸弓。
 
-
 modifier.explosive_range.name=催化距离
 modifier.explosive_range.desc=由于催化效率大幅提高，射程也随之提高许多。
 
 stat.totaltinkers.explosive.radius.name=爆炸范围
+stat.explosivecore.name=爆炸触媒
 
 tinkers.greatblade.bossmultiplier.percentMaxHp=敌方最大生命值伤害: §9%.2f%%
 tinkers.greatblade.bossmultiplier.hpHover=§9+%.2f%% 敌方最大生命值伤害
