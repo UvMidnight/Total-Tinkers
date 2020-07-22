@@ -12,11 +12,11 @@ item.fullGuard.name=大型护手
 item.greatbladeCore.name=宽刃剑核心
 item.explosiveCore.name=爆炸触媒
 
-item.greatblade.desc=大平衡者。沉重的宽刃剑牺牲了高攻击力，但取而代之的是，它可以造成百分比伤害，是挑战Boss的利器。慢，需要两只手挥动！
-item.battleaxe.desc=战斧是种重型攻击武器。作为狂暴者的武器，你可以造成大得多的伤害。\n它还可以砍倒小树木。
+item.greatblade.desc=平衡性出色的武器。沉重的宽刃剑牺牲了高攻击力，但可以对敌人造成百分比伤害，是挑战Boss的利器。攻击速度慢，需要两只手挥动！
+item.battleaxe.desc=战斧是种重型攻击类武器。手持这把武器，化身为狂战士的你可以造成比平常大得多的伤害。\n它还可以用于砍伐一些小型树木。
 item.cutlass.desc=海盗短弯刀适合那些技巧高超、或是想用它来炫技的人的武器。暴击时可以短时间获得爆发速度。
 item.javelin.desc=远近兼备的武器，它是近战武器，却拥有毁灭性的攻击距离。
-item.tconstruct:crossbow.desc=十字弩是一个装填速度缓慢但威力强大的武器。它必须事先装填好，但之后就可以随时发射。\n使用匠魂的弩箭。
+item.tconstruct:crossbow.desc=十字弩是一个装填速度缓慢但威力强大的武器。它必须事先装填好，但装填完毕后就可以随时发射。\n使用匠魂的弩箭。
 item.dagger.desc=匕首剑刃较小并且不能投掷。
 item.scimitar.desc=东方短弯刀是一种尖锐而轻的刀，可以让敌人失血致死。
 item.explosive_bow.desc=激活时可以催化材料进行反应的一种特殊弓。使用爆炸箭。
