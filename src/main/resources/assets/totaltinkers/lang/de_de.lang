@@ -1,0 +1,47 @@
+item.greatblade.name=Großschwert
+item.battleaxe.name=Streitaxt
+item.cutlass.name=Entermesser
+item.javelin.name=Speer
+item.dagger.name=Dolch
+item.tconstruct:crossbow.name=Armbrust
+item.scimitar.name=Krummsäbel
+item.explosive_bow.name=Explosiver Bogen
+item.explosive_arrow.name=Explosiver Pfeil
+
+item.fullGuard.name=Vollschutz
+item.greatbladeCore.name=Großschwertkern
+item.explosiveCore.name=Explosionskatalysator
+
+item.greatblade.desc=Der große Gleichmacher. Das schwere Großschwert opfert rohen Schaden für gegnerischen prozentualen HP-Schaden und überzeugt gegen Bossmonster. Langsam, erfordert zwei Hände!
+item.battleaxe.desc=Die Streitaxt ist eine schwere Offensivwaffe. Als Berserker teilt man aus und nimmt deutlich mehr Schaden.\nSie ist in der Lage, kleine Bäume zu fällen.
+item.cutlass.desc=Das Entermesser ist eine Waffe für diejenigen, die über große Fähigkeiten verfügen oder diese gern besitzen würden und damit angeben möchten. Bei kritischen Treffern wird ein kurzer Geschwindigkeitsschub gewährt.
+item.javelin.desc=Nahkampfwaffen-Hybrid. Stark wie eine Nahkampfwaffe, verheerend auf Distanz.
+item.tconstruct:crossbow.desc=Die Armbrust ist eine langsame, aber sehr mächtige Waffe. Sie muss vorher geladen werden, kann aber später jederzeit abgefeuert werden.\nVerwendet Tinkers' Bolzen.
+item.dagger.desc=Der Dolch ist ein kurzes Schwert, das nicht geworfen werden kann.
+item.scimitar.desc=Der Krummsäbel ist ein scharfes, leichtes Schwert, das darauf ausgerichtet ist, Feinde ausbluten zu lassen.
+item.explosive_bow.desc=Eine spezielle Bogenvariante, die Materialien bei Auslösung katalysiert. Schießt explosive Pfeile.
+item.explosive_arrow.desc=Spezielle Pfeile mit schwerer Spitze, die aus einer Schiene geschossen werden können. Wird im explosiven Bogen verwendet.
+
+modifier.explosive_range.name=Katalysierend
+modifier.explosive_range.desc=Explosionen haben zusätzliche Reichweite durch zusätzliche Katalysatoreffizienz
+
+stat.totaltinkers.explosive.radius.name=Explosionsradius
+stat.explosivecore.name=Explosionskatalysator
+
+tinkers.greatblade.bossmultiplier.percentMaxHp=Maximaler Gegner-HP-Schaden: §9%1$,.2f%%
+tinkers.greatblade.bossmultiplier.hpHover=§9+%1$,.2f%% Maximaler Gegner-HP-Schaden
+tinkers.greatblade.bossmultiplier.positive=§9Gegner-HP-basierter Schaden für Bossmonster: +%1$,.2f%%
+tinkers.greatblade.bossmultiplier.negative=§cGegner-HP-basierter Schaden für Bossmonster: -%1$,.2f%%
+
+tinkers.battleaxe.extradamage.hover=§c%1$,.2fx Schaden genommen
+
+tinkers.scimitar.bleed.hover=§c%1$,.2fs Blutungsdauer
+tinkers.scimitar.bleed.duration=Blutungsdauer: §c%1$,.2fs
+
+tooltip.fullGuard=Vielleicht können deine Freunde aus dem Dorf dabei helfen?
+tooltip.greatbladecore=Kann in Endschiffen gefunden werden
+
+effect.totaltinkers.berserker=Berserker
+effect.totaltinkers.hemorrhage=Hämorrhagie
+
+death.attack.totaltinkers.hemorrhage=%1$s starb an den Folgen einer Blutentleerung
