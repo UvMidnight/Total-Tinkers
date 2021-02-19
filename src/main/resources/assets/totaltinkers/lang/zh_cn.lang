@@ -1,4 +1,4 @@
-item.greatblade.name=宽刃剑
+item.greatblade.name=巨剑
 item.battleaxe.name=战斧
 item.cutlass.name=海盗短弯刀
 item.javelin.name=标枪
@@ -9,10 +9,10 @@ item.explosive_bow.name=爆炸弓
 item.explosive_arrow.name=爆炸箭
 
 item.fullGuard.name=大型护手
-item.greatbladeCore.name=宽刃剑核心
+item.greatbladeCore.name=巨剑核心
 item.explosiveCore.name=爆炸触媒
 
-item.greatblade.desc=这一武器的性能平衡且出色。沉重的宽刃剑牺牲了高攻击力，但可以对敌人造成百分比伤害，是挑战Boss的利器。攻击速度慢，需要两只手挥动！
+item.greatblade.desc=这一武器的性能平衡且出色。沉重的巨剑牺牲了高攻击力，但可以对敌人造成百分比伤害，是挑战Boss的利器。攻击速度慢，需要两只手挥动！
 item.battleaxe.desc=战斧是种重型攻击类武器。手持这把武器，化身为狂战士的你可以造成比平常大得多的伤害。\n它还可以用于砍伐一些小型树木。
 item.cutlass.desc=海盗短弯刀适合那些技巧高超、或是以为自己技艺高超而想用它来炫技的人的武器。暴击时可以短时间获得爆发速度。
 item.javelin.desc=远近兼备的武器，它是近战武器，却拥有毁灭性的攻击距离。
