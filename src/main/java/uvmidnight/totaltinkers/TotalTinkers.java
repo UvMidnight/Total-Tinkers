@@ -31,7 +31,7 @@ import static uvmidnight.totaltinkers.oldweapons.OldWeapons.fullGuardCraftable;
 public class TotalTinkers {
     public static final String NAME = "Total Tinkers";
     public static final String MODID = "totaltinkers";
-    public static final String VERSION = "0.5.2";
+    public static final String VERSION = "0.5.4";
 
 
     @Mod.Instance(MODID)
@@ -45,7 +45,7 @@ public class TotalTinkers {
 
     @SidedProxy(serverSide = "uvmidnight.totaltinkers.CommonProxy", clientSide = "uvmidnight.totaltinkers.ClientProxy")
     public static CommonProxy proxy;
-
+        
     public static ArrayList<IModule> Modules = new ArrayList<>();
 
     @SubscribeEvent
