@@ -25,9 +25,10 @@ public class ClientProxy extends CommonProxy {
         if (NewWeapons.greatblade != null) {
             ToolBuildGuiInfo greatbladeInfo = new ToolBuildGuiInfo(NewWeapons.greatblade);
             greatbladeInfo.addSlotPosition(33 - 10 - 14, 42 + 10 + 12); // handle
-            greatbladeInfo.addSlotPosition(33 - 8, 42 - 10 + 4); // head
-            greatbladeInfo.addSlotPosition(33 + 14, 42 - 10 - 2); // plate/shield
-            greatbladeInfo.addSlotPosition(33 + 10 - 10, 42 + 10 + 6); // guard
+            greatbladeInfo.addSlotPosition(33 - 8 + 6, 42 - 10 + 4 - 4); // head
+            greatbladeInfo.addSlotPosition(33 + 14 + 6, 42 - 10 - 2 - 4); // head 2
+            greatbladeInfo.addSlotPosition(33 + 10 - 10, 42 + 10 + 6); //core
+            greatbladeInfo.addSlotPosition( 33 - 10 - 12, 42); //guard
             TinkerRegistryClient.addToolBuilding(greatbladeInfo);
         }
         if (OldWeapons.battleaxe != null) {

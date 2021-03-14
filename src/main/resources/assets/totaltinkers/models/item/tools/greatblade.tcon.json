@@ -4,7 +4,8 @@
 		"layer1": "totaltinkers:item/greatblade/top_blade",
 		"layer2": "totaltinkers:item/greatblade/bottom_blade",
 		"layer3": "totaltinkers:item/greatblade/great_blade_core",
-		"broken1": "totaltinkers:item/greatblade/top_blade_broken"
+	  	"layer4": "totaltinkers:item/greatblade/accessory",
+	  	"broken1": "totaltinkers:item/greatblade/top_blade_broken"
 
 	},
 	"display": {

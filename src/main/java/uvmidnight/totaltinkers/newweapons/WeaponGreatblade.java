@@ -36,7 +36,8 @@ public class WeaponGreatblade extends SwordCore {
         super(PartMaterialType.handle(TinkerTools.toughToolRod),
                 PartMaterialType.head(TinkerTools.largeSwordBlade),
                 PartMaterialType.head(TinkerTools.largeSwordBlade),
-                PartMaterialType.extra(NewWeapons.greatbladeCore));
+                PartMaterialType.extra(NewWeapons.greatbladeCore),
+                PartMaterialType.extra(TinkerTools.wideGuard));
 
         this.addCategory(Category.WEAPON);
 
