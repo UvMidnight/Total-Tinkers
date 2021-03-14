@@ -150,7 +150,7 @@ public class WeaponScimitar extends SwordCore {
     public void getTooltip(ItemStack stack, List<String> tooltips) {
         super.getTooltip(stack, tooltips);
         NBTTagCompound tag = TagUtil.getToolTag(TagUtil.getTagSafe(stack));
-        float bleedduration = Math.max((tag.getFloat(Tags.ATTACK) * 8F - 12F) / 20F, 0);
+        float bleedduration = Math.max((tag.getFloat(Tags.ATTACK) * 8F) / 20F, 0);
         tooltips.add(I18n.format("tinkers.scimitar.bleed.hover", bleedduration));
     }
 }
